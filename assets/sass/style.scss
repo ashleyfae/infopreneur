@@ -26,27 +26,37 @@
 1.0 Normalize
 2.0 Typography
 3.0 Layout
-    3.1 Columns
-    3.2 Content / Sidebar
-    3.3 Sidebar / Content
+    3.1 Grid
+    3.2 Container
 3.0 Elements
     3.1 Forms
 4.0 Navigation
     4.1 Links
     4.2 Menus
+    4.3 Pagination
 5.0 Modules
     5.1 Accessibility
     5.2 Alignments
     5.3 Clearings
     5.4 Infinite Scroll
 6.0 Content
-    6.1 Blog Posts
-    6.2 Comments
-    6.3 Widgets
-    6.4 Pages
+    6.1 Header
+    6.2 Blog Posts
+    6.3 Comments
+    6.4 Widgets
+    6.5 Pages
+    6.6 Footer
 7.0 Media
-    8.1 Captions
-    8.2 Galleries
+    7.1 Audio
+    7.2 Images
+	7.3 Captions
+	7.4 Galleries
+8.0 Plugins
+    8.1 Expanding Archives
+    8.2 Naked Social Share
+    8.3 Naked Social Widget
+    8.4 NG About the Author
+    8.5 WP Instagram Widget
 --------------------------------------------------------------*/
 @import "variables/variables";
 @import "mixins/mixins-master";
@@ -90,3 +100,8 @@
 7.0 Media
 --------------------------------------------------------------*/
 @import "media/media";
+
+/*--------------------------------------------------------------
+8.0 Plugins
+--------------------------------------------------------------*/
+@import "plugins/plugins";

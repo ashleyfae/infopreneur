@@ -62,7 +62,7 @@ function infopreneur_body_classes( $classes ) {
 	/*
 	 * Container
 	 */
-	$layout_style = get_theme_mod( 'layout_style', 'boxed' );
+	$layout_style = get_theme_mod( 'layout_style', Infopreneur_Customizer::defaults( 'layout_style' ) );
 	$classes[]    = 'layout-style-' . sanitize_html_class( $layout_style );
 
 	/*

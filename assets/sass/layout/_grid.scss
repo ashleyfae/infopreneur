@@ -1,0 +1,62 @@
+@import "susy";
+
+$susy: (
+        columns: 12,
+        container: 1100px,
+        global-box-sizing: border-box,
+        gutters: 1 // was 10
+);
+
+@include border-box-sizing();
+
+@media (min-width: 768px) {
+    /* Just one sidebar */
+    .left-sidebar-is-on {
+        #sidebar-left {
+            @include span(4 of 12);
+        }
+
+        #main {
+            @include span(8 of 12 last);
+        }
+    }
+
+    .right-sidebar-is-on {
+        #main {
+            @include span(8 of 12);
+        }
+
+        #sidebar-right {
+            @include span(4 of 12 last);
+        }
+    }
+
+    /* Both sidebars */
+    .left-sidebar-is-on.right-sidebar-is-on {
+        #sidebar-left {
+            @include span(3 of 12);
+        }
+        #sidebar-right {
+            @include span(3 of 12 last);
+        }
+
+        #main {
+            @include span(6 of 12);
+        }
+    }
+
+    .sidebar-is-off {
+        #secondary {
+            display: none;
+        }
+    }
+
+    .woocommerce,
+    .page-template-template-no-sidebar {
+        #primary {
+            float: none;
+            margin: 0;
+            width: 100%;
+        }
+    }
+}

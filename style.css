@@ -25,27 +25,37 @@
 1.0 Normalize
 2.0 Typography
 3.0 Layout
-    3.1 Columns
-    3.2 Content / Sidebar
-    3.3 Sidebar / Content
+    3.1 Grid
+    3.2 Container
 3.0 Elements
     3.1 Forms
 4.0 Navigation
     4.1 Links
     4.2 Menus
+    4.3 Pagination
 5.0 Modules
     5.1 Accessibility
     5.2 Alignments
     5.3 Clearings
     5.4 Infinite Scroll
 6.0 Content
-    6.1 Blog Posts
-    6.2 Comments
-    6.3 Widgets
-    6.4 Pages
+    6.1 Header
+    6.2 Blog Posts
+    6.3 Comments
+    6.4 Widgets
+    6.5 Pages
+    6.6 Footer
 7.0 Media
-    8.1 Captions
-    8.2 Galleries
+    7.1 Audio
+    7.2 Images
+	7.3 Captions
+	7.4 Galleries
+8.0 Plugins
+    8.1 Expanding Archives
+    8.2 Naked Social Share
+    8.3 Naked Social Widget
+    8.4 NG About the Author
+    8.5 WP Instagram Widget
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 1.0 Normalize
@@ -277,110 +287,110 @@ body {
 3.0 Layout
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-3.1 Container
+2.1 Grid
 --------------------------------------------------------------*/
-.container {
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  /* Just one sidebar */
+  .left-sidebar-is-on #sidebar-left {
+    width: 30.43478%;
+    float: left;
+    margin-right: 4.34783%;
+  }
+  .left-sidebar-is-on #main {
+    width: 65.21739%;
+    float: right;
+    margin-right: 0;
+  }
+
+  .right-sidebar-is-on #main {
+    width: 65.21739%;
+    float: left;
+    margin-right: 4.34783%;
+  }
+  .right-sidebar-is-on #sidebar-right {
+    width: 30.43478%;
+    float: right;
+    margin-right: 0;
+  }
+
+  /* Both sidebars */
+  .left-sidebar-is-on.right-sidebar-is-on #sidebar-left {
+    width: 21.73913%;
+    float: left;
+    margin-right: 4.34783%;
+  }
+  .left-sidebar-is-on.right-sidebar-is-on #sidebar-right {
+    width: 21.73913%;
+    float: right;
+    margin-right: 0;
+  }
+  .left-sidebar-is-on.right-sidebar-is-on #main {
+    width: 47.82609%;
+    float: left;
+    margin-right: 4.34783%;
+  }
+
+  .sidebar-is-off #secondary {
+    display: none;
+  }
+
+  .woocommerce #primary,
+  .page-template-template-no-sidebar #primary {
+    float: none;
+    margin: 0;
+    width: 100%;
+  }
+}
+/*--------------------------------------------------------------
+2.2 Container
+--------------------------------------------------------------*/
+body {
+  background: #f4f4f4;
+}
+
+#page {
+  background: #fff;
+}
+.layout-style-boxed #page {
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1000px;
+  border-radius: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 0 15px;
 }
-
-/*--------------------------------------------------------------
-3.1 Columns
---------------------------------------------------------------*/
+.layout-style-boxed #page:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
 @media (min-width: 768px) {
-  .five-sixths,
-  .four-sixths,
-  .one-fourth,
-  .one-half,
-  .one-sixth,
-  .one-third,
-  .three-fourths,
-  .three-sixths,
-  .two-fourths,
-  .two-sixths,
-  .two-thirds {
-    float: left;
-    margin-left: 2.564102564102564%;
-  }
-
-  .one-half,
-  .three-sixths,
-  .two-fourths {
-    width: 48.717948717948715%;
-  }
-
-  .one-third,
-  .two-sixths {
-    width: 31.623931623931625%;
-  }
-
-  .four-sixths,
-  .two-thirds {
-    width: 65.81196581196582%;
-  }
-
-  .one-fourth {
-    width: 23.076923076923077%;
-  }
-
-  .three-fourths {
-    width: 74.35897435897436%;
-  }
-
-  .one-sixth {
-    width: 14.52991452991453%;
-  }
-
-  .five-sixths {
-    width: 82.90598290598291%;
-  }
-
-  .first {
-    clear: both;
-    margin-left: 0;
+  .layout-style-boxed #page .container {
+    padding: 0 15px;
   }
 }
-/*--------------------------------------------------------------
-3.2 Content / Sidebar
---------------------------------------------------------------*/
-body.layout-2cr .content-area {
-  float: left;
-  margin: 0 -30% 0 0;
-  width: 100%;
+
+.layout-style-full .container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
 }
-body.layout-2cr .site-main {
-  margin: 0 30% 0 0;
-}
-body.layout-2cr .site-content .widget-area {
-  float: right;
-  overflow: hidden;
-  width: 30%;
-}
-body.layout-2cr .site-footer {
+.layout-style-full .container:after {
+  content: " ";
+  display: block;
   clear: both;
-  width: 100%;
 }
 
-/*--------------------------------------------------------------
-3.3 Sidebar / Content
---------------------------------------------------------------*/
-body.layout-2cl .content-area {
-  float: right;
-  margin: 0 0 0 -30%;
-  width: 100%;
-}
-body.layout-2cl .site-main {
-  margin: 0 0 0 30%;
-}
-body.layout-2cl .site-content .widget-area {
-  float: left;
-  overflow: hidden;
-  width: 30%;
-}
-body.layout-2cl .site-footer {
-  clear: both;
-  width: 100%;
+.sidebar-is-off .container {
+  max-width: 750px;
 }
 
 /*--------------------------------------------------------------
@@ -488,6 +498,9 @@ x.2 Menus
   width: 50%;
 }
 
+/*--------------------------------------------------------------
+x.3 Pagination
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 5.0 Modules
 --------------------------------------------------------------*/
@@ -613,5 +626,116 @@ x.4 Widgets
 x.5 Pages
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
+x.6 Footer
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
 7.0 Media
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+8.1 Audio
+--------------------------------------------------------------*/
+.wp-audio-shortcode {
+  margin-bottom: 1.5em;
+}
+
+/*--------------------------------------------------------------
+8.2 Images
+--------------------------------------------------------------*/
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+8.3 Captions
+--------------------------------------------------------------*/
+.wp-caption {
+  margin: 0 0 1em;
+  max-width: 100%;
+}
+.wp-caption.alignleft {
+  margin-right: 1.5em;
+}
+.wp-caption.alignright {
+  margin-left: 1.5em;
+}
+.wp-caption.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption-text {
+  color: #979797;
+  font-style: italic;
+  margin: 0.8075em 0 0;
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
+8.4 Galleries
+--------------------------------------------------------------*/
+.gallery {
+  margin-bottom: 1.5em;
+}
+
+.gallery-item {
+  display: inline-block;
+  margin: 0;
+  padding: 6px;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
+}
+.gallery-columns-3 .gallery-item {
+  max-width: 33.33%;
+}
+.gallery-columns-4 .gallery-item {
+  max-width: 25%;
+}
+.gallery-columns-5 .gallery-item {
+  max-width: 20%;
+}
+.gallery-columns-6 .gallery-item {
+  max-width: 16.66%;
+}
+.gallery-columns-7 .gallery-item {
+  max-width: 14.28%;
+}
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%;
+}
+.gallery-columns-9 .gallery-item {
+  max-width: 11.11%;
+}
+
+.gallery-caption {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+8.0 Plugins
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+x.1 Expanding ARchives
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+x.2 Naked Social Share
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+x.3 Naked Social Widget
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+x.4 NG About the Author
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+x.5 WP Instagram Widget
 --------------------------------------------------------------*/
