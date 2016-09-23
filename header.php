@@ -26,18 +26,19 @@
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'infopreneur' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<?php
-		/**
-		 * The following functions are hooked in:
-		 *
-		 * @see infopreneur_header_navigation_1() - 10
-		 * @see infopreneur_site_title() - 20
-		 * @see infopreneur_header_navigation_2() - 30
-		 */
-		do_action( 'infopreneur/header' );
-		?>
-	</header>
-	<!-- #masthead -->
+	<?php if ( get_page_template_slug() != 'page-templates/landing.php' ) : ?>
+		<header id="masthead" class="site-header" role="banner">
+			<?php
+			/**
+			 * The following functions are hooked in:
+			 *
+			 * @see infopreneur_header_navigation_1() - 10
+			 * @see infopreneur_site_title() - 20
+			 * @see infopreneur_header_navigation_2() - 30
+			 */
+			do_action( 'infopreneur/header' );
+			?>
+		</header>
+	<?php endif; ?>
 
 	<div id="content" class="site-content container">

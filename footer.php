@@ -14,18 +14,19 @@
 
 </div><!-- #content -->
 
-<footer id="colophon" class="site-footer" role="contentinfo">
-	<?php do_action( 'infopreneur/footer/before-site-info' ); ?>
+<?php if ( get_page_template_slug() != 'page-templates/landing.php' ) : ?>
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<?php do_action( 'infopreneur/footer/before-site-info' ); ?>
 
-	<div class="site-info">
-		<?php
-		/*
-		 * Display the copyright message.
-		 */
-		?>
-		<span id="infopreneur-copyright"><?php infopreneur_get_copyright_message(); ?></span>
+		<div class="site-info">
+			<?php
+			/*
+			 * Display the copyright message.
+			 */
+			?>
+			<span id="infopreneur-copyright"><?php infopreneur_get_copyright_message(); ?></span>
 
-		<span id="infopreneur-credits">
+			<span id="infopreneur-credits">
 			<?php
 			printf(
 				'<a href="' . esc_url( 'https://github.com/nosegraze/infopreneur' ) . '" target="_blank" rel="nofollow">%1$s</a>',
@@ -34,10 +35,12 @@
 
 			do_action( 'infopreneur/footer/attribution' ); ?>
 		</span>
-	</div>
+		</div>
 
-	<?php do_action( 'infopreneur/footer/after-site-info' ); ?>
-</footer>
+		<?php do_action( 'infopreneur/footer/after-site-info' ); ?>
+	</footer>
+<?php endif; ?>
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
