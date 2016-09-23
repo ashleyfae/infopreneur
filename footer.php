@@ -10,7 +10,7 @@
  * @license   GPL2+
  */
 
-?>
+do_action( 'infopreneur/inside-content/bottom' ); ?>
 
 </div><!-- #content -->
 

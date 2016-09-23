@@ -95,7 +95,7 @@ class Infopreneur_Customizer {
 			'summary_type'              => 'excerpts',
 			'excerpt_length'            => 30,
 			'meta_config_blog'          => '[category]',
-			'meta_position_blog'        => 'above',
+			'meta_position_blog'        => 'below',
 			'sidebar_left_blog'         => false,
 			'sidebar_right_blog'        => false,
 			'suppress_archive_headings' => false,

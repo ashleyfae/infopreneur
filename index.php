@@ -13,6 +13,9 @@
  * @license   GPL2+
  */
 
+global $wp_query;
+$post_layout = get_theme_mod( 'post_layout', Infopreneur_Customizer::defaults( 'post_layout' ) );
+
 // Include header.php.
 get_header();
 
@@ -20,37 +23,60 @@ get_header();
 infopreneur_maybe_show_sidebar( 'left' );
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<main id="main" class="site-main" role="main">
 
-			<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
+
+			<div id="post-feed" class="layout-<?php echo esc_attr( $post_layout ); ?>">
 
 				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php while ( have_posts() ) : the_post();
 
-					<?php
+					$number_full_posts = get_theme_mod( 'number_full_posts', Infopreneur_Customizer::defaults( 'number_full_posts' ) );
 
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					/**
+					 * Display a few full posts.
 					 */
-					get_template_part( 'template-parts/content', get_post_format() );
-					?>
+					if ( ( ( $number_full_posts > 0 ) && $wp_query->current_post < $number_full_posts && ! is_paged() ) ) {
 
-				<?php endwhile; ?>
+						get_template_part( 'template-parts/content', 'single' );
 
-				<?php the_posts_navigation(); ?>
+					} else {
 
-			<?php else : ?>
+						/**
+						 * Allow child themes to modify the template part. By default it's template-parts/content.php.
+						 *
+						 * @param string  $slug Template slug to use.
+						 * @param WP_Post $post Current post.
+						 *
+						 * @since 1.0
+						 */
+						$slug          = '';
+						$post          = get_post();
+						$template_slug = apply_filters( 'bookstagram/index/template-slug', $slug, $post );
 
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
+						/**
+						 * Include the template part.
+						 */
+						get_template_part( 'template-parts/content', $template_slug );
 
-			<?php endif; ?>
+					}
 
-		</main>
-		<!-- #main -->
-	</div><!-- #primary -->
+				endwhile; ?>
+
+			</div>
+
+			<nav class="pagination">
+				<?php echo paginate_links(); ?>
+			</nav>
+
+		<?php else : ?>
+
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
+
+		<?php endif; ?>
+
+	</main>
 
 <?php
 // Maybe include right sidebar.

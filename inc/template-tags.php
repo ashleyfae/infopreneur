@@ -72,6 +72,126 @@ if ( ! function_exists( 'infopreneur_maybe_show_sidebar' ) ) {
 }
 
 /**
+ * Get Featured Image
+ *
+ * Retrieves the thumbnail for a given post using the following priorities:
+ *
+ *      1) Featured image
+ *      2) UBB book cover image
+ *      3) First image in the post text
+ *
+ * @param int     $width  Desired width in pixels
+ * @param int     $height Desired height in pixels
+ * @param bool    $crop   Whether or not to crop to exact dimensions
+ * @param string  $class  Class name(s) to add to the image
+ * @param WP_Post $post   Post object (if omitted, current global $post is used)
+ *
+ * @since 1.0
+ * @return bool|string False if no image is found
+ */
+function infopreneur_get_post_thumbnail( $width = null, $height = null, $crop = true, $class = 'post-thumbnail', $post = null ) {
+
+	if ( empty( $post ) ) {
+		$post = get_post();
+	}
+
+	$width  = $width ? $width : 700; // @todo maybe change
+	$height = $height ? $height : 400; // @todo maybe change
+
+	$image_url = '';
+
+	// Pre-emptively check to see if an UBB book cover exists.
+	$ubb_book_cover = get_post_meta( $post->ID, '_ubb_book_image', true );
+
+	// Pre-emptively get the featured image.
+	$featured = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+
+	// Now let's try to get an image URL!
+	if ( has_post_thumbnail( $post->ID ) && ! empty( $featured ) ) {
+		$image_url = $featured[0];
+	} elseif ( ! empty( $ubb_book_cover ) ) {
+		$image_url = $ubb_book_cover;
+	} elseif ( preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i', $post->post_content, $matches ) ) {
+		$image_url = $matches[1][0];
+	}
+
+	// If we don't have an image, bail.
+	if ( empty( $image_url ) ) {
+		return false;
+	}
+
+	// Now let's resize the image, woot woot.
+	$resized_image = false;
+
+	// If Photon is activated, we'll try to use that first.
+	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'photon' ) ) {
+		$args = array(
+			'resize' => array( $width, $height )
+		);
+
+		$resized_image = jetpack_photon_url( $image_url, $args );
+	} elseif ( function_exists( 'aq_resize' ) ) {
+		// Otherwise, we'll use aq_resizer.
+		$resized_image = aq_resize( $image_url, $width, $height, $crop, true, true );
+	}
+
+	$final_image = $resized_image ? $resized_image : $image_url;
+
+	$final_html = '<a href="' . esc_url( get_permalink( $post ) ) . '" title="' . esc_attr( strip_tags( get_the_title( $post ) ) ) . '"><img src="' . esc_url( apply_filters( 'infopreneur/post-thumbnail/final-url', $final_image, $width, $height, $crop, $class, $post ) ) . '" alt="' . esc_attr( strip_tags( get_the_title( $post ) ) ) . '" class="' . esc_attr( $class ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '"></a>';
+
+	return apply_filters( 'infopreneur/post-thumbnail/final-html', $final_html, $width, $height, $crop, $class, $post );
+
+}
+
+/**
+ * Post Meta
+ *
+ * Converts the Customizer template into real, dynamic values.
+ *
+ * @since 1.0
+ * @return void
+ */
+function infopreneur_entry_meta( $mod_name = '' ) {
+	$template = get_theme_mod( $mod_name, Infopreneur_Customizer::defaults( $mod_name ) );
+	$find     = array(
+		'[date]',
+		'[author]',
+		'[category]',
+		'[comments]'
+	);
+	$replace  = array(
+		'<span class="entry-date">' . get_the_date() . '</span>',
+		'<span class="entry-author">' . get_the_author() . '</span>',
+		'<span class="entry-category">' . get_the_category_list( ', ' ) . '</span>'
+	);
+
+	// It takes some more work to get the comments number...
+	$num_comments   = get_comments_number(); // get_comments_number returns only a numeric value
+	$write_comments = '';
+
+	if ( comments_open() ) {
+		if ( $num_comments == 0 ) {
+			$comments = __( 'Leave a Comment', 'infopreneur' );
+		} elseif ( $num_comments > 1 ) {
+			$comments = sprintf( __( '%s Comments', 'infopreneur' ), $num_comments );
+		} else {
+			$comments = __( '1 Comment', 'infopreneur' );
+		}
+		$write_comments = '<a href="' . esc_url( get_comments_link() ) . '" class="entry-comments">' . $comments . '</a>';
+	}
+
+	$replace[] = $write_comments;
+
+	do_action( 'infopreneur/before-post-meta', get_post() );
+	?>
+	<div class="entry-meta">
+		<?php echo str_replace( $find, $replace, $template ); ?>
+	</div>
+	<?php
+	do_action( 'infopreneur/after-post-meta', get_post() );
+}
+
+/**
  * Copyright Text
  *
  * Displays the footer copyright text, as specified in the settings panel.
@@ -105,71 +225,4 @@ function infopreneur_get_copyright_message() {
  */
 function infopreneur_theme_uri() {
 	return apply_filters( 'infopreneur/theme-uri', '#' );
-}
-
-if ( ! function_exists( 'infopreneur_posted_on' ) ) {
-	/**
-	 * Prints HTML with meta information for the current post-date/time and author.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	function infopreneur_posted_on() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
-
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
-		);
-
-		$posted_on = sprintf(
-			esc_html_x( 'Posted on %s', 'post date', 'infopreneur' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
-
-		$byline = sprintf(
-			esc_html_x( 'by %s', 'post author', 'infopreneur' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-		);
-
-		echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
-	}
-}
-
-if ( ! function_exists( 'infopreneur_entry_footer' ) ) {
-	/**
-	 * Prints HTML with meta information for the categories, tags, and comments.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	function infopreneur_entry_footer() {
-		// Hide category and tag text for pages.
-		if ( 'post' == get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'infopreneur' ) );
-			if ( $categories_list ) {
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'infopreneur' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-			}
-
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'infopreneur' ) );
-			if ( $tags_list ) {
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'infopreneur' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-			}
-		}
-
-		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
-			comments_popup_link( esc_html__( 'Leave a comment', 'infopreneur' ), esc_html__( '1 Comment', 'infopreneur' ), esc_html__( '% Comments', 'infopreneur' ) );
-			echo '</span>';
-		}
-
-		edit_post_link( esc_html__( 'Edit', 'infopreneur' ), '<span class="edit-link">', '</span>' );
-	}
 }
