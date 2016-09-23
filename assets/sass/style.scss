@@ -1,0 +1,92 @@
+/*
+ * Theme Name: Infopreneur
+ * Theme URI: https://shop.nosegraze.com/product/infopreneur-theme/
+ * Author: Nose Graze
+ * Author URI: https://www.nosegraze.com/
+ * Description: A business theme for infopreneurs.
+ * Version: 0.1.0
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: infopreneur
+ * Tags: business
+ *
+ * This theme, like WordPress, is licensed under the GPL.
+ * Use it to make something cool, have fun, and share what you've learned with others.
+ *
+ * Infopreneur is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+ * Underscores is distributed under the terms of the GNU GPL v2 or later.
+ *
+ * Normalizing styles have been helped along thanks to the fine work of
+ * Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+ */
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Normalize
+2.0 Typography
+3.0 Layout
+    3.1 Columns
+    3.2 Content / Sidebar
+    3.3 Sidebar / Content
+3.0 Elements
+    3.1 Forms
+4.0 Navigation
+    4.1 Links
+    4.2 Menus
+5.0 Modules
+    5.1 Accessibility
+    5.2 Alignments
+    5.3 Clearings
+    5.4 Infinite Scroll
+6.0 Content
+    6.1 Blog Posts
+    6.2 Comments
+    6.3 Widgets
+    6.4 Pages
+7.0 Media
+    8.1 Captions
+    8.2 Galleries
+--------------------------------------------------------------*/
+@import "variables/variables";
+@import "mixins/mixins-master";
+
+/*--------------------------------------------------------------
+1.0 Normalize
+--------------------------------------------------------------*/
+@import "normalize";
+
+/*--------------------------------------------------------------
+2.0 Typography
+--------------------------------------------------------------*/
+@import "typography/typography";
+
+/*--------------------------------------------------------------
+3.0 Layout
+--------------------------------------------------------------*/
+@import "layout/layout";
+
+/*--------------------------------------------------------------
+3.0 Elements
+--------------------------------------------------------------*/
+@import "elements/elements";
+
+/*--------------------------------------------------------------
+4.0 Navigation
+--------------------------------------------------------------*/
+@import "navigation/navigation";
+
+/*--------------------------------------------------------------
+5.0 Modules
+--------------------------------------------------------------*/
+@import "modules/modules";
+
+/*--------------------------------------------------------------
+6.0 Content
+--------------------------------------------------------------*/
+@import "content/content";
+
+/*--------------------------------------------------------------
+7.0 Media
+--------------------------------------------------------------*/
+@import "media/media";
