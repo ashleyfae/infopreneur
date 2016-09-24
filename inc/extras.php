@@ -267,6 +267,10 @@ function infopreneur_get_social_sites() {
 		'youtube'      => array(
 			'name' => __( 'YouTube', 'infopreneur' ),
 			'icon' => 'fa-youtube-square'
+		),
+		'rss'      => array(
+			'name' => __( 'RSS', 'infopreneur' ),
+			'icon' => 'fa-rss-square'
 		)
 	);
 
