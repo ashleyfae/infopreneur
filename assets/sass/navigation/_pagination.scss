@@ -18,3 +18,27 @@
         width: 50%;
     }
 }
+
+.pagination {
+    .page-numbers {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 1px 10px;
+    }
+
+    .current {
+        background: $color-primary;
+        border-bottom: 3px solid darken($color-primary, 10);
+        color: white;
+    }
+
+    a {
+        border-bottom: 3px solid #f4f4f4;
+        color: $color-text;
+        transition: border-bottom-color 0.3s;
+
+        &:hover {
+            border-bottom-color: #a8a8a8;
+        }
+    }
+}

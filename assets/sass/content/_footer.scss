@@ -1,5 +1,33 @@
 #colophon {
+    @include font-size(1.4);
+    background: $color-secondary;
+    color: $color-secondary-light;
+    font: {
+        weight: bold;
+    }
+    letter-spacing: .05em;
     margin-top: 3em;
-    padding: 2em 0;
+    padding: 2em 0 1.5em;
+    text-transform: uppercase;
     text-align: center;
+
+    a {
+        color: $color-secondary-light;
+        text-decoration: underline;
+
+        &:hover {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    #infopreneur-copyright {
+        float: left;
+    }
+
+    #infopreneur-credits {
+        float: right;
+    }
 }

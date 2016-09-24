@@ -18,7 +18,7 @@
 function infopreneur_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'infopreneur/custom-header-args', array(
 		'default-image'      => '',
-		'default-text-color' => '333333',
+		'default-text-color' => '00aaa0',
 		'width'              => 1070,
 		'height'             => 200,
 		'flex-height'        => true,

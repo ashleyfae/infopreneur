@@ -18,8 +18,8 @@ input[type="submit"] {
     transition: all 0.3s;
 
     &:hover {
-        background-color: darken($color-primary, 20);
-        border-color: darken($color-primary, 20);
+        background-color: darken($color-primary, 10);
+        border-color: darken($color-primary, 10);
         color: white;
     }
 }

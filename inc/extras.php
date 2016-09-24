@@ -124,7 +124,7 @@ function infopreneur_get_custom_css() {
 	$primary_dark = infopreneur_adjust_brightness( get_theme_mod( 'primary_color', Infopreneur_Customizer::defaults( 'primary_color' ) ), - 30 );
 	$css .= sprintf(
 		'a, .navigation a:hover, #header-social a:hover { color: %1$s; }
-		.button, button, .more-link, input[type="submit"] { background-color: %1$s; border-color: %1$s; border-bottom-color: %2$s; }
+		.button, button, .more-link, input[type="submit"], .pagination .current { background-color: %1$s; border-color: %1$s; border-bottom-color: %2$s; }
 		.button:hover, button:hover, .more-link:hover, input[type="submit"]:hover { background-color: %2$s; border-color: %2$s; }
 		',
 		esc_html( get_theme_mod( 'primary_color', Infopreneur_Customizer::defaults( 'primary_color' ) ) ),

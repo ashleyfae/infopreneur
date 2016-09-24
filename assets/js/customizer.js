@@ -40,14 +40,12 @@
             if ('blank' === to) {
                 $('.site-title a, .site-description').css({
                     'clip': 'rect(1px, 1px, 1px, 1px)',
-                    'position': 'absolute',
-                    'padding': 0
+                    'position': 'absolute'
                 });
             } else {
                 $('.site-title a, .site-description').css({
                     'clip': 'auto',
                     'position': 'relative',
-                    'padding': '1em 0'
                 });
 
                 $('.site-title a').css('color', to);

@@ -100,8 +100,8 @@ function infopreneur_get_post_thumbnail( $width = null, $height = null, $crop = 
 	$align = get_theme_mod( 'thumbnail_align', Infopreneur_Customizer::defaults( 'thumbnail_align' ) );
 	$class .= ' ' . sanitize_html_class( $align );
 
-	$width  = $width ? $width : 700; // @todo maybe change
-	$height = $height ? $height : 400; // @todo maybe change
+	$width  = $width ? $width : 700;
+	$height = $height ? $height : 400;
 
 	if ( $align != 'aligncenter' ) {
 		$width  = 500;

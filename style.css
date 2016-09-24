@@ -336,8 +336,8 @@ input[type="submit"] {
 button:hover,
 .more-link:hover,
 input[type="submit"]:hover {
-  background-color: #f32f00;
-  border-color: #f32f00;
+  background-color: #ff5127;
+  border-color: #ff5127;
   color: white;
 }
 
@@ -456,6 +456,25 @@ x.3 Pagination
   float: right;
   text-align: right;
   width: 50%;
+}
+
+.pagination .page-numbers {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 1px 10px;
+}
+.pagination .current {
+  background: #ff7a5a;
+  border-bottom: 3px solid #ff5127;
+  color: white;
+}
+.pagination a {
+  border-bottom: 3px solid #f4f4f4;
+  color: #333;
+  transition: border-bottom-color 0.3s;
+}
+.pagination a:hover {
+  border-bottom-color: #a8a8a8;
 }
 
 /*--------------------------------------------------------------
@@ -603,6 +622,13 @@ x.1 Header
 
 .site-title {
   margin: 0;
+}
+.site-title a {
+  color: #00aaa0;
+}
+
+.site-description {
+  font-style: italic;
 }
 
 /* Featured area */
@@ -780,11 +806,35 @@ x.5 Pages
 x.6 Footer
 --------------------------------------------------------------*/
 #colophon {
+  font-size: 22.4px;
+  font-size: 1.4rem;
+  background: #00aaa0;
+  color: #96dad6;
+  font-weight: bold;
+  letter-spacing: .05em;
   margin-top: 3em;
-  padding: 2em 0;
+  padding: 2em 0 1.5em;
+  text-transform: uppercase;
   text-align: center;
 }
+#colophon a {
+  color: #96dad6;
+  text-decoration: underline;
+}
+#colophon a:hover {
+  color: white;
+  text-decoration: none;
+}
 
+@media (min-width: 768px) {
+  #infopreneur-copyright {
+    float: left;
+  }
+
+  #infopreneur-credits {
+    float: right;
+  }
+}
 /*--------------------------------------------------------------
 7.0 Media
 --------------------------------------------------------------*/

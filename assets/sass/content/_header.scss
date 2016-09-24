@@ -6,6 +6,16 @@
 
 .site-title {
     margin: 0;
+
+    a {
+        color: $color-secondary;
+    }
+}
+
+.site-description {
+    font: {
+        style: italic;
+    }
 }
 
 /* Featured area */
