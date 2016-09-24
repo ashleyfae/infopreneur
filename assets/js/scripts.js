@@ -50,7 +50,14 @@
         toggleSearch: function (e) {
             e.preventDefault();
 
-            $('#search-wrap').toggle();
+            var searchWrap = $('#search-wrap');
+
+            searchWrap.toggle();
+
+            // If we just made it visible, bring the search box into focus.
+            if (searchWrap.css('display') == 'block') {
+                searchWrap.find('.search-field').focus();
+            }
         },
 
         closeSearch: function (e) {
