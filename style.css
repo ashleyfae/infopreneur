@@ -469,22 +469,21 @@ textarea {
   position: relative;
 }
 #search-wrap .search-submit {
-  margin-top: .5em;
+  margin: .5em 0;
   width: 100%;
 }
-
-#search-wrap-close {
+#search-wrap > .search-wrap-close {
   font-size: 80px;
   font-size: 5rem;
   color: #c7c7c7;
   display: block;
   margin: 0 auto;
 }
-#search-wrap-close:hover {
+#search-wrap > .search-wrap-close:hover {
   color: #333;
 }
 @media (min-width: 768px) {
-  #search-wrap-close {
+  #search-wrap > .search-wrap-close {
     position: absolute;
     top: 0;
     right: 1em;

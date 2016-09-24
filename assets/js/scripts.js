@@ -12,7 +12,7 @@
             $('#search-site')
                 .on('click', 'a', this.toggleSearch);
 
-            $('#search-wrap-close')
+            $('.search-wrap-close')
                 .on('click', this.toggleSearch);
 
             $(document)

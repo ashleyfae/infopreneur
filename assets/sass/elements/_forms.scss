@@ -57,23 +57,24 @@ textarea {
     }
 
     .search-submit {
-        margin-top: .5em;
+        margin: .5em 0;
         width: 100%;
     }
-}
-#search-wrap-close {
-    @include font-size(5.0);
-    color: #c7c7c7;
-    display: block;
-    margin: 0 auto;
 
-    &:hover {
-        color: $color-text;
-    }
+    > .search-wrap-close {
+        @include font-size(5.0);
+        color: #c7c7c7;
+        display: block;
+        margin: 0 auto;
 
-    @media (min-width: 768px) {
-        position: absolute;
-        top: 0;
-        right: 1em;
+        &:hover {
+            color: $color-text;
+        }
+
+        @media (min-width: 768px) {
+            position: absolute;
+            top: 0;
+            right: 1em;
+        }
     }
 }

@@ -346,7 +346,7 @@ function infopreneur_is_plain_page() {
 function infopreneur_search_template() {
 	?>
 	<div id="search-wrap">
-		<a href="#" id="search-wrap-close">&times;</a>
+		<a href="#" class="search-wrap-close">&times;</a>
 		<div class="container">
 			<?php
 			do_action( 'infopreneur/search-template/before' );
@@ -355,6 +355,8 @@ function infopreneur_search_template() {
 
 			do_action( 'infopreneur/search-template/after' );
 			?>
+
+			<a href="#" class="search-wrap-close"><?php _e( 'cancel', 'infopreneur' ); ?></a>
 		</div>
 	</div>
 	<?php
