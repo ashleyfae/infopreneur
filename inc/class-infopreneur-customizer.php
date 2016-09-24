@@ -717,7 +717,6 @@ class Infopreneur_Customizer {
 			'type'        => 'textarea',
 			'section'     => 'single_post',
 			'settings'    => 'meta_config_single',
-			'priority'    => 50
 		) ) );
 
 		/* Meta Position */
@@ -734,7 +733,6 @@ class Infopreneur_Customizer {
 			),
 			'section'  => 'single_post',
 			'settings' => 'meta_position_single',
-			'priority' => 60
 		) ) );
 
 		/* Hide Featured Image */
@@ -747,7 +745,6 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'single_post',
 			'settings' => 'hide_featured_image',
-			'priority' => 100
 		) ) );
 
 		/* Featured Area */
@@ -758,9 +755,8 @@ class Infopreneur_Customizer {
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_featured_single', array(
 			'label'    => esc_html__( 'Show featured area', 'infopreneur' ),
 			'type'     => 'checkbox',
-			'section'  => 'blog_archive',
+			'section'  => 'single_post',
 			'settings' => 'show_featured_single',
-			'priority' => 110
 		) ) );
 
 		/* Left Sidebar */
@@ -773,7 +769,6 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'single_post',
 			'settings' => 'sidebar_left_single',
-			'priority' => 120
 		) ) );
 
 		/* Right Sidebar */
@@ -786,7 +781,6 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'single_post',
 			'settings' => 'sidebar_right_single',
-			'priority' => 130
 		) ) );
 
 	}
@@ -810,9 +804,8 @@ class Infopreneur_Customizer {
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_featured_page', array(
 			'label'    => esc_html__( 'Show featured area', 'infopreneur' ),
 			'type'     => 'checkbox',
-			'section'  => 'blog_archive',
+			'section'  => 'single_page',
 			'settings' => 'show_featured_page',
-			'priority' => 110
 		) ) );
 
 		/* Left Sidebar */
@@ -825,7 +818,6 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'single_page',
 			'settings' => 'sidebar_left_page',
-			'priority' => 120
 		) ) );
 
 		/* Right Sidebar */
@@ -838,7 +830,6 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'single_page',
 			'settings' => 'sidebar_right_page',
-			'priority' => 130
 		) ) );
 
 	}
@@ -904,6 +895,19 @@ class Infopreneur_Customizer {
 			)
 		) );
 
+	}
+
+	/**
+	 * Sanitize: Checkbox
+	 *
+	 * @param string $input
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function sanitize_checkbox( $input ) {
+		return $input ? true : false;
 	}
 
 	/**
