@@ -422,14 +422,14 @@ textarea {
 .search-form .search-field {
   width: 100%;
 }
-.search-form input[type="submit"] {
+.widget .search-form input[type="submit"] {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
   height: 1px;
   width: 1px;
   overflow: hidden;
 }
-.search-form input[type="submit"]:hover, .search-form input[type="submit"]:active, .search-form input[type="submit"]:focus {
+.widget .search-form input[type="submit"]:hover, .widget .search-form input[type="submit"]:active, .widget .search-form input[type="submit"]:focus {
   background-color: white;
   border-radius: 3px;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
@@ -448,6 +448,47 @@ textarea {
   width: auto;
   z-index: 100000;
   /* Above WP toolbar. */
+}
+
+/* Hidden Search */
+#search-wrap {
+  background: white;
+  display: none;
+  padding: 5em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  z-index: 999999;
+}
+#search-wrap .container {
+  max-width: 600px;
+  position: relative;
+}
+#search-wrap .search-submit {
+  margin-top: .5em;
+  width: 100%;
+}
+
+#search-wrap-close {
+  font-size: 80px;
+  font-size: 5rem;
+  color: #c7c7c7;
+  display: block;
+  margin: 0 auto;
+}
+#search-wrap-close:hover {
+  color: #333;
+}
+@media (min-width: 768px) {
+  #search-wrap-close {
+    position: absolute;
+    top: 0;
+    right: 1em;
+  }
 }
 
 /*--------------------------------------------------------------

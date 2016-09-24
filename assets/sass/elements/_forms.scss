@@ -30,7 +30,50 @@ textarea {
         width: 100%;
     }
 
-    input[type="submit"] {
-        @include screen-reader-text;
+    .widget & {
+        input[type="submit"] {
+            @include screen-reader-text;
+        }
+    }
+}
+
+/* Hidden Search */
+#search-wrap {
+    background: white;
+    display: none;
+    padding: 5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: 999999;
+
+    .container {
+        max-width: 600px;
+        position: relative;
+    }
+
+    .search-submit {
+        margin-top: .5em;
+        width: 100%;
+    }
+}
+#search-wrap-close {
+    @include font-size(5.0);
+    color: #c7c7c7;
+    display: block;
+    margin: 0 auto;
+
+    &:hover {
+        color: $color-text;
+    }
+
+    @media (min-width: 768px) {
+        position: absolute;
+        top: 0;
+        right: 1em;
     }
 }

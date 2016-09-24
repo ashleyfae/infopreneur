@@ -329,3 +329,35 @@ function infopreneur_is_plain_page() {
 
 	return apply_filters( 'infopreneur/is-plain-page', $is_plain_page );
 }
+
+/**
+ * Search Template
+ *
+ * Adds the search template to the site footer. It's hidden via CSS
+ * and revealed via JavaScript - yay!
+ *
+ * @hooks :
+ *        `infopreneur/search-template/before` - Before search form
+ *        `infopreneur/search-template/after` - After search form
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function infopreneur_search_template() {
+	?>
+	<div id="search-wrap">
+		<a href="#" id="search-wrap-close">&times;</a>
+		<div class="container">
+			<?php
+			do_action( 'infopreneur/search-template/before' );
+
+			get_search_form();
+
+			do_action( 'infopreneur/search-template/after' );
+			?>
+		</div>
+	</div>
+	<?php
+}
+
+add_action( 'wp_footer', 'infopreneur_search_template' );

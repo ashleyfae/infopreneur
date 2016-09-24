@@ -9,6 +9,7 @@ A business theme for infopreneurs. Still a work in progress. Seriously. Don't lo
 * Test all core widgets.
 * WooCommerce integration - if I can be bothered.
 * Easy Digital Downloads integration.
+* Homepage template.
 
 ## Credits
 

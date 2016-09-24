@@ -10,7 +10,13 @@
                 .on('click', this.toggleArea);
 
             $('#search-site')
-                .on('click', 'a', this.openSearch);
+                .on('click', 'a', this.toggleSearch);
+
+            $('#search-wrap-close')
+                .on('click', this.toggleSearch);
+
+            $(document)
+                .on('keyup', this.closeSearch);
         },
 
         /**
@@ -37,12 +43,26 @@
         },
 
         /**
-         * Open Search
+         * Open/Close Search
          *
          * @param e
          */
-        openSearch: function (e) {
+        toggleSearch: function (e) {
             e.preventDefault();
+
+            $('#search-wrap').toggle();
+        },
+
+        closeSearch: function (e) {
+            if (e.keyCode != 27) {
+                return;
+            }
+
+            var searchWrap = $('#search-wrap');
+
+            if (searchWrap.css('display') == 'block') {
+                searchWrap.hide();
+            }
         }
 
     };
