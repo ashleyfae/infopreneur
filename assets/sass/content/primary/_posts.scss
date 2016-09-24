@@ -7,6 +7,11 @@
     @include font-size(3.0);
     margin-top: 0;
     text-align: center;
+
+    span {
+        color: $color-primary;
+        text-transform: none;
+    }
 }
 
 .post {

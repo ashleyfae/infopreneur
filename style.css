@@ -765,6 +765,10 @@ x.2 Blog Posts
   margin-top: 0;
   text-align: center;
 }
+.page-title span {
+  color: #ff7a5a;
+  text-transform: none;
+}
 
 .post {
   margin: 0 0 3em;

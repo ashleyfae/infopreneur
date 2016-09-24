@@ -1,12 +1,6 @@
 <?php
 /**
- * Post Archive
- *
- * Includes:
- *      + Author archives
- *      + Date archives
- *      + Category archives
- *      + Tag archives
+ * Search Results
  *
  * @package   infopreneur
  * @copyright Copyright (c) 2016, Nose Graze Ltd.
@@ -26,10 +20,7 @@ infopreneur_maybe_show_sidebar( 'left' );
 
 			<?php if ( ! get_theme_mod( 'suppress_archive_headings' ) ) : ?>
 				<header class="page-header">
-					<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
-					?>
+					<h1 class="page-title"><?php printf( __( 'Search results for: %s', 'infopreneur' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				</header>
 			<?php endif; ?>
 
