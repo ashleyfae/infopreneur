@@ -14,7 +14,7 @@ $post_class    = ( ! is_singular() ) ? 'full-post' : '';
 <article id="post-<?php the_ID(); ?>" <?php post_class( $post_class ); ?>>
 
 	<?php
-	do_action( 'infopreneur/content-single/before-featured-image', get_post() );
+	do_action( 'infopreneur/content-single/before-post', get_post() );
 	?>
 
 	<header class="entry-header">
@@ -50,6 +50,8 @@ $post_class    = ( ! is_singular() ) ? 'full-post' : '';
 	/*
 	 * Featured Image
 	 */
+	do_action( 'infopreneur/content-single/before-featured-image', get_post() );
+
 	if ( has_post_thumbnail() && ! get_theme_mod( 'hide_featured_image', Infopreneur_Customizer::defaults( 'hide_featured_image' ) ) ) {
 		the_post_thumbnail( 'full', array( 'class' => 'aligncenter featured-image' ) );
 	}
