@@ -1,6 +1,12 @@
 body {
     @include font-size(1.6);
+    color: $color-text;
     font: {
         family: $font-primary;
     }
+    line-height: 1.6;
+}
+
+p {
+    margin: 0 0 2em;
 }

@@ -120,6 +120,17 @@ add_filter( 'body_class', 'infopreneur_body_classes' );
 function infopreneur_get_custom_css() {
 	$css = '';
 
+	// Primary Color
+	$primary_dark = infopreneur_adjust_brightness( get_theme_mod( 'primary_color', Infopreneur_Customizer::defaults( 'primary_color' ) ), - 30 );
+	$css .= sprintf(
+		'a, .navigation a:hover, #header-social a:hover { color: %1$s; }
+		.button, button, .more-link, input[type="submit"] { background-color: %1$s; border-color: %1$s; border-bottom-color: %2$s; }
+		.button:hover, button:hover, .more-link:hover, input[type="submit"]:hover { background-color: %2$s; border-color: %2$s; }
+		',
+		esc_html( get_theme_mod( 'primary_color', Infopreneur_Customizer::defaults( 'primary_color' ) ) ),
+		esc_html( $primary_dark )
+	);
+
 	// Featured
 	$css .= sprintf(
 		'#featured-area { background-color: %1$s; background-image: url(%2$s); background-position: %3$s; color: %4$s; }',
@@ -264,11 +275,11 @@ function infopreneur_get_social_sites() {
 			'name' => __( 'Tumblr', 'infopreneur' ),
 			'icon' => 'fa-tumblr-square'
 		),
-		'youtube'      => array(
+		'youtube'     => array(
 			'name' => __( 'YouTube', 'infopreneur' ),
 			'icon' => 'fa-youtube-square'
 		),
-		'rss'      => array(
+		'rss'         => array(
 			'name' => __( 'RSS', 'infopreneur' ),
 			'icon' => 'fa-rss-square'
 		)

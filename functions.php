@@ -145,6 +145,11 @@ add_action( 'wp_enqueue_scripts', 'infopreneur_scripts' );
 require get_template_directory() . '/inc/custom-header.php';
 
 /**
+ * Image resize script.
+ */
+require get_template_directory() . '/inc/aq_resizer.php';
+
+/**
  * Include our template functions.
  */
 require_once get_template_directory() . '/inc/template-tags.php';

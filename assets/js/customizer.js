@@ -128,7 +128,7 @@
     // Featured - Desc
     wp.customize('featured_desc', function (value) {
         value.bind(function (to) {
-            $('#featured-desc').text(to);
+            $('#featured-desc').html(to);
         });
     });
 
@@ -164,6 +164,26 @@
         });
     });
 
+    // Post Layout
+    wp.customize('post_layout', function (value) {
+        value.bind(function (to) {
+            $('#post-feed').attr('class', 'layout-' + to);
+        });
+    });
+
+    // Thumbnail Alignment
+    wp.customize('thumbnail_align', function (value) {
+        value.bind(function (to) {
+            var maxWidth = '100%';
+
+            if (to == 'alignleft' || to == 'alignright') {
+                maxWidth = '200px';
+            }
+
+            $('.post-thumbnail').removeClass('aligncenter alignleft alignright').addClass(to).css('max-width', maxWidth);
+        });
+    });
+
     // Copyright
     wp.customize('copyright_message', function (value) {
         value.bind(function (to) {
@@ -182,8 +202,8 @@
      * @returns {string}
      */
     function shadeColor(color, percent) {
-        var f=parseInt(color.slice(1),16),t=percent<0?0:255,p=percent<0?percent*-1:percent,R=f>>16,G=f>>8&0x00FF,B=f&0x0000FF;
-        return "#"+(0x1000000+(Math.round((t-R)*p)+R)*0x10000+(Math.round((t-G)*p)+G)*0x100+(Math.round((t-B)*p)+B)).toString(16).slice(1);
+        var f = parseInt(color.slice(1), 16), t = percent < 0 ? 0 : 255, p = percent < 0 ? percent * -1 : percent, R = f >> 16, G = f >> 8 & 0x00FF, B = f & 0x0000FF;
+        return "#" + (0x1000000 + (Math.round((t - R) * p) + R) * 0x10000 + (Math.round((t - G) * p) + G) * 0x100 + (Math.round((t - B) * p) + B)).toString(16).slice(1);
     }
 
 })(jQuery);

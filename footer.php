@@ -18,19 +18,18 @@ do_action( 'infopreneur/inside-content/bottom' ); ?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<?php do_action( 'infopreneur/footer/before-site-info' ); ?>
 
-		<div class="site-info">
+		<div class="container site-info">
 			<?php
-			/*
-			 * Display the copyright message.
-			 */
+			// Copyright message
 			?>
-			<span id="infopreneur-copyright"><?php infopreneur_get_copyright_message(); ?></span>
+			<span id="infopreneur-copyright"><?php echo infopreneur_get_copyright_message(); ?></span>
 
 			<span id="infopreneur-credits">
 			<?php
+			// Theme credit link.
 			printf(
 				'<a href="' . esc_url( 'https://github.com/nosegraze/infopreneur' ) . '" target="_blank" rel="nofollow">%1$s</a>',
-				__( 'Infopreneur Theme', 'gwen' )
+				__( 'Infopreneur Theme', 'infopreneur' )
 			);
 
 			do_action( 'infopreneur/footer/attribution' ); ?>

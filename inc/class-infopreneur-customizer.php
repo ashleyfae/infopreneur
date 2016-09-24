@@ -87,10 +87,12 @@ class Infopreneur_Customizer {
 	 */
 	public static function defaults( $key = '' ) {
 		$defaults = array(
+			'primary_color'              => '#ff7a5a',
 			'layout_style'               => 'full',
 			'post_layout'                => 'list',
-			'number_full_posts'          => 0,
+			'number_full_posts'          => 1,
 			'summary_type'               => 'excerpts',
+			'thumbnail_align'            => 'aligncenter',
 			'excerpt_length'             => 30,
 			'meta_config_blog'           => '[category]',
 			'meta_position_blog'         => 'below',
@@ -98,8 +100,8 @@ class Infopreneur_Customizer {
 			'sidebar_left_blog'          => false,
 			'sidebar_right_blog'         => true,
 			'suppress_archive_headings'  => false,
-			'meta_config_single'         => '[date] &bull; [category] &bull; [comments]',
-			'meta_position_single'       => 'above',
+			'meta_config_single'         => '[date] &ndash; [category] &ndash; [comments]',
+			'meta_position_single'       => 'below',
 			'hide_featured_image'        => false,
 			'show_featured_single'       => true,
 			'sidebar_left_single'        => false,
@@ -114,8 +116,7 @@ class Infopreneur_Customizer {
 			'featured_alignment'         => 'featured-centered',
 			'featured_text_color'        => '#ffffff',
 			'featured_heading'           => __( 'Run your blog like a boss', 'infopreneur' ),
-			'featured_desc'              => __( 'Join my tribe of over 1,000 infopreneurs and self-starters.', 'infopreneur' ),
-			// @todo this sucks
+			'featured_desc'              => __( 'Join my tribe of over 1,000 infopreneurs and self-starters to take your blog to the next level.', 'infopreneur' ),
 			'featured_url'               => home_url( '/' ),
 			'featured_button'            => __( 'Get Started', 'infopreneur' ),
 			'featured_button_bg_color'   => '#ff7a5a',
@@ -153,9 +154,9 @@ class Infopreneur_Customizer {
 		/*
 		 * Panels
 		 */
-		$wp_customize->add_section( 'layout', array(
+		$wp_customize->add_panel( 'layout', array(
 			'title'    => __( 'Layout', 'infopreneur' ),
-			'priority' => 100
+			'priority' => 101
 		) );
 
 		/*
@@ -207,6 +208,7 @@ class Infopreneur_Customizer {
 		 * Populate each section with the settings/controls.
 		 */
 
+		$this->colors_section( $wp_customize );
 		$this->featured_section( $wp_customize );
 		$this->global_layout_section( $wp_customize );
 		$this->blog_archive_section( $wp_customize );
@@ -254,6 +256,26 @@ class Infopreneur_Customizer {
 			) );
 		}
 
+		// Meta - Blog
+		$wp_customize->selective_refresh->add_partial( 'meta_config_blog', array(
+			'selector'            => 'body:not(.single) .entry-meta',
+			'settings'            => 'meta_config_blog',
+			'container_inclusive' => true,
+			'render_callback'     => function () {
+				infopreneur_entry_meta( 'meta_config_blog' );
+			}
+		) );
+
+		// Meta - Single
+		$wp_customize->selective_refresh->add_partial( 'meta_config_single', array(
+			'selector'            => '.single .entry-meta',
+			'settings'            => 'meta_config_single',
+			'container_inclusive' => true,
+			'render_callback'     => function () {
+				infopreneur_entry_meta( 'meta_config_single' );
+			}
+		) );
+
 	}
 
 	/**
@@ -275,6 +297,32 @@ class Infopreneur_Customizer {
 			$this->version,
 			true
 		);
+
+	}
+
+	/**
+	 * Section: Colors
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access private
+	 * @since  1.0.0
+	 * @return void
+	 */
+	private function colors_section( $wp_customize ) {
+
+		/* Primary Colour */
+		$wp_customize->add_setting( 'primary_color', array(
+			'default'           => self::defaults( 'primary_color' ),
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary_color', array(
+			'label'       => esc_html__( 'Primary Color', 'infopreneur' ),
+			'description' => __( 'Link colors, button backgrounds, etc.', 'infopreneur' ),
+			'section'     => 'colors',
+			'settings'    => 'primary_color',
+		) ) );
 
 	}
 
@@ -456,7 +504,7 @@ class Infopreneur_Customizer {
 				'boxed' => esc_html__( 'Boxed', 'infopreneur' ),
 				'full'  => esc_html__( 'Full Width', 'infopreneur' )
 			),
-			'section'  => 'layout',
+			'section'  => 'global_layout',
 			'settings' => 'layout_style',
 			'priority' => 10
 		) ) );
@@ -477,7 +525,8 @@ class Infopreneur_Customizer {
 		/* Post Layout */
 		$wp_customize->add_setting( 'post_layout', array(
 			'default'           => self::defaults( 'post_layout' ),
-			'sanitize_callback' => array( $this, 'sanitize_post_layout' )
+			'sanitize_callback' => array( $this, 'sanitize_post_layout' ),
+			'transport'         => 'postMessage'
 		) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'post_layout', array(
 			'label'    => esc_html__( 'Post Archive Layout', 'infopreneur' ),
@@ -489,7 +538,6 @@ class Infopreneur_Customizer {
 			),
 			'section'  => 'blog_archive',
 			'settings' => 'post_layout',
-			'priority' => 10
 		) ) );
 
 		/* Number of Full Posts */
@@ -498,12 +546,10 @@ class Infopreneur_Customizer {
 			'sanitize_callback' => 'absint'
 		) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'number_full_posts', array(
-			'label'       => esc_html__( 'Number of Full Posts', 'infopreneur' ),
-			'description' => esc_html__( 'This setting is ignored if you\'ve chosen "Full Posts" above.', 'infopreneur' ),
-			'type'        => 'number',
-			'section'     => 'blog_archive',
-			'settings'    => 'number_full_posts',
-			'priority'    => 20
+			'label'    => esc_html__( 'Number of Full Posts', 'infopreneur' ),
+			'type'     => 'number',
+			'section'  => 'blog_archive',
+			'settings' => 'number_full_posts',
 		) ) );
 
 		/* Excerpts vs Full Posts */
@@ -512,7 +558,7 @@ class Infopreneur_Customizer {
 			'sanitize_callback' => array( $this, 'sanitize_summary_type' )
 		) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'summary_type', array(
-			'label'    => esc_html__( 'Post Archive Layout', 'infopreneur' ),
+			'label'    => esc_html__( 'Post Content', 'infopreneur' ),
 			'type'     => 'radio',
 			'choices'  => array(
 				'full'     => esc_html__( 'Full Text / Read More Tag', 'infopreneur' ),
@@ -521,7 +567,6 @@ class Infopreneur_Customizer {
 			),
 			'section'  => 'blog_archive',
 			'settings' => 'summary_type',
-			'priority' => 30
 		) ) );
 
 		/* Excerpt Length */
@@ -535,13 +580,31 @@ class Infopreneur_Customizer {
 			'type'        => 'number',
 			'section'     => 'blog_archive',
 			'settings'    => 'excerpt_length',
-			'priority'    => 40
+		) ) );
+
+		/* Thumbnail Alignment */
+		$wp_customize->add_setting( 'thumbnail_align', array(
+			'default'           => self::defaults( 'thumbnail_align' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'thumbnail_align', array(
+			'label'    => esc_html__( 'Thumbnail Alignment', 'infopreneur' ),
+			'type'     => 'select',
+			'choices'  => array(
+				'aligncenter' => __( 'Centered', 'infopreneur' ),
+				'alignleft'   => __( 'Left Aligned', 'infopreneur' ),
+				'alignright'  => __( 'Right Aligned', 'infopreneur' )
+			),
+			'section'  => 'blog_archive',
+			'settings' => 'thumbnail_align',
 		) ) );
 
 		/* Meta Config */
 		$wp_customize->add_setting( 'meta_config_blog', array(
 			'default'           => self::defaults( 'meta_config_blog' ),
-			'sanitize_callback' => 'wp_kses_post'
+			'sanitize_callback' => 'wp_kses_post',
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
 		) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'meta_config_blog', array(
 			'label'       => esc_html__( 'Entry Meta', 'infopreneur' ),
@@ -555,7 +618,6 @@ class Infopreneur_Customizer {
 			'type'        => 'textarea',
 			'section'     => 'blog_archive',
 			'settings'    => 'meta_config_blog',
-			'priority'    => 50
 		) ) );
 
 		/* Meta Position */
@@ -572,7 +634,6 @@ class Infopreneur_Customizer {
 			),
 			'section'  => 'blog_archive',
 			'settings' => 'meta_position_blog',
-			'priority' => 60
 		) ) );
 
 		/* Show / hide stuff */
@@ -587,7 +648,6 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'blog_archive',
 			'settings' => 'show_featured_blog',
-			'priority' => 100
 		) ) );
 
 		/* Left Sidebar */
@@ -600,7 +660,6 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'blog_archive',
 			'settings' => 'sidebar_left_blog',
-			'priority' => 110
 		) ) );
 
 		/* Right Sidebar */
@@ -613,7 +672,6 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'blog_archive',
 			'settings' => 'sidebar_right_blog',
-			'priority' => 120
 		) ) );
 
 		/* Suppress Archive Headings */
@@ -622,11 +680,10 @@ class Infopreneur_Customizer {
 			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
 		) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'suppress_archive_headings', array(
-			'label'    => esc_html__( 'Suppress archive headings (i.e. "Category: Books")', 'infopreneur' ),
+			'label'    => esc_html__( 'Suppress archive headings (i.e. "Category: Blogging")', 'infopreneur' ),
 			'type'     => 'checkbox',
 			'section'  => 'blog_archive',
 			'settings' => 'suppress_archive_headings',
-			'priority' => 130
 		) ) );
 
 	}
@@ -645,7 +702,8 @@ class Infopreneur_Customizer {
 		/* Meta Config */
 		$wp_customize->add_setting( 'meta_config_single', array(
 			'default'           => self::defaults( 'meta_config_single' ),
-			'sanitize_callback' => 'wp_kses_post'
+			'sanitize_callback' => 'wp_kses_post',
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
 		) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'meta_config_single', array(
 			'label'       => esc_html__( 'Entry Meta', 'infopreneur' ),
@@ -846,6 +904,44 @@ class Infopreneur_Customizer {
 			)
 		) );
 
+	}
+
+	/**
+	 * Sanitize: Post Layout
+	 *
+	 * @param string $input
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function sanitize_post_layout( $input ) {
+		$allowed = array( 'grid-2-col', 'grid-3-col', 'list' );
+
+		if ( in_array( $input, $allowed ) ) {
+			return wp_strip_all_tags( $input );
+		}
+
+		return 'list';
+	}
+
+	/**
+	 * Sanitize: Summary Type
+	 *
+	 * @param string $input
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 * @return string
+	 */
+	public function sanitize_summary_type( $input ) {
+		$allowed = array( 'full', 'excerpts', 'none' );
+
+		if ( in_array( $input, $allowed ) ) {
+			return wp_strip_all_tags( $input );
+		}
+
+		return 'excerpts';
 	}
 
 	/**

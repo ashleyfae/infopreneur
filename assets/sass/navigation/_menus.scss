@@ -74,6 +74,10 @@
         color: #333;
         display: block;
         text-decoration: none;
+
+        &:hover {
+            color: $color-primary;
+        }
     }
 
     .current_page_item > a,

@@ -184,7 +184,13 @@ th {
 body {
   font-size: 25.6px;
   font-size: 1.6rem;
+  color: #333;
   font-family: "Lato", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+p {
+  margin: 0 0 2em;
 }
 
 /*--------------------------------------------------------------
@@ -276,9 +282,6 @@ body {
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 10px;
-  margin-top: 40px;
-  margin-bottom: 40px;
   padding: 0 15px;
 }
 .layout-style-boxed #page:after {
@@ -316,6 +319,7 @@ body {
 --------------------------------------------------------------*/
 .button,
 button,
+.more-link,
 input[type="submit"] {
   background: #ff7a5a;
   border: 1px solid #ff7a5a;
@@ -340,6 +344,15 @@ input[type="submit"] {
 /*--------------------------------------------------------------
 x.1 Links
 --------------------------------------------------------------*/
+a {
+  color: #ff7a5a;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #f32f00;
+}
+
 /*--------------------------------------------------------------
 x.2 Menus
 --------------------------------------------------------------*/
@@ -392,6 +405,9 @@ x.2 Menus
   color: #333;
   display: block;
   text-decoration: none;
+}
+.navigation a:hover {
+  color: #ff7a5a;
 }
 
 /* Small menu. */
@@ -448,8 +464,12 @@ x.4 Social Sites
   display: inline-block;
 }
 #header-social a {
+  color: #333;
   display: inline-block;
   padding: 22px 5px;
+}
+#header-social a:hover {
+  color: #ff7a5a;
 }
 @media screen and (min-width: 768px) {
   #header-social {
@@ -498,24 +518,28 @@ x.4 Social Sites
 /*--------------------------------------------------------------
 5.2 Alignments
 --------------------------------------------------------------*/
-.alignleft {
-  display: inline;
-  float: left;
-  margin-right: 1.5em;
-}
-
-.alignright {
-  display: inline;
-  float: right;
-  margin-left: 1.5em;
-}
-
+.alignleft,
+.alignright,
 .aligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1.5em;
 }
 
+@media (min-width: 768px) {
+  .alignleft {
+    display: inline;
+    float: left;
+    margin-right: 1.5em;
+  }
+
+  .alignright {
+    display: inline;
+    float: right;
+    margin-left: 1.5em;
+  }
+}
 /*--------------------------------------------------------------
 5.3 Clearings
 --------------------------------------------------------------*/
@@ -567,10 +591,15 @@ x.1 Header
 --------------------------------------------------------------*/
 .site-branding {
   clear: both;
+  padding: 3em 0;
   text-align: center;
 }
 .site-branding a {
   text-decoration: none;
+}
+
+.site-title {
+  margin: 0;
 }
 
 /* Featured area */
@@ -580,6 +609,9 @@ x.1 Header
   color: white;
   padding: 5em 0;
   text-align: center;
+}
+.layout-style-boxed #featured-area {
+  margin: 0 -15px;
 }
 #featured-area.featured-overlay {
   position: relative;
@@ -600,20 +632,94 @@ x.1 Header
 }
 @media (min-width: 992px) {
   #featured-area.featured-left #featured-inner {
-    max-width: 515px;
+    max-width: 65%;
   }
   #featured-area.featured-right #featured-inner {
     margin-left: auto;
-    max-width: 515px;
+    max-width: 65%;
   }
 }
 #featured-area h1 {
   margin: 0 auto 10px;
 }
 
+#featured-cta {
+  padding-top: 1em;
+}
+
 /*--------------------------------------------------------------
 x.2 Blog Posts
 --------------------------------------------------------------*/
+.post {
+  margin: 0 0 3em;
+}
+
+.entry-title {
+  font-weight: 900;
+  letter-spacing: .05em;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+.entry-title a {
+  color: #333;
+}
+.single .entry-title {
+  font-size: 48px;
+  font-size: 3rem;
+}
+
+.entry-meta,
+.entry-footer {
+  color: #989898;
+  font-style: italic;
+  margin: 0 0 1em;
+  text-align: center;
+}
+.entry-meta a,
+.entry-footer a {
+  color: #989898;
+  text-decoration: underline;
+}
+.entry-meta a:hover,
+.entry-footer a:hover {
+  text-decoration: none;
+}
+
+.entry-footer {
+  text-align: left;
+}
+
+.entry-date .updated:not(.published) {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .post-thumbnail.alignleft, .post-thumbnail.alignright {
+    max-width: 200px;
+  }
+
+  .layout-grid-2-col,
+  .layout-grid-3-col {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 -15px;
+  }
+  .layout-grid-2-col > article,
+  .layout-grid-3-col > article {
+    padding: 0 15px;
+    width: 50%;
+  }
+  .layout-grid-2-col > article.full-post,
+  .layout-grid-3-col > article.full-post {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .layout-grid-3-col > article {
+    width: 33.3%;
+  }
+}
 /*--------------------------------------------------------------
 x.3 Comments
 --------------------------------------------------------------*/
@@ -622,6 +728,16 @@ x.4 Widgets
 --------------------------------------------------------------*/
 .widget {
   margin: 0 0 3em;
+}
+
+.widget-title {
+  font-size: 28.8px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: .05em;
+  margin: 0 0 10px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* Responsive Stuff */
@@ -653,9 +769,19 @@ x.4 Widgets
 /*--------------------------------------------------------------
 x.5 Pages
 --------------------------------------------------------------*/
+#content {
+  margin-top: 3em;
+}
+
 /*--------------------------------------------------------------
 x.6 Footer
 --------------------------------------------------------------*/
+#colophon {
+  margin-top: 3em;
+  padding: 2em 0;
+  text-align: center;
+}
+
 /*--------------------------------------------------------------
 7.0 Media
 --------------------------------------------------------------*/
@@ -709,7 +835,7 @@ img {
 8.4 Galleries
 --------------------------------------------------------------*/
 .gallery {
-  margin-bottom: 1.5em;
+  margin: 0 -6px 1.5em;
 }
 
 .gallery-item {

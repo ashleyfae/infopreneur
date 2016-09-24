@@ -96,8 +96,17 @@ function infopreneur_get_post_thumbnail( $width = null, $height = null, $crop = 
 		$post = get_post();
 	}
 
+	// Add alignmcne to class.
+	$align = get_theme_mod( 'thumbnail_align', Infopreneur_Customizer::defaults( 'thumbnail_align' ) );
+	$class .= ' ' . sanitize_html_class( $align );
+
 	$width  = $width ? $width : 700; // @todo maybe change
 	$height = $height ? $height : 400; // @todo maybe change
+
+	if ( $align != 'aligncenter' ) {
+		$width  = 500;
+		$height = 400;
+	}
 
 	$image_url = '';
 
@@ -154,14 +163,26 @@ function infopreneur_get_post_thumbnail( $width = null, $height = null, $crop = 
  */
 function infopreneur_entry_meta( $mod_name = '' ) {
 	$template = get_theme_mod( $mod_name, Infopreneur_Customizer::defaults( $mod_name ) );
-	$find     = array(
+
+	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+	}
+	$time_string = sprintf( $time_string,
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() ),
+		esc_attr( get_the_modified_date( 'c' ) ),
+		esc_html( get_the_modified_date() )
+	);
+
+	$find    = array(
 		'[date]',
 		'[author]',
 		'[category]',
 		'[comments]'
 	);
-	$replace  = array(
-		'<span class="entry-date">' . get_the_date() . '</span>',
+	$replace = array(
+		'<span class="entry-date">' . $time_string . '</span>',
 		'<span class="entry-author">' . get_the_author() . '</span>',
 		'<span class="entry-category">' . get_the_category_list( ', ' ) . '</span>'
 	);
@@ -190,6 +211,25 @@ function infopreneur_entry_meta( $mod_name = '' ) {
 	</div>
 	<?php
 	do_action( 'infopreneur/after-post-meta', get_post() );
+}
+
+/**
+ * Post Footer
+ *
+ * Displays the list of tags.
+ *
+ * @since 1.0
+ * @return void
+ */
+function infopreneur_entry_footer() {
+	if ( ! is_singular( 'post' ) ) {
+		return;
+	}
+	?>
+	<footer class="entry-footer">
+		<?php the_tags( '<span class="post-tags"><i class="fa fa-tags"></i> ', ', ', '</span>' ); ?>
+	</footer>
+	<?php
 }
 
 /**

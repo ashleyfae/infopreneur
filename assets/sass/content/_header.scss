@@ -1,10 +1,15 @@
 .site-branding {
     clear: both;
+    padding: 3em 0;
     text-align: center;
 
     a {
         text-decoration: none;
     }
+}
+
+.site-title {
+    margin: 0;
 }
 
 /* Featured area */
@@ -14,6 +19,10 @@
     color: white;
     padding: 5em 0;
     text-align: center;
+
+    .layout-style-boxed & {
+        margin: 0 -15px;
+    }
 
     &.featured-overlay {
         position: relative;
@@ -38,14 +47,14 @@
     @media (min-width: 992px) {
         &.featured-left {
             #featured-inner {
-                max-width: 515px;
+                max-width: 65%;
             }
         }
 
         &.featured-right {
             #featured-inner {
                 margin-left: auto;
-                max-width: 515px;
+                max-width: 65%;
             }
         }
     }
@@ -53,4 +62,8 @@
     h1 {
         margin: 0 auto 10px;
     }
+}
+
+#featured-cta {
+    padding-top: 1em;
 }

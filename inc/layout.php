@@ -56,7 +56,7 @@ function infopreneur_header_social() {
 				}
 				?>
 				<li id="site-<?php echo esc_attr( $id ); ?>">
-					<a href="<?php echo esc_url( $url ); ?>" title="<?php printf( esc_attr__( '%s Profile', 'infopreneur' ), $options['name'] ); ?>">
+					<a href="<?php echo esc_url( $url ); ?>" title="<?php printf( esc_attr__( '%s Profile', 'infopreneur' ), wp_strip_all_tags( $options['name'] ) ); ?>" target="_blank">
 						<i class="fa <?php echo sanitize_html_class( $options['icon'] ); ?>"></i>
 					</a>
 				</li>

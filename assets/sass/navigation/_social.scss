@@ -10,8 +10,13 @@
     }
 
     a {
+        color: #333;
         display: inline-block;
         padding: 22px 5px;
+
+        &:hover {
+            color: $color-primary;
+        }
     }
 
     @media screen and (min-width: 768px) {

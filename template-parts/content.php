@@ -60,7 +60,7 @@ $summary_type  = get_theme_mod( 'summary_type', Infopreneur_Customizer::defaults
 			if ( $summary_type == 'excerpts' ) {
 				the_excerpt();
 			} else {
-				the_content( __( 'Keep Reading &raquo;', 'infopreneur' ) );
+				the_content( __( 'Continue Reading &raquo;', 'infopreneur' ) );
 			}
 
 			wp_link_pages( array(
