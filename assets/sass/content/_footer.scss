@@ -32,9 +32,15 @@
 }
 
 #above-footer-area {
-    text-align: center;
-
     .null-instagram-feed {
-        margin: 0;
+        padding: 0;
+    }
+
+    .layout-style-full & {
+        .widget:not(.null-instagram-feed) {
+            @include container;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
     }
 }

@@ -3,3 +3,17 @@
         @include screen-reader-text;
     }
 }
+
+/* In the sidebar */
+#sidebar-right,
+#sidebar-left {
+    .widget_mc4wp_form_widget {
+        input[type="email"],
+        input[type="text"],
+        input[type="submit"] {
+            display: block;
+            margin: 4px 0;
+            width: 100%;
+        }
+    }
+}

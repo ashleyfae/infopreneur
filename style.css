@@ -294,15 +294,13 @@ body {
   }
 }
 
-.layout-style-full .container,
-.layout-style-full #above-footer-area .widget:not(.null-instagram-feed) {
+.layout-style-full .container {
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 15px;
 }
-.layout-style-full .container:after,
-.layout-style-full #above-footer-area .widget:not(.null-instagram-feed):after {
+.layout-style-full .container:after {
   content: " ";
   display: block;
   clear: both;
@@ -372,13 +370,20 @@ textarea:focus {
   border-color: #b4b4b4;
   outline: 0;
 }
-#below-header-area input[type="email"], #below-header-area
+#below-header-area input[type="email"], #above-footer-area input[type="email"], #below-header-area
+input[type="number"], #above-footer-area
 input[type="number"], #below-header-area
+input[type="password"], #above-footer-area
 input[type="password"], #below-header-area
+input[type="search"], #above-footer-area
 input[type="search"], #below-header-area
+input[type="tel"], #above-footer-area
 input[type="tel"], #below-header-area
+input[type="text"], #above-footer-area
 input[type="text"], #below-header-area
+input[type="url"], #above-footer-area
 input[type="url"], #below-header-area
+textarea, #above-footer-area
 textarea {
   background: white;
   border-color: white;
@@ -713,21 +718,20 @@ x.1 Header
   margin: 0 auto 10px;
 }
 
-#featured-cta {
-  padding-top: 1em;
-}
-
 /* Widget Area */
-#below-header-area {
+#below-header-area,
+#above-footer-area {
   background: #f4f4f4;
 }
-#below-header-area .widget {
+#below-header-area .widget,
+#above-footer-area .widget {
   margin: 0 auto;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
   text-align: center;
 }
-#below-header-area .widget_mc4wp_form_widget input[type="submit"] {
+#below-header-area .widget_mc4wp_form_widget input[type="submit"],
+#above-footer-area .widget_mc4wp_form_widget input[type="submit"] {
   margin: 2px;
 }
 
@@ -890,11 +894,20 @@ x.6 Footer
     float: right;
   }
 }
-#above-footer-area {
-  text-align: center;
-}
 #above-footer-area .null-instagram-feed {
-  margin: 0;
+  padding: 0;
+}
+.layout-style-full #above-footer-area .widget:not(.null-instagram-feed) {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.layout-style-full #above-footer-area .widget:not(.null-instagram-feed):after {
+  content: " ";
+  display: block;
+  clear: both;
 }
 
 /*--------------------------------------------------------------
@@ -1025,6 +1038,18 @@ x.2 MailChimp for WP
   width: auto;
   z-index: 100000;
   /* Above WP toolbar. */
+}
+
+/* In the sidebar */
+#sidebar-right .widget_mc4wp_form_widget input[type="email"],
+#sidebar-right .widget_mc4wp_form_widget input[type="text"],
+#sidebar-right .widget_mc4wp_form_widget input[type="submit"],
+#sidebar-left .widget_mc4wp_form_widget input[type="email"],
+#sidebar-left .widget_mc4wp_form_widget input[type="text"],
+#sidebar-left .widget_mc4wp_form_widget input[type="submit"] {
+  display: block;
+  margin: 4px 0;
+  width: 100%;
 }
 
 /*--------------------------------------------------------------

@@ -70,12 +70,9 @@
     }
 }
 
-#featured-cta {
-    padding-top: 1em;
-}
-
 /* Widget Area */
-#below-header-area {
+#below-header-area,
+#above-footer-area {
     background: #f4f4f4;
 
     .widget {

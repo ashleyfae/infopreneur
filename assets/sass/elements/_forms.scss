@@ -17,7 +17,8 @@ textarea {
         outline: 0;
     }
 
-    #below-header-area & {
+    #below-header-area &,
+    #above-footer-area & {
         background: white;
         border-color: white;
         margin: 2px;
