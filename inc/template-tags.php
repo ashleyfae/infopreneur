@@ -34,7 +34,7 @@ if ( ! function_exists( 'infopreneur_navigation' ) ) {
 		do_action( 'infopreneur/navigation/before', $id );
 		?>
 		<nav id="site-navigation-<?php esc_attr_e( $id ); ?>" class="navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="menu-<?php esc_attr_e( $id ); ?>" aria-expanded="false"><?php esc_html_e( 'Menu', 'infopreneur' ); ?></button>
+			<button class="layout-toggle" aria-controls="menu-<?php esc_attr_e( $id ); ?>" aria-expanded="false"><?php esc_html_e( 'Menu', 'infopreneur' ); ?></button>
 			<?php wp_nav_menu( array(
 				'container'      => false,
 				'theme_location' => $id,

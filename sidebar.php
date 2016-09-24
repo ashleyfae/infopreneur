@@ -12,7 +12,7 @@ if ( ! is_active_sidebar( 'sidebar' ) && ! is_customize_preview() ) {
 }
 ?>
 
-<button class="sidebar-toggle" aria-controls="sidebar-right" aria-expanded="false"><?php esc_html_e( 'Show Sidebar', 'infopreneur' ); ?></button>
+<button class="layout-toggle" aria-controls="sidebar-right" aria-expanded="false"><?php esc_html_e( 'Show Sidebar', 'infopreneur' ); ?></button>
 
 <aside id="sidebar-right" class="widget-area" role="complementary">
 	<?php

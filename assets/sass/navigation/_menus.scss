@@ -3,9 +3,12 @@
     font: {
         weight: bold;
     }
+    text-align: center;
     text-transform: uppercase;
 
     .menu {
+        display: none;
+
         @media screen and (min-width: 768px) {
             > li {
                 > a {
@@ -16,44 +19,45 @@
     }
 
     ul {
-        display: none;
         list-style: none;
         margin: 0;
         padding-left: 0;
 
-        ul {
-            background: white;
-            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-            float: left;
-            position: absolute;
-            top: 100%;
-            left: -999em;
-            z-index: 99999;
-            text-align: left;
-
+        @media (min-width: 768px) {
             ul {
+                background: white;
+                box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+                float: left;
+                position: absolute;
+                top: 100%;
                 left: -999em;
-                top: 0;
-            }
+                z-index: 99999;
+                text-align: left;
 
-            li {
-                &:hover > ul,
-                &.focus > ul {
-                    left: 100%;
+                ul {
+                    left: -999em;
+                    top: 0;
                 }
-            }
 
-            a {
-                padding: 10px;
-                width: 200px;
-            }
+                li {
+                    &:hover > ul,
+                    &.focus > ul {
+                        left: 100%;
+                    }
+                }
 
-            :hover > a,
-            .focus > a {
-            }
+                a {
+                    padding: 10px;
+                    width: 200px;
+                }
 
-            a:hover,
-            a.focus {
+                :hover > a,
+                .focus > a {
+                }
+
+                a:hover,
+                a.focus {
+                }
             }
         }
 
@@ -63,8 +67,11 @@
         }
     }
     li {
-        display: inline-block;
         position: relative;
+
+        @media (min-width: 768px) {
+            display: inline-block;
+        }
 
         &:hover > a,
         &.focus > a {
@@ -87,16 +94,20 @@
 }
 
 /* Small menu. */
-.menu-toggle,
-.navigation.toggled ul {
+.layout-toggle,
+.menu.toggled {
     display: block;
 }
 
+.layout-toggle {
+    margin: 1em auto;
+}
+
 @media screen and (min-width: 768px) {
-    .menu-toggle {
+    .layout-toggle {
         display: none;
     }
-    .navigation ul {
+    .navigation .menu {
         display: block;
     }
 

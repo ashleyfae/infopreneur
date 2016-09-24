@@ -411,7 +411,11 @@ x.2 Menus
 .navigation {
   display: block;
   font-weight: bold;
+  text-align: center;
   text-transform: uppercase;
+}
+.navigation .menu {
+  display: none;
 }
 @media screen and (min-width: 768px) {
   .navigation .menu > li > a {
@@ -419,39 +423,44 @@ x.2 Menus
   }
 }
 .navigation ul {
-  display: none;
   list-style: none;
   margin: 0;
   padding-left: 0;
 }
-.navigation ul ul {
-  background: white;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  float: left;
-  position: absolute;
-  top: 100%;
-  left: -999em;
-  z-index: 99999;
-  text-align: left;
-}
-.navigation ul ul ul {
-  left: -999em;
-  top: 0;
-}
-.navigation ul ul li:hover > ul, .navigation ul ul li.focus > ul {
-  left: 100%;
-}
-.navigation ul ul a {
-  padding: 10px;
-  width: 200px;
+@media (min-width: 768px) {
+  .navigation ul ul {
+    background: white;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    float: left;
+    position: absolute;
+    top: 100%;
+    left: -999em;
+    z-index: 99999;
+    text-align: left;
+  }
+  .navigation ul ul ul {
+    left: -999em;
+    top: 0;
+  }
+  .navigation ul ul li:hover > ul, .navigation ul ul li.focus > ul {
+    left: 100%;
+  }
+  .navigation ul ul a {
+    padding: 10px;
+    width: 200px;
+  }
 }
 .navigation ul li:hover > ul,
 .navigation ul li.focus > ul {
   left: auto;
 }
 .navigation li {
-  display: inline-block;
   position: relative;
+}
+@media (min-width: 768px) {
+  .navigation li {
+    display: inline-block;
+  }
 }
 .navigation a {
   color: #333;
@@ -463,17 +472,21 @@ x.2 Menus
 }
 
 /* Small menu. */
-.menu-toggle,
-.navigation.toggled ul {
+.layout-toggle,
+.menu.toggled {
   display: block;
 }
 
+.layout-toggle {
+  margin: 1em auto;
+}
+
 @media screen and (min-width: 768px) {
-  .menu-toggle {
+  .layout-toggle {
     display: none;
   }
 
-  .navigation ul {
+  .navigation .menu {
     display: block;
   }
 
@@ -526,6 +539,9 @@ x.3 Pagination
 /*--------------------------------------------------------------
 x.4 Social Sites
 --------------------------------------------------------------*/
+#header-social {
+  text-align: center;
+}
 #header-social ul {
   list-style: none;
   margin: 0;
