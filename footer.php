@@ -14,6 +14,19 @@ do_action( 'infopreneur/inside-content/bottom' ); ?>
 
 </div><!-- #content -->
 
+<?php
+/**
+ * Above footer widget area.
+ */
+if ( is_active_sidebar( 'above-footer' ) ) {
+	?>
+	<div id="above-footer-area" class="widget-area">
+		<?php dynamic_sidebar( 'above-footer' ); ?>
+	</div>
+	<?php
+}
+?>
+
 <?php if ( get_page_template_slug() != 'page-templates/landing.php' ) : ?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<?php do_action( 'infopreneur/footer/before-site-info' ); ?>

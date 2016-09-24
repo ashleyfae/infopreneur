@@ -44,7 +44,23 @@
 		</header>
 	<?php endif; ?>
 
-	<?php get_template_part( 'template-parts/featured' ); ?>
+	<?php
+	/**
+	 * Featured banner area.
+	 */
+	get_template_part( 'template-parts/featured' );
+
+	/**
+	 * Below header widget.
+	 */
+	if ( is_active_sidebar( 'below-header' ) ) {
+		?>
+		<div id="below-header-area" class="widget-area">
+			<?php dynamic_sidebar( 'below-header' ); ?>
+		</div>
+		<?php
+	}
+	?>
 
 	<div id="content" class="site-content container">
 
