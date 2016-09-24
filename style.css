@@ -754,6 +754,18 @@ x.1 Header
 /*--------------------------------------------------------------
 x.2 Blog Posts
 --------------------------------------------------------------*/
+.page-header {
+  border-bottom: 2px solid #f4f4f4;
+  margin-bottom: 3em;
+}
+
+.page-title {
+  font-size: 48px;
+  font-size: 3rem;
+  margin-top: 0;
+  text-align: center;
+}
+
 .post {
   margin: 0 0 3em;
 }

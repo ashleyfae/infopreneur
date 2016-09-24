@@ -1,3 +1,14 @@
+.page-header {
+    border-bottom: 2px solid #f4f4f4;
+    margin-bottom: 3em;
+}
+
+.page-title {
+    @include font-size(3.0);
+    margin-top: 0;
+    text-align: center;
+}
+
 .post {
     margin: 0 0 3em;
 }

@@ -53,7 +53,7 @@ infopreneur_maybe_show_sidebar( 'left' );
 						 */
 						$slug          = '';
 						$post          = get_post();
-						$template_slug = apply_filters( 'bookstagram/index/template-slug', $slug, $post );
+						$template_slug = apply_filters( 'infopreneur/index/template-slug', $slug, $post );
 
 						/**
 						 * Include the template part.
