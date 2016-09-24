@@ -77,15 +77,21 @@
 /* Widget Area */
 #below-header-area {
     background: #f4f4f4;
-    padding: 1em 0;
 
     .widget {
+        margin: 0 auto;
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
         text-align: center;
     }
 
     .widget_mc4wp_form_widget {
         label {
             @include screen-reader-text;
+        }
+
+        input[type="submit"] {
+            margin: 2px;
         }
     }
 }

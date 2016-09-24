@@ -6,7 +6,6 @@
         weight: bold;
     }
     letter-spacing: .05em;
-    margin-top: 3em;
     padding: 2em 0 1.5em;
     text-transform: uppercase;
     text-align: center;
@@ -29,5 +28,11 @@
 
     #infopreneur-credits {
         float: right;
+    }
+}
+
+#above-footer-area {
+    .widget {
+        margin: 0;
     }
 }

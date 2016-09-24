@@ -344,6 +344,44 @@ input[type="submit"]:hover {
 /*--------------------------------------------------------------
 3.x Forms
 --------------------------------------------------------------*/
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+textarea {
+  background: #f4f4f4;
+  border: 1px solid #f4f4f4;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 15px 20px;
+}
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="text"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+  border-color: #00aaa0;
+  outline: 0;
+}
+#below-header-area input[type="email"], #below-header-area
+input[type="number"], #below-header-area
+input[type="password"], #below-header-area
+input[type="search"], #below-header-area
+input[type="tel"], #below-header-area
+input[type="text"], #below-header-area
+input[type="url"], #below-header-area
+textarea {
+  background: white;
+  border-color: white;
+  margin: 2px;
+}
+
 /*--------------------------------------------------------------
 4.0 Navigation
 --------------------------------------------------------------*/
@@ -679,9 +717,11 @@ x.1 Header
 /* Widget Area */
 #below-header-area {
   background: #f4f4f4;
-  padding: 1em 0;
 }
 #below-header-area .widget {
+  margin: 0 auto;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
   text-align: center;
 }
 #below-header-area .widget_mc4wp_form_widget label {
@@ -710,6 +750,9 @@ x.1 Header
   width: auto;
   z-index: 100000;
   /* Above WP toolbar. */
+}
+#below-header-area .widget_mc4wp_form_widget input[type="submit"] {
+  margin: 2px;
 }
 
 /*--------------------------------------------------------------
@@ -836,6 +879,7 @@ x.5 Pages
 --------------------------------------------------------------*/
 #content {
   margin-top: 3em;
+  margin-bottom: 3em;
 }
 
 /*--------------------------------------------------------------
@@ -848,7 +892,6 @@ x.6 Footer
   color: #96dad6;
   font-weight: bold;
   letter-spacing: .05em;
-  margin-top: 3em;
   padding: 2em 0 1.5em;
   text-transform: uppercase;
   text-align: center;
@@ -871,6 +914,10 @@ x.6 Footer
     float: right;
   }
 }
+#above-footer-area .widget {
+  margin: 0;
+}
+
 /*--------------------------------------------------------------
 7.0 Media
 --------------------------------------------------------------*/
@@ -982,3 +1029,12 @@ x.4 NG About the Author
 /*--------------------------------------------------------------
 x.5 WP Instagram Widget
 --------------------------------------------------------------*/
+.null-instagram-feed ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.null-instagram-feed a, .null-instagram-feed img {
+  display: block;
+}

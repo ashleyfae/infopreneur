@@ -1,0 +1,25 @@
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+textarea {
+    background: #f4f4f4;
+    border: 1px solid #f4f4f4;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 15px 20px;
+
+    &:focus {
+        border-color: $color-secondary;
+        outline: 0;
+    }
+
+    #below-header-area & {
+        background: white;
+        border-color: white;
+        margin: 2px;
+    }
+}
