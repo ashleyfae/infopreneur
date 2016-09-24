@@ -88,6 +88,8 @@ class Infopreneur_Customizer {
 	public static function defaults( $key = '' ) {
 		$defaults = array(
 			'primary_color'              => '#ff7a5a',
+			'secondary_color'            => '#00aaa0',
+			'lead_box_bg'                => '#00aaa0',
 			'layout_style'               => 'full',
 			'post_layout'                => 'list',
 			'number_full_posts'          => 1,
@@ -322,6 +324,32 @@ class Infopreneur_Customizer {
 			'description' => __( 'Link colors, button backgrounds, etc.', 'infopreneur' ),
 			'section'     => 'colors',
 			'settings'    => 'primary_color',
+		) ) );
+
+		/* Secondary Colour */
+		$wp_customize->add_setting( 'secondary_color', array(
+			'default'           => self::defaults( 'secondary_color' ),
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_color', array(
+			'label'       => esc_html__( 'Secondary Color', 'infopreneur' ),
+			'description' => __( 'Accents, footer background.', 'infopreneur' ),
+			'section'     => 'colors',
+			'settings'    => 'secondary_color',
+		) ) );
+
+		/* Lead Box BG */
+		$wp_customize->add_setting( 'lead_box_bg', array(
+			'default'           => self::defaults( 'lead_box_bg' ),
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lead_box_bg', array(
+			'label'       => esc_html__( 'Lead Box BG', 'infopreneur' ),
+			'description' => __( 'Background color on the Lead Box page template.', 'infopreneur' ),
+			'section'     => 'colors',
+			'settings'    => 'lead_box_bg',
 		) ) );
 
 	}

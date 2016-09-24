@@ -15,7 +15,7 @@ do_action( 'infopreneur/inside-content/bottom' ); ?>
 </div><!-- #content -->
 
 <?php
-if ( get_page_template_slug() != 'page-templates/landing.php' ) :
+if ( ! infopreneur_is_plain_page() ) :
 	/**
 	 * Above footer widget area.
 	 */

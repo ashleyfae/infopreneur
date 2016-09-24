@@ -26,7 +26,7 @@
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'infopreneur' ); ?></a>
 
-	<?php if ( get_page_template_slug() != 'page-templates/landing.php' ) : ?>
+	<?php if ( ! infopreneur_is_plain_page() ) : ?>
 		<header id="masthead" class="site-header" role="banner">
 			<?php
 			/**

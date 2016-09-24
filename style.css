@@ -843,7 +843,7 @@ x.2 Blog Posts
 .entry-title a {
   color: #333;
 }
-.single .entry-title {
+.single .entry-title, body.page .entry-title {
   font-size: 48px;
   font-size: 3rem;
 }
@@ -951,6 +951,16 @@ x.5 Pages
 #content {
   margin-top: 3em;
   margin-bottom: 3em;
+}
+
+.page-template-lead-box {
+  background: #00aaa0;
+}
+.page-template-lead-box #main {
+  background: white;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em 2em;
 }
 
 /*--------------------------------------------------------------

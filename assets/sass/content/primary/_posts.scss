@@ -31,7 +31,8 @@
         color: $color-text;
     }
 
-    .single & {
+    .single &,
+    body.page & {
         @include font-size(3.0);
     }
 }

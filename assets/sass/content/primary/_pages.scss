@@ -2,3 +2,14 @@
     margin-top: 3em;
     margin-bottom: 3em;
 }
+
+.page-template-lead-box {
+    background: $color-secondary;
+
+    #main {
+        background: white;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 1em 2em;
+    }
+}

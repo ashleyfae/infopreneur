@@ -68,9 +68,11 @@ function infopreneur_get_sidebar_locations() {
 /**
  * Body Classes
  *
- * @todo
- *
  * @param array $classes
+ *
+ * @uses  infopreneur_is_plain_page()
+ * @uses  infopreneur_get_current_view()
+ * @uses  infopreneur_get_sidebar_locations()
  *
  * @since 1.0.0
  * @return array
@@ -89,7 +91,7 @@ function infopreneur_body_classes( $classes ) {
 	// Get current page template.
 	$page_template = get_page_template_slug();
 
-	if ( $page_template != 'page-templates/full-width.php' && $page_template != 'page-templates/landing.php' ) {
+	if ( $page_template != 'page-templates/full-width.php' && ! infopreneur_is_plain_page() ) {
 
 		// Get the view.
 		$view = infopreneur_get_current_view();
@@ -131,10 +133,17 @@ function infopreneur_get_custom_css() {
 		esc_html( $primary_dark )
 	);
 
-	// Secondary colour @todo actually add to Customizer
+	// Secondary colour
 	$css .= sprintf(
-		'blockquote { border-left-color: %1$s; }',
+		'#colophon { background-color: %1$s; }
+		blockquote { border-left-color: %1$s; }',
 		esc_html( get_theme_mod( 'secondary_color', Infopreneur_Customizer::defaults( 'secondary_color' ) ) )
+	);
+
+	// Lead box BG colour
+	$css .= sprintf(
+		'.page-template-lead-box { background-color: %1$s; }',
+		esc_html( get_theme_mod( 'lead_box_bg', Infopreneur_Customizer::defaults( 'lead_box_bg' ) ) )
 	);
 
 	// Featured
@@ -292,4 +301,31 @@ function infopreneur_get_social_sites() {
 	);
 
 	return apply_filters( 'infopreneur/get-social-sites', $sites );
+}
+
+/**
+ * Is Plain Page
+ *
+ * Determines whether or not we're on a "plain" page. Plain pages omit
+ * the header, footer, and other extra flashy areas.
+ *
+ * @hooks :
+ *        `infopreneur/is-plain-page`
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function infopreneur_is_plain_page() {
+	$is_plain_page = false;
+
+	$plain_templates = array(
+		'page-templates/landing.php',
+		'page-templates/lead-box.php'
+	);
+
+	if ( in_array( get_page_template_slug(), $plain_templates ) ) {
+		$is_plain_page = true;
+	}
+
+	return apply_filters( 'infopreneur/is-plain-page', $is_plain_page );
 }
