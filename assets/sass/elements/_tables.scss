@@ -1,0 +1,17 @@
+table {
+    thead {
+        th {
+            background: #f4f4f4;
+            font: {
+                weight: 900;
+            }
+            letter-spacing: .05em;
+            text-transform: uppercase;
+        }
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: .5em;
+    }
+}

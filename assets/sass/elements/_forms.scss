@@ -24,3 +24,13 @@ textarea {
         margin: 2px;
     }
 }
+
+.search-form {
+    .search-field {
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        @include screen-reader-text;
+    }
+}

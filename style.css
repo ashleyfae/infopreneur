@@ -29,6 +29,7 @@
 3.0 Elements
     3.1 Buttons
     3.2 Forms
+    3.3 Tables
 4.0 Navigation
     4.1 Links
     4.2 Menus
@@ -388,6 +389,51 @@ textarea {
   background: white;
   border-color: white;
   margin: 2px;
+}
+
+.search-form .search-field {
+  width: 100%;
+}
+.search-form input[type="submit"] {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+.search-form input[type="submit"]:hover, .search-form input[type="submit"]:active, .search-form input[type="submit"]:focus {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: black;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/*--------------------------------------------------------------
+3.x Tables
+--------------------------------------------------------------*/
+table thead th {
+  background: #f4f4f4;
+  font-weight: 900;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+table th, table td {
+  border: 1px solid #ddd;
+  padding: .5em;
 }
 
 /*--------------------------------------------------------------

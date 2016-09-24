@@ -4,12 +4,11 @@ A business theme for infopreneurs. Still a work in progress. Seriously. Don't lo
 
 ## Todo:
 
-* Archive pages.
+* Lists, blockquotes
 * Comments
 * Test normal pages.
 * Test all core widgets.
-* Search.
-* WooCommerce integration.
+* WooCommerce integration - if I can be bothered.
 * Easy Digital Downloads integration.
 
 ## Credits
