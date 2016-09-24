@@ -2,6 +2,8 @@
 
 A business theme for infopreneurs. Still a work in progress. Seriously. Don't look.
 
+Demo site (WIP): https://demo.nosegraze.com/infopreneur/
+
 ## Todo:
 
 * Lists
