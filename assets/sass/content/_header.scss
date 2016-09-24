@@ -86,10 +86,6 @@
     }
 
     .widget_mc4wp_form_widget {
-        label {
-            @include screen-reader-text;
-        }
-
         input[type="submit"] {
             margin: 2px;
         }

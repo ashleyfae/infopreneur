@@ -53,10 +53,11 @@
 	7.4 Galleries
 8.0 Plugins
     8.1 Expanding Archives
-    8.2 Naked Social Share
-    8.3 Naked Social Widget
-    8.4 NG About the Author
-    8.5 WP Instagram Widget
+    8.2 MailChimp for WP
+    8.3 Naked Social Share
+    8.4 Naked Social Widget
+    8.5 NG About the Author
+    8.6 WP Instagram Widget
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 1.0 Reset
@@ -293,13 +294,15 @@ body {
   }
 }
 
-.layout-style-full .container {
+.layout-style-full .container,
+.layout-style-full #above-footer-area .widget:not(.null-instagram-feed) {
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 15px;
 }
-.layout-style-full .container:after {
+.layout-style-full .container:after,
+.layout-style-full #above-footer-area .widget:not(.null-instagram-feed):after {
   content: " ";
   display: block;
   clear: both;
@@ -366,7 +369,7 @@ input[type="tel"]:focus,
 input[type="text"]:focus,
 input[type="url"]:focus,
 textarea:focus {
-  border-color: #00aaa0;
+  border-color: #b4b4b4;
   outline: 0;
 }
 #below-header-area input[type="email"], #below-header-area
@@ -724,33 +727,6 @@ x.1 Header
   padding-bottom: 1.5em;
   text-align: center;
 }
-#below-header-area .widget_mc4wp_form_widget label {
-  clip: rect(1px, 1px, 1px, 1px);
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
-#below-header-area .widget_mc4wp_form_widget label:hover, #below-header-area .widget_mc4wp_form_widget label:active, #below-header-area .widget_mc4wp_form_widget label:focus {
-  background-color: white;
-  border-radius: 3px;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-  clip: auto !important;
-  color: black;
-  display: block;
-  font-size: 14px;
-  font-size: 0.875rem;
-  font-weight: bold;
-  height: auto;
-  left: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
-  width: auto;
-  z-index: 100000;
-  /* Above WP toolbar. */
-}
 #below-header-area .widget_mc4wp_form_widget input[type="submit"] {
   margin: 2px;
 }
@@ -914,7 +890,10 @@ x.6 Footer
     float: right;
   }
 }
-#above-footer-area .widget {
+#above-footer-area {
+  text-align: center;
+}
+#above-footer-area .null-instagram-feed {
   margin: 0;
 }
 
@@ -1015,19 +994,50 @@ img {
 8.0 Plugins
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.1 Expanding ARchives
+x.1 Expanding Archives
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.2 Naked Social Share
+x.2 MailChimp for WP
+--------------------------------------------------------------*/
+.widget_mc4wp_form_widget label {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+.widget_mc4wp_form_widget label:hover, .widget_mc4wp_form_widget label:active, .widget_mc4wp_form_widget label:focus {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: black;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/*--------------------------------------------------------------
+x.3 Naked Social Share
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.3 Naked Social Widget
+x.4 Naked Social Widget
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.4 NG About the Author
+x.5 NG About the Author
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.5 WP Instagram Widget
+x.6 WP Instagram Widget
 --------------------------------------------------------------*/
 .null-instagram-feed ul {
   display: flex;

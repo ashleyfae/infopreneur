@@ -17,7 +17,8 @@ body {
 }
 
 .layout-style-full {
-    .container {
+    .container,
+    #above-footer-area .widget:not(.null-instagram-feed) {
         @include container;
         padding: 0 15px;
     }
