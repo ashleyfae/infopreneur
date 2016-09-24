@@ -4,9 +4,8 @@ A business theme for infopreneurs. Still a work in progress. Seriously. Don't lo
 
 ## Todo:
 
-* Lists, code
+* Lists
 * Comments
-* Test normal pages.
 * Test all core widgets.
 * WooCommerce integration - if I can be bothered.
 * Easy Digital Downloads integration.
