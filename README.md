@@ -2,6 +2,16 @@
 
 A business theme for infopreneurs. Still a work in progress. Seriously. Don't look.
 
+## Todo:
+
+* Archive pages.
+* Comments
+* Test normal pages.
+* Test all core widgets.
+* Search.
+* WooCommerce integration.
+* Easy Digital Downloads integration.
+
 ## Credits
 
 Default featured area image ( assets/images/featured-bg.jpg ) by [William Stitt](https://unsplash.com/@willpower). Licensed under Creative Commons Zero.
