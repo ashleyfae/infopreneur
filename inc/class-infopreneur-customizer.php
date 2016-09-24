@@ -191,9 +191,15 @@ class Infopreneur_Customizer {
 			'panel' => 'layout',
 		) );
 
+		// Social Media
+		$wp_customize->add_section( 'social', array(
+			'title'       => __( 'Social Media', 'infopreneur' ),
+			'description' => __( 'Social icons will appear to the right of your top navigation menu.', 'infopreneur' )
+		) );
+
 		// Footer
 		$wp_customize->add_section( 'footer', array(
-			'title' => __( 'Theme Footer', 'infopreneur' ),
+			'title' => __( 'Footer', 'infopreneur' ),
 		) );
 
 		/*
@@ -205,6 +211,7 @@ class Infopreneur_Customizer {
 		$this->blog_archive_section( $wp_customize );
 		$this->single_post_section( $wp_customize );
 		$this->single_page_section( $wp_customize );
+		$this->social_media_section( $wp_customize );
 		$this->footer_section( $wp_customize );
 
 		/*
@@ -744,6 +751,34 @@ class Infopreneur_Customizer {
 			'settings' => 'sidebar_right_page',
 			'priority' => 130
 		) ) );
+
+	}
+
+	/**
+	 * Section: Social Media
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access private
+	 * @since  1.0.0
+	 * @return void
+	 */
+	private function social_media_section( $wp_customize ) {
+
+		foreach ( infopreneur_get_social_sites() as $id => $site ) {
+			$wp_customize->add_setting( $id, array(
+				'default'           => '',
+				'sanitize_callback' => 'esc_url_raw',
+				'transport'         => 'postMessage',
+			) );
+			$wp_customize->add_control( new WP_Customize_Control( $wp_customize, $id, array(
+					'label'    => sprintf( __( '%s Profile URL', 'infopreneur' ), esc_html( $site['name'] ) ),
+					'type'     => 'text',
+					'section'  => 'social',
+					'settings' => $id,
+				)
+			) );
+		}
 
 	}
 

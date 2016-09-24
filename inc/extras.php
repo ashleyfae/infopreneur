@@ -226,3 +226,49 @@ function infopreneur_featured_classes() {
 
 	return implode( ' ', $sanitized_classes );
 }
+
+/**
+ * Get Social Sites
+ *
+ * Returns an array of social media sites that can be used in the theme.
+ *
+ * @hooks :
+ *        `infopreneur/get-social-sites`
+ *
+ * @since 1.0.0
+ * @return array
+ */
+function infopreneur_get_social_sites() {
+	$sites = array(
+		'twitter'     => array(
+			'name' => __( 'Twitter', 'infopreneur' ),
+			'icon' => 'fa-twitter-square'
+		),
+		'facebook'    => array(
+			'name' => __( 'Facebook', 'infopreneur' ),
+			'icon' => 'fa-facebook-square'
+		),
+		'pinterest'   => array(
+			'name' => __( 'Pinterest', 'infopreneur' ),
+			'icon' => 'fa-pinterest-square'
+		),
+		'instagram'   => array(
+			'name' => __( 'Instagram', 'infopreneur' ),
+			'icon' => 'fa-instagram'
+		),
+		'google_plus' => array(
+			'name' => __( 'Google+', 'infopreneur' ),
+			'icon' => 'fa-google-plus-square'
+		),
+		'tumblr'      => array(
+			'name' => __( 'Tumblr', 'infopreneur' ),
+			'icon' => 'fa-tumblr-square'
+		),
+		'youtube'      => array(
+			'name' => __( 'YouTube', 'infopreneur' ),
+			'icon' => 'fa-youtube-square'
+		)
+	);
+
+	return apply_filters( 'infopreneur/get-social-sites', $sites );
+}
