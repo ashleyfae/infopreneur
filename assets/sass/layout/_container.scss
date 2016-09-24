@@ -1,12 +1,11 @@
 body {
-    background: #f4f4f4;
+    background: white;
 }
 
 #page {
-    background: #fff;
-
     .layout-style-boxed & {
         @include container;
+        background: white;
         padding: 0 15px;
 
         @media (min-width: 768px) {

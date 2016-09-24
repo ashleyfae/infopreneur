@@ -16,4 +16,10 @@ input[type="submit"] {
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.3s;
+
+    &:hover {
+        background-color: darken($color-primary, 20);
+        border-color: darken($color-primary, 20);
+        color: white;
+    }
 }
