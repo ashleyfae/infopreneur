@@ -8,6 +8,9 @@
         init: function () {
             $('.layout-toggle')
                 .on('click', this.toggleArea);
+
+            $('#search-site')
+                .on('click', 'a', this.openSearch);
         },
 
         /**
@@ -31,6 +34,15 @@
                 $(this).next().removeClass('toggled');
 
             }
+        },
+
+        /**
+         * Open Search
+         *
+         * @param e
+         */
+        openSearch: function (e) {
+            e.preventDefault();
         }
 
     };

@@ -33,6 +33,7 @@
     4.1 Links
     4.2 Menus
     4.3 Pagination
+    4.4 Social Sites
 5.0 Modules
     5.1 Accessibility
     5.2 Alignments
@@ -342,28 +343,23 @@ x.1 Links
 /*--------------------------------------------------------------
 x.2 Menus
 --------------------------------------------------------------*/
-.main-navigation {
-  clear: both;
+.navigation {
   display: block;
   font-weight: bold;
-  width: 100%;
   text-transform: uppercase;
 }
-.main-navigation .menu {
-  text-align: center;
-}
 @media screen and (min-width: 768px) {
-  .main-navigation .menu > li > a {
-    padding: 22px 20px;
+  .navigation .menu > li > a {
+    padding: 22px 10px;
   }
 }
-.main-navigation ul {
+.navigation ul {
   display: none;
   list-style: none;
   margin: 0;
   padding-left: 0;
 }
-.main-navigation ul ul {
+.navigation ul ul {
   background: white;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   float: left;
@@ -373,26 +369,26 @@ x.2 Menus
   z-index: 99999;
   text-align: left;
 }
-.main-navigation ul ul ul {
+.navigation ul ul ul {
   left: -999em;
   top: 0;
 }
-.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
+.navigation ul ul li:hover > ul, .navigation ul ul li.focus > ul {
   left: 100%;
 }
-.main-navigation ul ul a {
+.navigation ul ul a {
   padding: 10px;
   width: 200px;
 }
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.navigation ul li:hover > ul,
+.navigation ul li.focus > ul {
   left: auto;
 }
-.main-navigation li {
+.navigation li {
   display: inline-block;
   position: relative;
 }
-.main-navigation a {
+.navigation a {
   color: #333;
   display: block;
   text-decoration: none;
@@ -400,7 +396,7 @@ x.2 Menus
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.navigation.toggled ul {
   display: block;
 }
 
@@ -409,10 +405,17 @@ x.2 Menus
     display: none;
   }
 
-  .main-navigation ul {
+  .navigation ul {
     display: block;
   }
+
+  #site-navigation-menu_1 {
+    float: left;
+  }
 }
+/*--------------------------------------------------------------
+x.3 Pagination
+--------------------------------------------------------------*/
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
@@ -434,8 +437,29 @@ x.2 Menus
 }
 
 /*--------------------------------------------------------------
-x.3 Pagination
+x.4 Social Sites
 --------------------------------------------------------------*/
+#header-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#header-social li {
+  display: inline-block;
+}
+#header-social a {
+  display: inline-block;
+  padding: 22px 5px;
+}
+@media screen and (min-width: 768px) {
+  #header-social {
+    float: right;
+  }
+  #header-social li:last-child a {
+    padding-right: 0;
+  }
+}
+
 /*--------------------------------------------------------------
 5.0 Modules
 --------------------------------------------------------------*/
@@ -542,6 +566,7 @@ x.3 Pagination
 x.1 Header
 --------------------------------------------------------------*/
 .site-branding {
+  clear: both;
   text-align: center;
 }
 .site-branding a {

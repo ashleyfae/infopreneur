@@ -50,6 +50,7 @@ class Infopreneur_Customizer {
 		$this->version = $theme->get( 'Version' );
 
 		add_action( 'customize_register', array( $this, 'register_customize_sections' ) );
+		add_action( 'customize_register', array( $this, 'refresh' ) );
 		add_action( 'customize_preview_init', array( $this, 'live_preview' ) );
 	}
 
@@ -222,6 +223,36 @@ class Infopreneur_Customizer {
 		$wp_customize->get_setting( 'header_textcolor' )->transport  = 'postMessage';
 		$wp_customize->get_setting( 'header_image' )->transport      = 'postMessage';
 		$wp_customize->get_setting( 'header_image_data' )->transport = 'postMessage';
+
+	}
+
+	/**
+	 * Selective Refresh
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access private
+	 * @since  1.0
+	 * @return void
+	 */
+	public function refresh( $wp_customize ) {
+
+		// Abort if selective refresh is not available.
+		if ( ! isset( $wp_customize->selective_refresh ) ) {
+			return;
+		}
+
+		/* Social Sites */
+		foreach ( infopreneur_get_social_sites() as $id => $options ) {
+			$wp_customize->selective_refresh->add_partial( $id, array(
+				'selector'            => '#header-social',
+				'settings'            => $id,
+				'container_inclusive' => true,
+				'render_callback'     => function () {
+					infopreneur_header_social();
+				}
+			) );
+		}
 
 	}
 
@@ -769,7 +800,7 @@ class Infopreneur_Customizer {
 			$wp_customize->add_setting( $id, array(
 				'default'           => '',
 				'sanitize_callback' => 'esc_url_raw',
-				'transport'         => 'postMessage',
+				'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh',
 			) );
 			$wp_customize->add_control( new WP_Customize_Control( $wp_customize, $id, array(
 					'label'    => sprintf( __( '%s Profile URL', 'infopreneur' ), esc_html( $site['name'] ) ),

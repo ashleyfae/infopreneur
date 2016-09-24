@@ -1,19 +1,15 @@
-.main-navigation {
-    clear: both;
+.navigation {
     display: block;
     font: {
         weight: bold;
     }
-    width: 100%;
     text-transform: uppercase;
 
     .menu {
-        text-align: center;
-
         @media screen and (min-width: 768px) {
             > li {
                 > a {
-                    padding: 22px 20px;
+                    padding: 22px 10px;
                 }
             }
         }
@@ -88,7 +84,7 @@
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.navigation.toggled ul {
     display: block;
 }
 
@@ -96,28 +92,11 @@
     .menu-toggle {
         display: none;
     }
-    .main-navigation ul {
+    .navigation ul {
         display: block;
     }
-}
 
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
-
-    .site-main & {
-        margin: 0 0 1.5em;
-        overflow: hidden;
-    }
-
-    & .nav-previous {
+    #site-navigation-menu_1 {
         float: left;
-        width: 50%;
-    }
-
-    & .nav-next {
-        float: right;
-        text-align: right;
-        width: 50%;
     }
 }
