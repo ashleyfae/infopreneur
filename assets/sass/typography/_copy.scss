@@ -10,3 +10,17 @@ body {
 p {
     margin: 0 0 2em;
 }
+
+blockquote {
+    border-left: 6px solid $color-secondary;
+    font: {
+        style: italic;
+    }
+    margin: 1.5em;
+    padding-left: 2em;
+
+    @media (min-width: 768px) {
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+}

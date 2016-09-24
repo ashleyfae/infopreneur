@@ -131,6 +131,12 @@ function infopreneur_get_custom_css() {
 		esc_html( $primary_dark )
 	);
 
+	// Secondary colour @todo actually add to Customizer
+	$css .= sprintf(
+		'blockquote { border-left-color: %1$s; }',
+		esc_html( get_theme_mod( 'secondary_color', Infopreneur_Customizer::defaults( 'secondary_color' ) ) )
+	);
+
 	// Featured
 	$css .= sprintf(
 		'#featured-area { background-color: %1$s; background-image: url(%2$s); background-position: %3$s; color: %4$s; }',
