@@ -4,7 +4,7 @@ A business theme for infopreneurs. Still a work in progress. Seriously. Don't lo
 
 ## Todo:
 
-* Lists, blockquotes
+* Lists, code
 * Comments
 * Test normal pages.
 * Test all core widgets.

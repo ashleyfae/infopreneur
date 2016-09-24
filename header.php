@@ -42,24 +42,24 @@
 			do_action( 'infopreneur/header' );
 			?>
 		</header>
-	<?php endif; ?>
 
-	<?php
-	/**
-	 * Featured banner area.
-	 */
-	get_template_part( 'template-parts/featured' );
-
-	/**
-	 * Below header widget.
-	 */
-	if ( is_active_sidebar( 'below-header' ) ) {
-		?>
-		<div id="below-header-area" class="widget-area">
-			<?php dynamic_sidebar( 'below-header' ); ?>
-		</div>
 		<?php
-	}
+		/**
+		 * Featured banner area.
+		 */
+		get_template_part( 'template-parts/featured' );
+
+		/**
+		 * Below header widget.
+		 */
+		if ( is_active_sidebar( 'below-header' ) ) {
+			?>
+			<div id="below-header-area" class="widget-area">
+				<?php dynamic_sidebar( 'below-header' ); ?>
+			</div>
+			<?php
+		}
+	endif;
 	?>
 
 	<div id="content" class="site-content container">
