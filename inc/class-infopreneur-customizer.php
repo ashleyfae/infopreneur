@@ -506,6 +506,30 @@ class Infopreneur_Customizer {
 			'settings' => 'featured_button_text_color',
 		) ) );
 
+		/* Button URL */
+		$wp_customize->add_setting( 'featured_url', array(
+			'default'           => self::defaults( 'featured_url' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'featured_url', array(
+			'label'    => esc_html__( 'Button URL', 'infopreneur' ),
+			'section'  => 'featured',
+			'settings' => 'featured_url',
+		) ) );
+
+		/* Button Text */
+		$wp_customize->add_setting( 'featured_button', array(
+			'default'           => self::defaults( 'featured_button' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'featured_button', array(
+			'label'    => esc_html__( 'Button Text', 'infopreneur' ),
+			'section'  => 'featured',
+			'settings' => 'featured_button',
+		) ) );
+
 	}
 
 	/**
