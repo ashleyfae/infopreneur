@@ -1,7 +1,11 @@
 .main-navigation {
     clear: both;
     display: block;
+    font: {
+        weight: bold;
+    }
     width: 100%;
+    text-transform: uppercase;
 
     .menu {
         text-align: center;
@@ -22,6 +26,7 @@
         padding-left: 0;
 
         ul {
+            background: white;
             box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
             float: left;
             position: absolute;
@@ -70,10 +75,9 @@
         }
     }
     a {
-        @include font-size(0.8);
+        color: #333;
         display: block;
         text-decoration: none;
-        text-transform: uppercase;
     }
 
     .current_page_item > a,

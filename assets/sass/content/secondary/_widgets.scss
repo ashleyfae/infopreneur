@@ -1,0 +1,26 @@
+.widget {
+    margin: 0 0 3em;
+}
+
+/* Responsive Stuff */
+.sidebar-toggle {
+    display: block;
+    margin: 0 auto 15px;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
+
+#sidebar-right,
+#sidebar-left {
+    display: none;
+
+    &.toggled {
+        display: block;
+    }
+
+    @media (min-width: 768px) {
+        display: block;
+    }
+}

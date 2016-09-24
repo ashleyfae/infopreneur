@@ -13,22 +13,22 @@
  * This theme, like WordPress, is licensed under the GPL.
  * Use it to make something cool, have fun, and share what you've learned with others.
  *
- * Infopreneur is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+ * Infopreneur is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
  * Underscores is distributed under the terms of the GNU GPL v2 or later.
- *
- * Normalizing styles have been helped along thanks to the fine work of
- * Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
  */
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.0 Normalize
+1.0 Reset
 2.0 Typography
+    2.1 Copy
+    2.2 Headings
 3.0 Layout
     3.1 Grid
     3.2 Container
 3.0 Elements
-    3.1 Forms
+    3.1 Buttons
+    3.2 Forms
 4.0 Navigation
     4.1 Links
     4.2 Menus
@@ -58,49 +58,18 @@
     8.5 WP Instagram Widget
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-1.0 Normalize
+1.0 Reset
 --------------------------------------------------------------*/
 html {
-  font-family: sans-serif;
+  font-size: 62.5%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
 
 body {
+  background: white;
   margin: 0;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block;
-}
-
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  vertical-align: baseline;
-}
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-[hidden],
-template {
-  display: none;
+  padding: 0;
 }
 
 a {
@@ -112,47 +81,9 @@ a:hover {
   outline: 0;
 }
 
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-
 b,
 strong {
   font-weight: bold;
-}
-
-dfn {
-  font-style: italic;
-}
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-mark {
-  background: #ff0;
-  color: #000;
-}
-
-small {
-  font-size: 80%;
-}
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
 }
 
 img {
@@ -161,15 +92,6 @@ img {
 
 svg:not(:root) {
   overflow: hidden;
-}
-
-figure {
-  margin: 1em 40px;
-}
-
-hr {
-  box-sizing: content-box;
-  height: 0;
 }
 
 pre {
@@ -222,10 +144,6 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-input {
-  line-height: normal;
-}
-
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -239,31 +157,11 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="search"] {
   -webkit-appearance: textfield;
-  box-sizing: content-box;
 }
 
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
-}
-
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
-
-legend {
-  border: 0;
-  padding: 0;
-}
-
-textarea {
-  overflow: auto;
-}
-
-optgroup {
-  font-weight: bold;
 }
 
 table {
@@ -279,8 +177,24 @@ th {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+2.1 Copy
+--------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 25.6px;
+  font-size: 1.6rem;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
+/*--------------------------------------------------------------
+2.2 Headings
+--------------------------------------------------------------*/
+h1 {
+  font-size: 57.6px;
+  font-size: 3.6rem;
+  font-weight: 900;
+  letter-spacing: .05em;
+  text-transform: uppercase;
 }
 
 /*--------------------------------------------------------------
@@ -397,7 +311,27 @@ body {
 3.0 Elements
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-3.1 Forms
+3.x Buttons
+--------------------------------------------------------------*/
+.button,
+button,
+input[type="submit"] {
+  background: #ff7a5a;
+  border: 1px solid #ff7a5a;
+  border-bottom: 3px solid #ff5127;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  font-weight: bold;
+  letter-spacing: .05em;
+  padding: 15px 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+/*--------------------------------------------------------------
+3.x Forms
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 4.0 Navigation
@@ -411,7 +345,9 @@ x.2 Menus
 .main-navigation {
   clear: both;
   display: block;
+  font-weight: bold;
   width: 100%;
+  text-transform: uppercase;
 }
 .main-navigation .menu {
   text-align: center;
@@ -428,6 +364,7 @@ x.2 Menus
   padding-left: 0;
 }
 .main-navigation ul ul {
+  background: white;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   float: left;
   position: absolute;
@@ -456,11 +393,9 @@ x.2 Menus
   position: relative;
 }
 .main-navigation a {
-  font-size: 12.8px;
-  font-size: 0.8rem;
+  color: #333;
   display: block;
   text-decoration: none;
-  text-transform: uppercase;
 }
 
 /* Small menu. */
@@ -516,11 +451,11 @@ x.3 Pagination
   overflow: hidden;
 }
 .screen-reader-text:hover, .screen-reader-text:active, .screen-reader-text:focus {
-  background-color: #f1f1f1;
+  background-color: white;
   border-radius: 3px;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   clip: auto !important;
-  color: #21759b;
+  color: black;
   display: block;
   font-size: 14px;
   font-size: 0.875rem;
@@ -613,6 +548,44 @@ x.1 Header
   text-decoration: none;
 }
 
+/* Featured area */
+#featured-area {
+  background-size: cover;
+  background-position: center top;
+  color: white;
+  padding: 5em 0;
+  text-align: center;
+}
+#featured-area.featured-overlay {
+  position: relative;
+}
+#featured-area.featured-overlay:before {
+  background: #00aaa0;
+  content: '';
+  display: block;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#featured-area.featured-overlay > * {
+  position: relative;
+}
+@media (min-width: 992px) {
+  #featured-area.featured-left #featured-inner {
+    max-width: 515px;
+  }
+  #featured-area.featured-right #featured-inner {
+    margin-left: auto;
+    max-width: 515px;
+  }
+}
+#featured-area h1 {
+  margin: 0 auto 10px;
+}
+
 /*--------------------------------------------------------------
 x.2 Blog Posts
 --------------------------------------------------------------*/
@@ -622,6 +595,36 @@ x.3 Comments
 /*--------------------------------------------------------------
 x.4 Widgets
 --------------------------------------------------------------*/
+.widget {
+  margin: 0 0 3em;
+}
+
+/* Responsive Stuff */
+.sidebar-toggle {
+  display: block;
+  margin: 0 auto 15px;
+}
+@media (min-width: 768px) {
+  .sidebar-toggle {
+    display: none;
+  }
+}
+
+#sidebar-right,
+#sidebar-left {
+  display: none;
+}
+#sidebar-right.toggled,
+#sidebar-left.toggled {
+  display: block;
+}
+@media (min-width: 768px) {
+  #sidebar-right,
+  #sidebar-left {
+    display: block;
+  }
+}
+
 /*--------------------------------------------------------------
 x.5 Pages
 --------------------------------------------------------------*/

@@ -47,7 +47,8 @@ if ( ! function_exists( 'infopreneur_setup' ) ) :
 
 		// Register navigation menu.
 		register_nav_menus( array(
-			'primary' => esc_html__( 'Top Menu', 'infopreneur' ),
+			'menu_1' => esc_html__( 'Primary Menu', 'infopreneur' ),
+			'menu_2' => esc_html__( 'Secondary Menu', 'infopreneur' ),
 		) );
 
 		/*
@@ -71,12 +72,14 @@ if ( ! function_exists( 'infopreneur_setup' ) ) :
 	}
 endif;
 
+add_action( 'after_setup_theme', 'infopreneur_setup' );
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
  *
- * @todo Check
+ * @todo  Check
  *
  * @global int $content_width
  *
@@ -120,10 +123,10 @@ add_action( 'widgets_init', 'infopreneur_widgets_init' );
  * @return void
  */
 function infopreneur_scripts() {
-	$infopreneur    = wp_get_theme();
-	$version = $infopreneur->get( 'Version' );
+	$infopreneur = wp_get_theme();
+	$version     = $infopreneur->get( 'Version' );
 
-	wp_enqueue_style( 'infopreneur-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i', array(), $version );
+	wp_enqueue_style( 'infopreneur-google-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900', array(), $version );
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.6.1' );
 	wp_enqueue_style( 'infopreneur', get_stylesheet_uri(), array(), $version );
 	wp_add_inline_style( 'infopreneur', infopreneur_get_custom_css() );
@@ -160,3 +163,4 @@ require_once get_template_directory() . '/inc/extras.php';
  * Include the Customizer settings.
  */
 require_once get_template_directory() . '/inc/class-infopreneur-customizer.php';
+new Infopreneur_Customizer();

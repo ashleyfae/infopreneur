@@ -13,23 +13,23 @@
  * This theme, like WordPress, is licensed under the GPL.
  * Use it to make something cool, have fun, and share what you've learned with others.
  *
- * Infopreneur is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+ * Infopreneur is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
  * Underscores is distributed under the terms of the GNU GPL v2 or later.
- *
- * Normalizing styles have been helped along thanks to the fine work of
- * Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
  */
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.0 Normalize
+1.0 Reset
 2.0 Typography
+    2.1 Copy
+    2.2 Headings
 3.0 Layout
     3.1 Grid
     3.2 Container
 3.0 Elements
-    3.1 Forms
+    3.1 Buttons
+    3.2 Forms
 4.0 Navigation
     4.1 Links
     4.2 Menus
@@ -62,9 +62,9 @@
 @import "mixins/mixins-master";
 
 /*--------------------------------------------------------------
-1.0 Normalize
+1.0 Reset
 --------------------------------------------------------------*/
-@import "normalize";
+@import "reset";
 
 /*--------------------------------------------------------------
 2.0 Typography

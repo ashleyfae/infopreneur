@@ -1,0 +1,18 @@
+.button,
+button,
+input[type="submit"] {
+    background: $color-primary;
+    border: 1px solid $color-primary;
+    border-bottom: 3px solid darken($color-primary, 10);
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    font: {
+        weight: bold;
+    }
+    letter-spacing: .05em;
+    padding: 15px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}

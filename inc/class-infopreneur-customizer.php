@@ -49,11 +49,8 @@ class Infopreneur_Customizer {
 
 		$this->version = $theme->get( 'Version' );
 
-		// Register our Customizer settings.
 		add_action( 'customize_register', array( $this, 'register_customize_sections' ) );
-
-		// Add our custom JavaScript controls.
-		add_action( 'customize_preview_init', array( $this, 'enqueue_template_scripts' ), 99 );
+		add_action( 'customize_preview_init', array( $this, 'live_preview' ) );
 	}
 
 	/**
@@ -89,24 +86,40 @@ class Infopreneur_Customizer {
 	 */
 	public static function defaults( $key = '' ) {
 		$defaults = array(
-			'layout_style'              => 'full',
-			'post_layout'               => 'list',
-			'number_full_posts'         => 0,
-			'summary_type'              => 'excerpts',
-			'excerpt_length'            => 30,
-			'meta_config_blog'          => '[category]',
-			'meta_position_blog'        => 'below',
-			'sidebar_left_blog'         => false,
-			'sidebar_right_blog'        => false,
-			'suppress_archive_headings' => false,
-			'meta_config_single'        => '[date] &bull; [category] &bull; [comments]',
-			'meta_position_single'      => 'above',
-			'hide_featured_image'       => false,
-			'sidebar_left_single'       => false,
-			'sidebar_right_single'      => true,
-			'sidebar_left_page'         => false,
-			'sidebar_right_page'        => true,
-			'footer_text'               => sprintf( __( 'Copyright &copy; %s.', 'infopreneur' ), date( 'Y' ) . ' ' . '<a href="' . home_url( '/' ) . '">' . get_bloginfo( 'name' ) . '</a>' )
+			'layout_style'               => 'full',
+			'post_layout'                => 'list',
+			'number_full_posts'          => 0,
+			'summary_type'               => 'excerpts',
+			'excerpt_length'             => 30,
+			'meta_config_blog'           => '[category]',
+			'meta_position_blog'         => 'below',
+			'show_featured_blog'         => true,
+			'sidebar_left_blog'          => false,
+			'sidebar_right_blog'         => true,
+			'suppress_archive_headings'  => false,
+			'meta_config_single'         => '[date] &bull; [category] &bull; [comments]',
+			'meta_position_single'       => 'above',
+			'hide_featured_image'        => false,
+			'show_featured_single'       => true,
+			'sidebar_left_single'        => false,
+			'sidebar_right_single'       => true,
+			'show_featured_page'         => true,
+			'sidebar_left_page'          => false,
+			'sidebar_right_page'         => true,
+			'featured_bg_color'          => '#00aaa0',
+			'featured_bg_image'          => get_template_directory_uri() . '/assets/images/featured-bg.jpg',
+			'featured_bg_position'       => 'center-top',
+			'featured_overlay'           => 0.5,
+			'featured_alignment'         => 'featured-centered',
+			'featured_text_color'        => '#ffffff',
+			'featured_heading'           => __( 'Run your blog like a boss', 'infopreneur' ),
+			'featured_desc'              => __( 'Join my tribe of over 1,000 infopreneurs and self-starters.', 'infopreneur' ),
+			// @todo this sucks
+			'featured_url'               => home_url( '/' ),
+			'featured_button'            => __( 'Get Started', 'infopreneur' ),
+			'featured_button_bg_color'   => '#ff7a5a',
+			'featured_button_text_color' => '#ffffff',
+			'footer_text'                => sprintf( __( 'Copyright &copy; %s.', 'infopreneur' ), date( 'Y' ) . ' ' . '<a href="' . home_url( '/' ) . '">' . get_bloginfo( 'name' ) . '</a>' )
 		);
 
 		$defaults = apply_filters( 'infopreneur/settings/defaults', $defaults );
@@ -148,6 +161,12 @@ class Infopreneur_Customizer {
 		 * Sections
 		 */
 
+		// Featured Area
+		$wp_customize->add_section( 'featured', array(
+			'title'    => __( 'Featured Area', 'infopreneur' ),
+			'priority' => 102
+		) );
+
 		// Blog Archive
 		$wp_customize->add_section( 'global_layout', array(
 			'title' => __( 'Global', 'infopreneur' ),
@@ -181,6 +200,7 @@ class Infopreneur_Customizer {
 		 * Populate each section with the settings/controls.
 		 */
 
+		$this->featured_section( $wp_customize );
 		$this->global_layout_section( $wp_customize );
 		$this->blog_archive_section( $wp_customize );
 		$this->single_post_section( $wp_customize );
@@ -205,12 +225,173 @@ class Infopreneur_Customizer {
 	 * @since  1.0.0
 	 * @return void
 	 */
-	public function enqueue_template_scripts() {
-		// @todo add minify
-		wp_register_script( 'infopreneur-customizer', get_template_directory_uri() . '/inc/customizer/customizer.js', array(
-			'jquery',
-			'customize-preview'
-		), $this->version, true );
+	public function live_preview() {
+
+		// Use minified libraries if SCRIPT_DEBUG is turned off
+		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+		wp_enqueue_script(
+			'infopreneur-customizer',
+			get_template_directory_uri() . '/assets/js/customizer' . $suffix . '.js',
+			array( 'jquery', 'customize-preview' ),
+			$this->version,
+			true
+		);
+
+	}
+
+	/**
+	 * Section: Featured
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access private
+	 * @since  1.0.0
+	 * @return void
+	 */
+	private function featured_section( $wp_customize ) {
+
+		/* Background Colour */
+		$wp_customize->add_setting( 'featured_bg_color', array(
+			'default'           => self::defaults( 'featured_bg_color' ),
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'refresh' // needs to be refresh because we use it in :before
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'featured_bg_color', array(
+			'label'    => esc_html__( 'Background Color', 'infopreneur' ),
+			'section'  => 'featured',
+			'settings' => 'featured_bg_color',
+		) ) );
+
+		/* Background Image */
+		$wp_customize->add_setting( 'featured_bg_image', array(
+			'default'           => self::defaults( 'featured_bg_image' ),
+			'sanitize_callback' => 'esc_url_raw',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'featured_bg_image', array(
+			'label'    => esc_html__( 'Background Image', 'infopreneur' ),
+			'section'  => 'featured',
+			'settings' => 'featured_bg_image',
+		) ) );
+
+		/* Background Image Position */
+		$wp_customize->add_setting( 'featured_bg_position', array(
+			'default'           => self::defaults( 'featured_bg_position' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'featured_bg_position', array(
+			'label'    => esc_html__( 'BG Image Position', 'infopreneur' ),
+			'type'     => 'select',
+			'choices'  => array(
+				'center-top'    => esc_html__( 'Center Top', 'infopreneur' ),
+				'center'        => esc_html__( 'Center Center', 'infopreneur' ),
+				'center-bottom' => esc_html__( 'Center Bottom', 'infopreneur' ),
+				'left-top'      => esc_html__( 'Left Top', 'infopreneur' ),
+				'left-center'   => esc_html__( 'Left Center', 'infopreneur' ),
+				'left-bottom'   => esc_html__( 'Left Bottom', 'infopreneur' ),
+				'right-top'     => esc_html__( 'Right Top', 'infopreneur' ),
+				'right-center'  => esc_html__( 'Right Center', 'infopreneur' ),
+				'right-bottom'  => esc_html__( 'Right Bottom', 'infopreneur' ),
+			),
+			'section'  => 'featured',
+			'settings' => 'featured_bg_position',
+		) ) );
+
+		/* Background Image */
+		$wp_customize->add_setting( 'featured_overlay', array(
+			'default'           => self::defaults( 'featured_overlay' ),
+			'sanitize_callback' => array( $this, 'sanitize_featured_overlay' ),
+			'transport'         => 'refresh' // because we can't target :before in JavaScript
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'featured_overlay', array(
+			'label'       => esc_html__( 'Overlay Visibility', 'infopreneur' ),
+			'description' => __( 'Adds the "background color" as an overlay on top of the background image. Enter a number between 0 and 1, where 0 is completely transparent (no overlay) and 1 is completely opaque.', 'infopreneur' ),
+			'type'        => 'number',
+			'section'     => 'featured',
+			'settings'    => 'featured_overlay',
+		) ) );
+
+		/* Alignment */
+		$wp_customize->add_setting( 'featured_alignment', array(
+			'default'           => self::defaults( 'featured_alignment' ),
+			'sanitize_callback' => 'sanitize_html_class',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'featured_alignment', array(
+			'label'    => esc_html__( 'Text Alignment', 'infopreneur' ),
+			'type'     => 'select',
+			'choices'  => array(
+				'featured-centered' => esc_html__( 'Centered', 'infopreneur' ),
+				'featured-left'     => esc_html__( 'Left Align', 'infopreneur' ),
+				'featured-right'    => esc_html__( 'Right Align', 'infopreneur' )
+			),
+			'section'  => 'featured',
+			'settings' => 'featured_alignment',
+		) ) );
+
+		/* Text Colour */
+		$wp_customize->add_setting( 'featured_text_color', array(
+			'default'           => self::defaults( 'featured_text_color' ),
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'featured_text_color', array(
+			'label'    => esc_html__( 'Text Color', 'infopreneur' ),
+			'section'  => 'featured',
+			'settings' => 'featured_text_color',
+		) ) );
+
+		/* Heading */
+		$wp_customize->add_setting( 'featured_heading', array(
+			'default'           => self::defaults( 'featured_heading' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'featured_heading', array(
+			'label'    => esc_html__( 'Heading', 'infopreneur' ),
+			'section'  => 'featured',
+			'settings' => 'featured_heading',
+		) ) );
+
+		/* Desc */
+		$wp_customize->add_setting( 'featured_desc', array(
+			'default'           => self::defaults( 'featured_desc' ),
+			'sanitize_callback' => 'wp_kses_post',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'featured_desc', array(
+			'label'    => esc_html__( 'Description', 'infopreneur' ),
+			'section'  => 'featured',
+			'type'     => 'textarea',
+			'settings' => 'featured_desc',
+		) ) );
+
+		/* Button BG Colour */
+		$wp_customize->add_setting( 'featured_button_bg_color', array(
+			'default'           => self::defaults( 'featured_button_bg_color' ),
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'featured_button_bg_color', array(
+			'label'    => esc_html__( 'Button BG Color', 'infopreneur' ),
+			'section'  => 'featured',
+			'settings' => 'featured_button_bg_color',
+		) ) );
+
+		/* Button Text Colour */
+		$wp_customize->add_setting( 'featured_button_text_color', array(
+			'default'           => self::defaults( 'featured_button_text_color' ),
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'featured_button_text_color', array(
+			'label'    => esc_html__( 'Button Text Color', 'infopreneur' ),
+			'section'  => 'featured',
+			'settings' => 'featured_button_text_color',
+		) ) );
+
 	}
 
 	/**
@@ -358,7 +539,18 @@ class Infopreneur_Customizer {
 
 		/* Show / hide stuff */
 
-		// @todo maybe featured area
+		/* Featured Area */
+		$wp_customize->add_setting( 'show_featured_blog', array(
+			'default'           => self::defaults( 'show_featured_blog' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_featured_blog', array(
+			'label'    => esc_html__( 'Show featured area', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'blog_archive',
+			'settings' => 'show_featured_blog',
+			'priority' => 100
+		) ) );
 
 		/* Left Sidebar */
 		$wp_customize->add_setting( 'sidebar_left_blog', array(
@@ -462,6 +654,19 @@ class Infopreneur_Customizer {
 			'priority' => 100
 		) ) );
 
+		/* Featured Area */
+		$wp_customize->add_setting( 'show_featured_single', array(
+			'default'           => self::defaults( 'show_featured_single' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_featured_single', array(
+			'label'    => esc_html__( 'Show featured area', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'blog_archive',
+			'settings' => 'show_featured_single',
+			'priority' => 110
+		) ) );
+
 		/* Left Sidebar */
 		$wp_customize->add_setting( 'sidebar_left_single', array(
 			'default'           => self::defaults( 'sidebar_left_single' ),
@@ -500,6 +705,19 @@ class Infopreneur_Customizer {
 	 * @return void
 	 */
 	private function single_page_section( $wp_customize ) {
+
+		/* Featured Area */
+		$wp_customize->add_setting( 'show_featured_page', array(
+			'default'           => self::defaults( 'show_featured_page' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_featured_page', array(
+			'label'    => esc_html__( 'Show featured area', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'blog_archive',
+			'settings' => 'show_featured_page',
+			'priority' => 110
+		) ) );
 
 		/* Left Sidebar */
 		$wp_customize->add_setting( 'sidebar_left_page', array(
@@ -564,6 +782,31 @@ class Infopreneur_Customizer {
 
 	}
 
-}
+	/**
+	 * Sanitize: Featured Overlay
+	 *
+	 * Must be a number between 0 and 1.
+	 *
+	 * @param $input
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 * @return float|int
+	 */
+	public function sanitize_featured_overlay( $input ) {
+		if ( ! is_numeric( $input ) ) {
+			$input = 0;
+		}
 
-new Infopreneur_Customizer();
+		if ( $input < 0 ) {
+			$sanitized_input = 0;
+		} elseif ( $input > 1 ) {
+			$sanitized_input = 1;
+		} else {
+			$sanitized_input = (float) $input;
+		}
+
+		return $sanitized_input;
+	}
+
+}

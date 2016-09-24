@@ -18,8 +18,8 @@ if ( ! function_exists( 'infopreneur_navigation' ) ) {
 	 * @param int $number Which number navigation to display
 	 *
 	 * @hooks :
-	 *       + infopreneur/navigation/before
-	 *       + infopreneur/navigation/after
+	 *       `infopreneur/navigation/before`
+	 *       `infopreneur/navigation/after`
 	 * Use these hooks to add extra content before/after the navigation.
 	 *
 	 * @since 1.0.0

@@ -32,6 +32,23 @@ function infopreneur_get_current_view() {
 }
 
 /**
+ * Show Featured Area
+ *
+ * Determines whether or not we should display the featured area on the
+ * current view.
+ *
+ * @since 1.0
+ * @return bool
+ */
+function infopreneur_show_featured() {
+	$view = infopreneur_get_current_view();
+	$mod  = wp_strip_all_tags( 'show_featured_' . $view );
+	$show = get_theme_mod( $mod, Infopreneur_Customizer::defaults( $mod ) );
+
+	return apply_filters( 'infopreneur/show-featured', $show, $mod, $view );
+}
+
+/**
  * Get Sidebar Locations
  *
  * Returns an array of all the sidebar options we have.
@@ -103,5 +120,109 @@ add_filter( 'body_class', 'infopreneur_body_classes' );
 function infopreneur_get_custom_css() {
 	$css = '';
 
+	// Featured
+	$css .= sprintf(
+		'#featured-area { background-color: %1$s; background-image: url(%2$s); background-position: %3$s; color: %4$s; }',
+		esc_html( get_theme_mod( 'featured_bg_color', Infopreneur_Customizer::defaults( 'featured_bg_color' ) ) ),
+		esc_url( get_theme_mod( 'featured_bg_image', Infopreneur_Customizer::defaults( 'featured_bg_image' ) ) ),
+		esc_html( str_replace( '-', ' ', get_theme_mod( 'featured_bg_position', Infopreneur_Customizer::defaults( 'featured_bg_position' ) ) ) ),
+		esc_html( get_theme_mod( 'featured_text_color', Infopreneur_Customizer::defaults( 'featured_text_color' ) ) )
+	);
+	$css .= sprintf(
+		'#featured-area.featured-overlay:before { background-color: %1$s; opacity: %2$s }',
+		esc_html( get_theme_mod( 'featured_bg_color', Infopreneur_Customizer::defaults( 'featured_bg_color' ) ) ),
+		esc_html( get_theme_mod( 'featured_overlay', Infopreneur_Customizer::defaults( 'featured_overlay' ) ) )
+	);
+	$button_dark = infopreneur_adjust_brightness( get_theme_mod( 'featured_button_bg_color', Infopreneur_Customizer::defaults( 'featured_button_bg_color' ) ), - 30 );
+	$css .= sprintf(
+		'#featured-area .button { background-color: %1$s; border-color: %1$s; border-bottom-color: %3$s; color: %2$s; }',
+		esc_html( get_theme_mod( 'featured_button_bg_color', Infopreneur_Customizer::defaults( 'featured_button_bg_color' ) ) ),
+		esc_html( get_theme_mod( 'featured_button_text_color', Infopreneur_Customizer::defaults( 'featured_button_text_color' ) ) ),
+		esc_html( $button_dark )
+	);
+	$css .= sprintf(
+		'#featured-area .button:hover { background-color: %1$s; border-color: %1$s; }',
+		esc_html( $button_dark )
+	);
+
 	return apply_filters( 'infopreneur/custom-css', $css );
+}
+
+/**
+ * Adjust Colour Brightness
+ *
+ * @param string $hex   Base hex colour
+ * @param int    $steps Number between -255 (darker) and 255 (lighter)
+ *
+ * @since 1.0
+ * @return string
+ */
+function infopreneur_adjust_brightness( $hex, $steps ) {
+	$steps = max( - 255, min( 255, $steps ) );
+
+	// Normalize into a six character long hex string
+	$hex = str_replace( '#', '', $hex );
+	if ( strlen( $hex ) == 3 ) {
+		$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
+	}
+
+	// Split into three parts: R, G and B
+	$color_parts = str_split( $hex, 2 );
+	$return      = '#';
+
+	foreach ( $color_parts as $color ) {
+		$color = hexdec( $color ); // Convert to decimal
+		$color = max( 0, min( 255, $color + $steps ) ); // Adjust color
+		$return .= str_pad( dechex( $color ), 2, '0', STR_PAD_LEFT ); // Make two char hex code
+	}
+
+	return $return;
+}
+
+/**
+ * Auto paragraph the featured area description.
+ *
+ * @since 1.0.0
+ */
+add_filter( 'infopreneur/featured/description', 'wpautop', 10 );
+
+/**
+ * Get Featured Area Classes
+ *
+ * Compiles all the classes for the featured area into an array.
+ *
+ * @hooks :
+ *        `infopreneur/featured/get-classes`
+ *
+ * @since 1.0
+ * @return array
+ */
+function infopreneur_get_featured_classes() {
+	$classes = array(
+		get_theme_mod( 'featured_alignment', Infopreneur_Customizer::defaults( 'featured_alignment' ) )
+	);
+
+	if ( get_theme_mod( 'featured_overlay', Infopreneur_Customizer::defaults( 'featured_overlay' ) ) ) {
+		$classes[] = 'featured-overlay';
+	}
+
+	return apply_filters( 'infopreneur/featured/get-classes', $classes );
+}
+
+/**
+ * Featured Area HTML Classes
+ *
+ * Gets and sanitizes the HTML classes for the featured area, then
+ * converts them into a string.
+ *
+ * @uses  infopreneur_get_featured_classes()
+ *
+ * @since 1.0
+ * @return string
+ */
+function infopreneur_featured_classes() {
+	$classes           = infopreneur_get_featured_classes();
+	$sanitized_classes = array_map( 'sanitize_html_class', $classes );
+
+	return implode( ' ', $sanitized_classes );
 }

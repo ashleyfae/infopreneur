@@ -69,6 +69,101 @@
         });
     });
 
+    // Featured - show/hide
+    var featuredMods = ['show_featured_blog', 'show_featured_single', 'show_featured_page'];
+    $.each(featuredMods, function (index, modName) {
+        wp.customize(modName, function (value) {
+            value.bind(function (to) {
+                if (to) {
+                    $('#featured-area').show();
+                } else {
+                    $('#featured-area').hide();
+                }
+            });
+        });
+    });
+
+    // Featured - alignment
+    wp.customize('featured_alignment', function (value) {
+        value.bind(function (to) {
+            $('#featured-area').removeClass('featured-centered featured-left featured-right').addClass(to);
+        });
+    });
+
+    // Featured - BG color
+    wp.customize('featured_bg_color', function (value) {
+        value.bind(function (to) {
+            $('#featured-area').css('background-color', to);
+        });
+    });
+
+    // Featured - BG image
+    wp.customize('featured_bg_image', function (value) {
+        value.bind(function (to) {
+            $('#featured-area').css('background-image', 'url(' + to + ')');
+        });
+    });
+
+    // Featured - BG position
+    wp.customize('featured_bg_position', function (value) {
+        value.bind(function (to) {
+            $('#featured-area').css('background-position', to.replace('-', ' '));
+        });
+    });
+
+    // Featured - text colour
+    wp.customize('featured_text_color', function (value) {
+        value.bind(function (to) {
+            $('#featured-area').css('color', to);
+        });
+    });
+
+    // Featured - Heading
+    wp.customize('featured_heading', function (value) {
+        value.bind(function (to) {
+            $('#featured-heading').text(to);
+        });
+    });
+
+    // Featured - Desc
+    wp.customize('featured_desc', function (value) {
+        value.bind(function (to) {
+            $('#featured-desc').text(to);
+        });
+    });
+
+    // Featured - URL
+    wp.customize('featured_url', function (value) {
+        value.bind(function (to) {
+            $('#featured-cta a').attr('href', to);
+        });
+    });
+
+    // Featured - Button Text
+    wp.customize('featured_button', function (value) {
+        value.bind(function (to) {
+            $('#featured-cta a').text(to);
+        });
+    });
+
+    // Featured - Button BG
+    wp.customize('featured_button_bg_color', function (value) {
+        value.bind(function (to) {
+            $('#featured-cta a').css({
+                'background-color': to,
+                'border-color': to,
+                'border-bottom-color': shadeColor(to, -0.2)
+            });
+        });
+    });
+
+    // Featured - Button Text
+    wp.customize('featured_button_text_color', function (value) {
+        value.bind(function (to) {
+            $('#featured-cta a').css('color', to);
+        });
+    });
+
     // Copyright
     wp.customize('copyright_message', function (value) {
         value.bind(function (to) {
@@ -76,5 +171,19 @@
             $('#infopreneur-copyright').empty().append(newValue);
         });
     });
+
+    /**
+     * Shade Color
+     *
+     * Adjusts the brightness of a color.
+     *
+     * @param color Hex colour to adjust.
+     * @param percent Value between -1.0 (darker) and 1.0 (lighter).
+     * @returns {string}
+     */
+    function shadeColor(color, percent) {
+        var f=parseInt(color.slice(1),16),t=percent<0?0:255,p=percent<0?percent*-1:percent,R=f>>16,G=f>>8&0x00FF,B=f&0x0000FF;
+        return "#"+(0x1000000+(Math.round((t-R)*p)+R)*0x10000+(Math.round((t-G)*p)+G)*0x100+(Math.round((t-B)*p)+B)).toString(16).slice(1);
+    }
 
 })(jQuery);

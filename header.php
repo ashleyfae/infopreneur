@@ -41,6 +41,8 @@
 		</header>
 	<?php endif; ?>
 
+	<?php get_template_part( 'template-parts/featured' ); ?>
+
 	<div id="content" class="site-content container">
 
 		<?php do_action( 'infopreneur/inside-content/top' ); ?>
