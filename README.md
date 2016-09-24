@@ -10,6 +10,10 @@ A business theme for infopreneurs. Still a work in progress. Seriously. Don't lo
 * WooCommerce integration - if I can be bothered.
 * Easy Digital Downloads integration.
 * Homepage template.
+* Better sub-menu design
+* Option to stick menu.
+* Footer links.
+* Second menu?
 
 ## Credits
 

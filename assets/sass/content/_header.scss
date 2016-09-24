@@ -63,6 +63,13 @@
                 max-width: 65%;
             }
         }
+
+        &.featured-centered {
+            #featured-desc {
+                margin: 0 auto;
+                max-width: 60%;
+            }
+        }
     }
 
     h1 {
