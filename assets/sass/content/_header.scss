@@ -90,6 +90,11 @@
     }
 
     .widget_mc4wp_form_widget {
+        p {
+            display: inline;
+            margin: 0;
+        }
+
         input[type="submit"] {
             margin: 2px;
         }

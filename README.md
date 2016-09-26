@@ -13,7 +13,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * Better sub-menu design
 * Option to stick menu.
 * Tweak MC forms mobile view.
-* MC forms on pages / widgets.
 
 ## Credits
 

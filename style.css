@@ -868,6 +868,11 @@ x.1 Header
   padding-bottom: 1.5em;
   text-align: center;
 }
+#below-header-area .widget_mc4wp_form_widget p,
+#above-footer-area .widget_mc4wp_form_widget p {
+  display: inline;
+  margin: 0;
+}
 #below-header-area .widget_mc4wp_form_widget input[type="submit"],
 #above-footer-area .widget_mc4wp_form_widget input[type="submit"] {
   margin: 2px;
@@ -1256,14 +1261,14 @@ x.1 Expanding Archives
 /*--------------------------------------------------------------
 x.2 MailChimp for WP
 --------------------------------------------------------------*/
-.widget_mc4wp_form_widget label {
+.mc4wp-form label {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
   height: 1px;
   width: 1px;
   overflow: hidden;
 }
-.widget_mc4wp_form_widget label:hover, .widget_mc4wp_form_widget label:active, .widget_mc4wp_form_widget label:focus {
+.mc4wp-form label:hover, .mc4wp-form label:active, .mc4wp-form label:focus {
   background-color: white;
   border-radius: 3px;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
@@ -1283,17 +1288,27 @@ x.2 MailChimp for WP
   z-index: 100000;
   /* Above WP toolbar. */
 }
+.mc4wp-form p {
+  margin: 0;
+}
 
-/* In the sidebar */
-#sidebar-right .widget_mc4wp_form_widget input[type="email"],
-#sidebar-right .widget_mc4wp_form_widget input[type="text"],
-#sidebar-right .widget_mc4wp_form_widget input[type="submit"],
-#sidebar-left .widget_mc4wp_form_widget input[type="email"],
-#sidebar-left .widget_mc4wp_form_widget input[type="text"],
-#sidebar-left .widget_mc4wp_form_widget input[type="submit"] {
+/* In the sidebar and post/page content */
+#sidebar-right .mc4wp-form input[type="email"],
+#sidebar-right .mc4wp-form input[type="text"],
+#sidebar-right .mc4wp-form input[type="submit"],
+#sidebar-left .mc4wp-form input[type="email"],
+#sidebar-left .mc4wp-form input[type="text"],
+#sidebar-left .mc4wp-form input[type="submit"],
+.entry-content .mc4wp-form input[type="email"],
+.entry-content .mc4wp-form input[type="text"],
+.entry-content .mc4wp-form input[type="submit"] {
   display: block;
   margin: 4px 0;
   width: 100%;
+}
+
+.entry-content .mc4wp-form {
+  margin-bottom: 2em;
 }
 
 /*--------------------------------------------------------------

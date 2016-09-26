@@ -1,13 +1,18 @@
-.widget_mc4wp_form_widget {
+.mc4wp-form {
     label {
         @include screen-reader-text;
     }
+
+    p {
+        margin: 0;
+    }
 }
 
-/* In the sidebar */
+/* In the sidebar and post/page content */
 #sidebar-right,
-#sidebar-left {
-    .widget_mc4wp_form_widget {
+#sidebar-left,
+.entry-content {
+    .mc4wp-form {
         input[type="email"],
         input[type="text"],
         input[type="submit"] {
@@ -15,5 +20,11 @@
             margin: 4px 0;
             width: 100%;
         }
+    }
+}
+
+.entry-content {
+    .mc4wp-form {
+        margin-bottom: 2em;
     }
 }
