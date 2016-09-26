@@ -9,6 +9,9 @@
 
 // Include header.php.
 get_header();
+
+// Include left sidebar (maybe).
+infopreneur_maybe_show_sidebar( 'left' );
 ?>
 
 	<main id="main" class="site-main" role="main">
@@ -42,5 +45,8 @@ get_header();
 	</main>
 
 <?php
+// Include right sidebar (maybe).
+infopreneur_maybe_show_sidebar( 'right' );
+
 // Include footer.php.
 get_footer();
