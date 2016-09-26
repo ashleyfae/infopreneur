@@ -81,47 +81,48 @@ if ( ! function_exists( 'infopreneur_maybe_show_sidebar' ) ) {
  *      2) UBB book cover image
  *      3) First image in the post text
  *
- * @param int     $width  Desired width in pixels
- * @param int     $height Desired height in pixels
- * @param bool    $crop   Whether or not to crop to exact dimensions
- * @param string  $class  Class name(s) to add to the image
- * @param WP_Post $post   Post object (if omitted, current global $post is used)
+ * @param array $args Arguments to override the defaults.
  *
  * @since 1.0
  * @return bool|string False if no image is found
  */
-function infopreneur_get_post_thumbnail( $width = null, $height = null, $crop = true, $class = 'post-thumbnail', $post = null ) {
+function infopreneur_get_post_thumbnail( $args = array() ) {
 
-	if ( empty( $post ) ) {
-		$post = get_post();
+	$args = wp_parse_args( $args, array(
+		'width'     => 700,
+		'height'    => 400,
+		'crop'      => true,
+		'class'     => 'post-thumbnail',
+		'alignment' => get_theme_mod( 'thumbnail_align', Infopreneur_Customizer::defaults( 'thumbnail_align' ) ),
+		'post'      => null
+	) );
+
+	if ( empty( $args['post'] ) ) {
+		$args['post'] = get_post();
 	}
 
 	// Add alignmcne to class.
-	$align = get_theme_mod( 'thumbnail_align', Infopreneur_Customizer::defaults( 'thumbnail_align' ) );
-	$class .= ' ' . sanitize_html_class( $align );
+	$args['class'] .= ' ' . sanitize_html_class( $args['alignment'] );
 
-	$width  = $width ? $width : 700;
-	$height = $height ? $height : 400;
-
-	if ( $align != 'aligncenter' ) {
-		$width  = 500;
-		$height = 400;
+	if ( $args['alignment'] != 'aligncenter' ) {
+		$args['width']  = 500;
+		$args['height'] = 400;
 	}
 
 	$image_url = '';
 
 	// Pre-emptively check to see if an UBB book cover exists.
-	$ubb_book_cover = get_post_meta( $post->ID, '_ubb_book_image', true );
+	$ubb_book_cover = get_post_meta( $args['post']->ID, '_ubb_book_image', true );
 
 	// Pre-emptively get the featured image.
-	$featured = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+	$featured = wp_get_attachment_image_src( get_post_thumbnail_id( $args['post']->ID ), 'full' );
 
 	// Now let's try to get an image URL!
-	if ( has_post_thumbnail( $post->ID ) && ! empty( $featured ) ) {
+	if ( has_post_thumbnail( $args['post']->ID ) && ! empty( $featured ) ) {
 		$image_url = $featured[0];
 	} elseif ( ! empty( $ubb_book_cover ) ) {
 		$image_url = $ubb_book_cover;
-	} elseif ( preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i', $post->post_content, $matches ) ) {
+	} elseif ( preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i', $args['post']->post_content, $matches ) ) {
 		$image_url = $matches[1][0];
 	}
 
@@ -136,20 +137,20 @@ function infopreneur_get_post_thumbnail( $width = null, $height = null, $crop = 
 	// If Photon is activated, we'll try to use that first.
 	if ( class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'photon' ) ) {
 		$args = array(
-			'resize' => array( $width, $height )
+			'resize' => array( absint( $args['width'] ), absint( $args['height'] ) )
 		);
 
 		$resized_image = jetpack_photon_url( $image_url, $args );
 	} elseif ( function_exists( 'aq_resize' ) ) {
 		// Otherwise, we'll use aq_resizer.
-		$resized_image = aq_resize( $image_url, $width, $height, $crop, true, true );
+		$resized_image = aq_resize( $image_url, absint( $args['width'] ), absint( $args['height'] ), $args['crop'], true, true );
 	}
 
 	$final_image = $resized_image ? $resized_image : $image_url;
 
-	$final_html = '<a href="' . esc_url( get_permalink( $post ) ) . '" title="' . esc_attr( strip_tags( get_the_title( $post ) ) ) . '"><img src="' . esc_url( apply_filters( 'infopreneur/post-thumbnail/final-url', $final_image, $width, $height, $crop, $class, $post ) ) . '" alt="' . esc_attr( strip_tags( get_the_title( $post ) ) ) . '" class="' . esc_attr( $class ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '"></a>';
+	$final_html = '<a href="' . esc_url( get_permalink( $args['post'] ) ) . '" title="' . esc_attr( strip_tags( get_the_title( $args['post'] ) ) ) . '"><img src="' . esc_url( apply_filters( 'infopreneur/post-thumbnail/final-url', $final_image, $args ) ) . '" alt="' . esc_attr( strip_tags( get_the_title( $args['post'] ) ) ) . '" class="' . esc_attr( $args['class'] ) . '" width="' . esc_attr( $args['width'] ) . '" height="' . esc_attr( $args['height'] ) . '"></a>';
 
-	return apply_filters( 'infopreneur/post-thumbnail/final-html', $final_html, $width, $height, $crop, $class, $post );
+	return apply_filters( 'infopreneur/post-thumbnail/final-html', $final_html, $args );
 
 }
 

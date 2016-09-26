@@ -223,3 +223,8 @@ require_once get_template_directory() . '/inc/extras.php';
  */
 require_once get_template_directory() . '/inc/class-infopreneur-customizer.php';
 new Infopreneur_Customizer();
+
+/**
+ * Include custom widgets.
+ */
+require_once get_template_directory() . '/inc/widgets/class-post-feed-widget.php';
