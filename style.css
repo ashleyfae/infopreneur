@@ -1287,7 +1287,7 @@ img {
 /*--------------------------------------------------------------
 x.1 Easy Digital Downloads
 --------------------------------------------------------------*/
-.edd-submit.button, .edd-submit.button.gray, .edd-submit.button:visited {
+.edd-submit.button, .edd-submit.button:hover, .edd-submit.button.gray, .edd-submit.button:visited {
   color: white;
   font-size: inherit;
 }
@@ -1300,6 +1300,7 @@ x.1 Easy Digital Downloads
   margin-bottom: 3em;
 }
 
+/* Product Info Widget */
 .widget_infopreneur_edd {
   background: #f4f4f4;
   padding: 20px;
@@ -1330,6 +1331,26 @@ x.1 Easy Digital Downloads
   float: right;
   width: 60%;
   text-align: right;
+}
+
+/* EDD Cart Widget */
+.edd-cart-number-of-items {
+  margin: 0;
+  text-align: center;
+}
+
+.widget_edd_cart_widget ul {
+  list-style: none;
+  padding: 0;
+}
+.widget_edd_cart_widget li {
+  padding: 10px;
+}
+.widget_edd_cart_widget li.empty {
+  text-align: center;
+}
+.widget_edd_cart_widget .edd_checkout a {
+  font-weight: bold;
 }
 
 /*--------------------------------------------------------------

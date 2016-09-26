@@ -1,5 +1,5 @@
 // Fix for button. These values are overridden by EDD so we need to override them again.
-.edd-submit.button, .edd-submit.button.gray, .edd-submit.button:visited {
+.edd-submit.button, .edd-submit.button:hover, .edd-submit.button.gray, .edd-submit.button:visited {
     color: white;
     font: {
         size: inherit;
@@ -16,6 +16,7 @@
     }
 }
 
+/* Product Info Widget */
 .widget_infopreneur_edd {
     background: #f4f4f4;
     padding: 20px;
@@ -52,5 +53,30 @@
         float: right;
         width: 60%;
         text-align: right;
+    }
+}
+
+/* EDD Cart Widget */
+.edd-cart-number-of-items {
+    margin: 0;
+    text-align: center;
+}
+
+.widget_edd_cart_widget {
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        padding: 10px;
+
+        &.empty {
+            text-align: center;
+        }
+    }
+
+    .edd_checkout a {
+        font-weight: bold;
     }
 }
