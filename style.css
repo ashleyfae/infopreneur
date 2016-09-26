@@ -965,6 +965,59 @@ x.2 Blog Posts
 /*--------------------------------------------------------------
 x.3 Comments
 --------------------------------------------------------------*/
+.comment-list, .comment-list .children {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.comment .avatar {
+  float: left;
+  margin: 0 1em 0 0;
+}
+.comment .comment-metadata {
+  color: #989898;
+  font-style: italic;
+}
+.comment .comment-metadata a {
+  color: #989898;
+}
+.comment .comment-metadata a:hover {
+  text-decoration: underline;
+}
+
+.comment-body {
+  border: 3px solid #f4f4f4;
+  margin: 1.5em 0;
+  padding: 1.5em;
+}
+
+.comment-list .depth-2 {
+  margin-left: 5em;
+}
+@media (min-width: 768px) {
+  .comment-list .depth-3 {
+    margin-left: 5em;
+  }
+}
+
+.comment-content p {
+  margin: 1em 0;
+}
+
+.comment-form input[type="email"],
+.comment-form input[type="text"],
+.comment-form input[type="url"],
+.comment-form select,
+.comment-form textarea {
+  display: block;
+  width: 100%;
+}
+.comment-form .required {
+  color: #ff7a5a;
+  font-weight: bold;
+}
+
 /*--------------------------------------------------------------
 x.4 Widgets
 --------------------------------------------------------------*/
