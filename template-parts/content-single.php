@@ -8,7 +8,7 @@
  */
 
 $meta_position = get_theme_mod( 'meta_position_single', Infopreneur_Customizer::defaults( 'meta_position_single' ) );
-$post_class    = ( ! is_singular() ) ? 'full-post' : '';
+$post_class    = ( ! is_singular( 'post' ) ) ? 'full-post' : '';
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $post_class ); ?>>

@@ -209,6 +209,10 @@ blockquote {
   }
 }
 
+.text-center {
+  text-align: center;
+}
+
 /*--------------------------------------------------------------
 2.2 Code
 --------------------------------------------------------------*/
@@ -1020,6 +1024,10 @@ x.5 Pages
   max-width: 600px;
   margin: 0 auto;
   padding: 1em 2em;
+}
+
+.home-widget-area .widget_sp_image {
+  text-align: center;
 }
 
 /* Homepage Template */
