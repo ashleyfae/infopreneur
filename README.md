@@ -11,7 +11,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * Test all core widgets.
 * WooCommerce integration - if I can be bothered.
 * Easy Digital Downloads integration.
-* Homepage template.
 * Better sub-menu design
 * Option to stick menu.
 * Footer links.
