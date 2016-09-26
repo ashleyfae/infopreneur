@@ -125,7 +125,7 @@ function infopreneur_get_post_thumbnail( $args = array() ) {
 		$image_url = $featured[0];
 	} elseif ( ! empty( $ubb_book_cover ) ) {
 		$image_url = $ubb_book_cover;
-	} elseif ( preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i', $args['post']->post_content, $matches ) ) {
+	} elseif ( apply_filters( 'infopreneur/post-thumbnail/auto-grab-first-image', true ) && preg_match_all( '|<img.*?src=[\'"](.*?)[\'"].*?>|i', $args['post']->post_content, $matches ) ) {
 		$image_url = $matches[1][0];
 	}
 
@@ -134,7 +134,7 @@ function infopreneur_get_post_thumbnail( $args = array() ) {
 		return false;
 	}
 
-	// Now let's resize the image, woot woot.
+	// Now let's resize the image, woot woot..
 	$resized_image = false;
 
 	// If Photon is activated, we'll try to use that first.
