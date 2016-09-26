@@ -1119,6 +1119,10 @@ x.5 Pages
   text-align: center;
 }
 
+.page .entry-title {
+  margin-bottom: .5em;
+}
+
 /* Homepage Template */
 @media (min-width: 768px) {
   .home-widget-area {
@@ -1319,6 +1323,18 @@ x.1 Easy Digital Downloads
 
 .post-type-archive-download .edd-download {
   margin-bottom: 3em;
+}
+.post-type-archive-download .entry-title {
+  margin: .5em 0;
+}
+.post-type-archive-download .more-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.single-download .entry-title {
+  margin-bottom: .5em;
 }
 
 /* Product Info Widget */
