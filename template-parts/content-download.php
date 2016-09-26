@@ -1,20 +1,21 @@
 <?php
 /**
- * content-download.php
+ * Template part for displaying EDD download content in archive-download.php.
  *
  * @package   infopreneur
  * @copyright Copyright (c) 2016, Nose Graze Ltd.
  * @license   GPL2+
  */
 
+$thumb = infopreneur_get_post_thumbnail( array( 'alignment' => 'aligncenter' ) );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/Product">
 
-	<?php if ( has_post_thumbnail() ) : ?>
+	<?php if ( $thumb ) : ?>
 		<div class="edd_download_image">
 			<a href="<?php echo esc_url( get_permalink() ); ?>">
-				<?php the_post_thumbnail( apply_filters( 'infopreneur/content-download/post-thumbnail-size', 'infopreneur_product_image' ) ); ?>
+				<?php echo $thumb; ?>
 			</a>
 		</div>
 	<?php endif; ?>

@@ -112,6 +112,9 @@ function infopreneur_get_post_thumbnail( $args = array() ) {
 		$args['height'] = 400;
 	}
 
+	// Now allow those args to be filtered.
+	$args = apply_filters( 'infopreneur/post-thumbnail/args', $args );
+
 	$image_url = '';
 
 	// Pre-emptively check to see if an UBB book cover exists.
