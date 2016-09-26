@@ -156,17 +156,17 @@ class Infopreneur_Post_Feed_Widget extends WP_Widget {
 		);
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'ng-featured-image-widget' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'infopreneur' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'cat' ); ?>"><?php _e( 'Category:', 'ng-featured-image-widget' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'cat' ); ?>"><?php _e( 'Category:', 'infopreneur' ); ?></label>
 			<?php wp_dropdown_categories( $cat_args ); ?>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php _e( 'Order By:', 'ng-featured-image-widget' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php _e( 'Order By:', 'infopreneur' ); ?></label>
 			<select class="widefat" id="<?php echo $this->get_field_id( 'orderby' ); ?>" name="<?php echo $this->get_field_name( 'orderby' ); ?>">
 				<option value="date" <?php selected( $instance['orderby'], 'date' ); ?>><?php esc_html_e( 'Date', 'infopreneur' ); ?></option>
 				<option value="title" <?php selected( $instance['orderby'], 'title' ); ?>><?php esc_html_e( 'Post Title', 'infopreneur' ); ?></option>
@@ -176,7 +176,7 @@ class Infopreneur_Post_Feed_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<?php _e( 'Order:', 'ng-featured-image-widget' ); ?> <br>
+			<?php _e( 'Order:', 'infopreneur' ); ?> <br>
 			<input type="radio" value="DESC" id="<?php echo $this->get_field_id( 'order' ); ?>_desc" name="<?php echo $this->get_field_name( 'order' ); ?>" <?php checked( $instance['order'], 'DESC' ); ?>>
 			<label for="<?php echo $this->get_field_id( 'order' ); ?>_desc"><?php esc_html_e( 'DESC (3, 2, 1; c, b, a)', 'infopreneur' ); ?></label>
 			<br>
@@ -186,7 +186,7 @@ class Infopreneur_Post_Feed_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'layout' ); ?>"><?php _e( 'Layout:', 'ng-featured-image-widget' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'layout' ); ?>"><?php _e( 'Layout:', 'infopreneur' ); ?></label>
 			<select class="widefat" id="<?php echo $this->get_field_id( 'layout' ); ?>" name="<?php echo $this->get_field_name( 'layout' ); ?>">
 				<option value="grid-2-col" <?php selected( $instance['layout'], 'grid-2-col' ); ?>><?php esc_html_e( '2 Column Grid', 'infopreneur' ); ?></option>
 				<option value="grid-3-col" <?php selected( $instance['layout'], 'grid-3-col' ); ?>><?php esc_html_e( '3 Column Grid', 'infopreneur' ); ?></option>
@@ -195,17 +195,17 @@ class Infopreneur_Post_Feed_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'number_posts' ); ?>"><?php _e( 'Number of Posts:', 'ng-featured-image-widget' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'number_posts' ); ?>"><?php _e( 'Number of Posts:', 'infopreneur' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'number_posts' ); ?>" name="<?php echo $this->get_field_name( 'number_posts' ); ?>" type="number" value="<?php echo esc_attr( $instance['number_posts'] ); ?>">
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'full_posts' ); ?>"><?php _e( 'Number of Full Posts:', 'ng-featured-image-widget' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'full_posts' ); ?>"><?php _e( 'Number of Full Posts:', 'infopreneur' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'full_posts' ); ?>" name="<?php echo $this->get_field_name( 'full_posts' ); ?>" type="number" value="<?php echo esc_attr( $instance['full_posts'] ); ?>">
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'post_content' ); ?>"><?php _e( 'Post Content:', 'ng-featured-image-widget' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'post_content' ); ?>"><?php _e( 'Post Content:', 'infopreneur' ); ?></label>
 			<select class="widefat" id="<?php echo $this->get_field_id( 'post_content' ); ?>" name="<?php echo $this->get_field_name( 'post_content' ); ?>">
 				<option value="full" <?php selected( $instance['post_content'], 'full' ); ?>><?php esc_html_e( 'Full Text / Read More Tag', 'infopreneur' ); ?></option>
 				<option value="excerpts" <?php selected( $instance['post_content'], 'excerpts' ); ?>><?php esc_html_e( 'Excerpts', 'infopreneur' ); ?></option>
@@ -214,7 +214,7 @@ class Infopreneur_Post_Feed_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'thumb_align' ); ?>"><?php _e( 'Thumbnail Alignment:', 'ng-featured-image-widget' ); ?></label>
+			<label for="<?php echo $this->get_field_id( 'thumb_align' ); ?>"><?php _e( 'Thumbnail Alignment:', 'infopreneur' ); ?></label>
 			<select class="widefat" id="<?php echo $this->get_field_id( 'thumb_align' ); ?>" name="<?php echo $this->get_field_name( 'thumb_align' ); ?>">
 				<option value="aligncenter" <?php selected( $instance['thumb_align'], 'aligncenter' ); ?>><?php esc_html_e( 'Centered', 'infopreneur' ); ?></option>
 				<option value="alignleft" <?php selected( $instance['thumb_align'], 'alignleft' ); ?>><?php esc_html_e( 'Left Aligned', 'infopreneur' ); ?></option>

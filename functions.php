@@ -231,6 +231,7 @@ new Infopreneur_Customizer();
 /**
  * Include custom widgets.
  */
+require_once get_template_directory() . '/inc/widgets/class-edd-widget.php';
 require_once get_template_directory() . '/inc/widgets/class-post-feed-widget.php';
 
 /**

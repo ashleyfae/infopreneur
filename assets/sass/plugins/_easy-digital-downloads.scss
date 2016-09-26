@@ -1,3 +1,11 @@
+// Fix for button. These values are overridden by EDD so we need to override them again.
+.edd-submit.button, .edd-submit.button.gray, .edd-submit.button:visited {
+    color: white;
+    font: {
+        size: inherit;
+    }
+}
+
 .edd_download {
     text-align: center;
 }
@@ -5,5 +13,44 @@
 .post-type-archive-download {
     .edd-download {
         margin-bottom: 3em;
+    }
+}
+
+.widget_infopreneur_edd {
+    background: #f4f4f4;
+    padding: 20px;
+
+    .button {
+        display: block;
+        width: 100%;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        background: white;
+        border-top: 2px solid #f4f4f4;
+        clear: both;
+        margin: 0;
+        overflow: hidden;
+        padding: 10px;
+    }
+
+    .info-edd-name {
+        float: left;
+        font: {
+            weight: bold;
+        }
+        padding-right: 10px;
+        width: 40%;
+    }
+
+    .info-edd-value {
+        float: right;
+        width: 60%;
+        text-align: right;
     }
 }
