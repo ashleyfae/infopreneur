@@ -53,11 +53,13 @@
 		 * Below header widget.
 		 */
 		if ( is_active_sidebar( 'below-header' ) ) {
-			?>
-			<div id="below-header-area" class="widget-area">
-				<?php dynamic_sidebar( 'below-header' ); ?>
-			</div>
-			<?php
+			if ( get_page_template_slug() != 'page-templates/homepage.php' || get_theme_mod( 'show_below_header_widget_area', Infopreneur_Customizer::defaults( 'show_below_header_widget_area' ) ) ) {
+				?>
+				<div id="below-header-area" class="widget-area">
+					<?php dynamic_sidebar( 'below-header' ); ?>
+				</div>
+				<?php
+			}
 		}
 	endif;
 	?>

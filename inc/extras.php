@@ -16,7 +16,9 @@
 function infopreneur_get_current_view() {
 	$view = '';
 
-	if ( is_post_type_archive( 'book' ) || is_tax( array( 'novelist-genre', 'novelist-series' ) ) ) {
+	if ( get_page_template_slug() == 'page-templates/homepage.php' ) {
+		$view = 'home';
+	} elseif ( is_post_type_archive( 'book' ) || is_tax( array( 'novelist-genre', 'novelist-series' ) ) ) {
 		$view = 'book_archive';
 	} elseif ( is_singular( 'book' ) ) {
 		$view = 'book_single';
