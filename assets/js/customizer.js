@@ -195,6 +195,20 @@
         });
     });
 
+    // EDD - Page Title
+    wp.customize('edd_page_title', function (value) {
+        value.bind(function (to) {
+            $('.post-type-archive-download .page-title').text(to);
+        });
+    });
+
+    // EDD - Page Desc
+    wp.customize('edd_page_desc', function (value) {
+        value.bind(function (to) {
+            $('.post-type-archive-download .archive-description').html(to);
+        });
+    });
+
     // Homepage area #1
     wp.customize('home_widget_1_cols', function (value) {
         value.bind(function (to) {

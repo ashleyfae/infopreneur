@@ -14,10 +14,15 @@
  * @return string
  */
 function infopreneur_get_current_view() {
-	$view = '';
+	$view    = '';
+	$edd_tax = array( 'download_category', 'download_tag' );
 
 	if ( get_page_template_slug() == 'page-templates/homepage.php' ) {
 		$view = 'home';
+	} elseif ( class_exists( 'Easy_Digital_Downloads' ) && ( is_post_type_archive( 'download' ) || is_tax( $edd_tax ) ) ) {
+		$view = 'edd_archive';
+	} elseif ( class_exists( 'Easy_Digital_Downloads' ) && is_singular( 'download' ) ) {
+		$view = 'edd_single';
 	} elseif ( is_post_type_archive( 'book' ) || is_tax( array( 'novelist-genre', 'novelist-series' ) ) ) {
 		$view = 'book_archive';
 	} elseif ( is_singular( 'book' ) ) {
@@ -365,3 +370,10 @@ function infopreneur_search_template() {
 }
 
 add_action( 'wp_footer', 'infopreneur_search_template' );
+
+/**
+ * Allow shortcodes in text widgets.
+ *
+ * @since 1.0.0
+ */
+add_filter( 'widget_text', 'do_shortcode' );

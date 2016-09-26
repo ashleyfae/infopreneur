@@ -45,6 +45,9 @@ if ( ! function_exists( 'infopreneur_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		// EDD product image size.
+		add_image_size( 'infopreneur_product_image', 600, 444, true );
+
 		// Register navigation menu.
 		register_nav_menus( array(
 			'menu_1' => esc_html__( 'Primary Menu', 'infopreneur' ),
@@ -229,3 +232,8 @@ new Infopreneur_Customizer();
  * Include custom widgets.
  */
 require_once get_template_directory() . '/inc/widgets/class-post-feed-widget.php';
+
+/**
+ * Include integrations.
+ */
+require_once get_template_directory() . '/inc/integrations/easy-digital-downloads.php';

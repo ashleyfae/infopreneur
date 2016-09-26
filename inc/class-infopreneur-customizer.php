@@ -112,6 +112,11 @@ class Infopreneur_Customizer {
 			'show_featured_page'            => true,
 			'sidebar_left_page'             => false,
 			'sidebar_right_page'            => true,
+			'edd_page_title'                => esc_html__( 'Shop', 'infopreneur' ),
+			'edd_page_desc'                 => '',
+			'show_featured_edd_archive'     => true,
+			'sidebar_left_edd_archive'      => false,
+			'sidebar_right_edd_archive'     => false,
 			'featured_bg_color'             => '#00aaa0',
 			'featured_bg_image'             => get_template_directory_uri() . '/assets/images/featured-bg.jpg',
 			'featured_bg_position'          => 'center-top',
@@ -201,6 +206,17 @@ class Infopreneur_Customizer {
 			'panel' => 'layout',
 		) );
 
+		// EDD Archive
+		$slug = defined( 'EDD_SLUG' ) ? EDD_SLUG : 'downloads';
+		$wp_customize->add_section( 'edd_archive', array(
+			'title'       => __( 'EDD Archive', 'infopreneur' ),
+			'description' => sprintf(
+				__( 'Easy Digital Downloads product archive ( %s ).', 'infopreneur' ),
+				esc_url( home_url( '/' . urlencode( $slug ) . '/' ) )
+			),
+			'panel'       => 'layout',
+		) );
+
 		// Social Media
 		$wp_customize->add_section( 'social', array(
 			'title'       => __( 'Social Media', 'infopreneur' ),
@@ -222,6 +238,7 @@ class Infopreneur_Customizer {
 		$this->blog_archive_section( $wp_customize );
 		$this->single_post_section( $wp_customize );
 		$this->single_page_section( $wp_customize );
+		$this->edd_archive_section( $wp_customize );
 		$this->static_front_page_section( $wp_customize );
 		$this->social_media_section( $wp_customize );
 		$this->footer_section( $wp_customize );
@@ -913,6 +930,84 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'single_page',
 			'settings' => 'sidebar_right_page',
+		) ) );
+
+	}
+
+	/**
+	 * Section: EDD Archive
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access private
+	 * @since  1.0.0
+	 * @return void
+	 */
+	private function edd_archive_section( $wp_customize ) {
+
+		if ( ! class_exists( 'Easy_Digital_Downloads' ) ) {
+			return;
+		}
+
+		/* Shop Page Title */
+		$wp_customize->add_setting( 'edd_page_title', array(
+			'default'           => self::defaults( 'edd_page_title' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'edd_page_title', array(
+			'label'    => esc_html__( 'Page Title', 'infopreneur' ),
+			'section'  => 'edd_archive',
+			'settings' => 'edd_page_title',
+		) ) );
+
+		/* Shop Page Desc */
+		$wp_customize->add_setting( 'edd_page_desc', array(
+			'default'           => self::defaults( 'edd_page_desc' ),
+			'sanitize_callback' => 'wp_kses_post',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'edd_page_desc', array(
+			'label'    => esc_html__( 'Page Description', 'infopreneur' ),
+			'type'     => 'textarea',
+			'section'  => 'edd_archive',
+			'settings' => 'edd_page_desc',
+		) ) );
+
+		/* Featured Area */
+		$wp_customize->add_setting( 'show_featured_edd_archive', array(
+			'default'           => self::defaults( 'show_featured_edd_archive' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_featured_edd_archive', array(
+			'label'    => esc_html__( 'Show featured area', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'edd_archive',
+			'settings' => 'show_featured_edd_archive',
+		) ) );
+
+		/* Left Sidebar */
+		$wp_customize->add_setting( 'sidebar_left_edd_archive', array(
+			'default'           => self::defaults( 'sidebar_left_edd_archive' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_left_edd_archive', array(
+			'label'    => esc_html__( 'Show left sidebar', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'edd_archive',
+			'settings' => 'sidebar_left_edd_archive',
+		) ) );
+
+		/* Right Sidebar */
+		$wp_customize->add_setting( 'sidebar_right_edd_archive', array(
+			'default'           => self::defaults( 'sidebar_right_page' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_right_edd_archive', array(
+			'label'    => esc_html__( 'Show right sidebar', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'edd_archive',
+			'settings' => 'sidebar_right_edd_archive',
 		) ) );
 
 	}

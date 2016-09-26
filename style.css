@@ -54,12 +54,13 @@
 	7.3 Captions
 	7.4 Galleries
 8.0 Plugins
-    8.1 Expanding Archives
-    8.2 MailChimp for WP
-    8.3 Naked Social Share
-    8.4 Naked Social Widget
-    8.5 NG About the Author
-    8.6 WP Instagram Widget
+    8.1 Easy Digital Downloads
+    8.2 Expanding Archives
+    8.3 MailChimp for WP
+    8.4 Naked Social Share
+    8.5 Naked Social Widget
+    8.6 NG About the Author
+    8.7 WP Instagram Widget
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 1.0 Reset
@@ -1283,10 +1284,21 @@ img {
 8.0 Plugins
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.1 Expanding Archives
+x.1 Easy Digital Downloads
+--------------------------------------------------------------*/
+.edd_download {
+  text-align: center;
+}
+
+.post-type-archive-download .edd-download {
+  margin-bottom: 3em;
+}
+
+/*--------------------------------------------------------------
+x.2 Expanding Archives
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.2 MailChimp for WP
+x.3 MailChimp for WP
 --------------------------------------------------------------*/
 .mc4wp-form label {
   clip: rect(1px, 1px, 1px, 1px);
@@ -1339,16 +1351,16 @@ x.2 MailChimp for WP
 }
 
 /*--------------------------------------------------------------
-x.3 Naked Social Share
+x.4 Naked Social Share
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.4 Naked Social Widget
+x.5 Naked Social Widget
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.5 NG About the Author
+x.6 NG About the Author
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.6 WP Instagram Widget
+x.7 WP Instagram Widget
 --------------------------------------------------------------*/
 .null-instagram-feed ul {
   display: flex;
