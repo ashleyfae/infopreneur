@@ -8,8 +8,13 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 
 * Lists
 * Test all core widgets.
-* WooCommerce integration - if I can be bothered.
-* Easy Digital Downloads integration.
+* Jetpack integration.
+* Expanding Archives integration.
+* NG About Author integration.
+* Naked Social Share integration.
+* Naked Social Widget integration.
+* WooCommerce integration - if I can be bothered. Maybe it's stupid to add this and EDD.
+* Easy Digital Downloads integration. (Almost done but tweak checkout form, etc.)
 * Better sub-menu design
 * Option to stick menu.
 
