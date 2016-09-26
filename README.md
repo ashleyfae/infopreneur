@@ -12,7 +12,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * Easy Digital Downloads integration.
 * Better sub-menu design
 * Option to stick menu.
-* Tweak MC forms mobile view.
 
 ## Credits
 
