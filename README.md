@@ -7,7 +7,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 ## Todo:
 
 * Lists
-* Comments
 * Test all core widgets.
 * WooCommerce integration - if I can be bothered.
 * Easy Digital Downloads integration.
