@@ -133,8 +133,8 @@ function infopreneur_get_custom_css() {
 	$primary_dark = infopreneur_adjust_brightness( get_theme_mod( 'primary_color', Infopreneur_Customizer::defaults( 'primary_color' ) ), - 30 );
 	$css .= sprintf(
 		'a, .navigation a:hover, #header-social a:hover, .page-title span, .comment-form. required { color: %1$s; }
-		.button, button, .more-link, input[type="submit"], .pagination .current, .edd-submit.button, .edd-submit.button.gray, .edd-submit.button:visited { background-color: %1$s; border-color: %1$s; border-bottom-color: %2$s; }
-		.button:hover, button:hover, .more-link:hover, input[type="submit"]:hover, .edd-submit.button:hover { background-color: %2$s; border-color: %2$s; }
+		.button, button, .more-link, input[type="submit"], .pagination .current, .edd-submit.button, .edd-submit.button.gray, .edd-submit.button:visited, #edd-purchase-button { background-color: %1$s; border-color: %1$s; border-bottom-color: %2$s; }
+		.button:hover, button:hover, .more-link:hover, input[type="submit"]:hover, .edd-submit.button:hover, #edd-purchase-button:hover { background-color: %2$s; border-color: %2$s; }
 		',
 		esc_html( get_theme_mod( 'primary_color', Infopreneur_Customizer::defaults( 'primary_color' ) ) ),
 		esc_html( $primary_dark )
@@ -327,7 +327,8 @@ function infopreneur_is_plain_page() {
 
 	$plain_templates = array(
 		'page-templates/landing.php',
-		'page-templates/lead-box.php'
+		'page-templates/lead-box.php',
+		'page-templates/simple.php'
 	);
 
 	if ( in_array( get_page_template_slug(), $plain_templates ) ) {
@@ -336,6 +337,51 @@ function infopreneur_is_plain_page() {
 
 	return apply_filters( 'infopreneur/is-plain-page', $is_plain_page );
 }
+
+/**
+ * Simple Page Template Layouts - Show Stuff
+ *
+ * @param bool $display Whether or not to show the layout.
+ *
+ * @since 1.0
+ * @return bool
+ */
+function infopreneur_simple_template_show_elements( $display ) {
+	if ( is_page_template( 'page-templates/simple.php' ) ) {
+		// Change display to `true` since we want the site logo.
+		$display = true;
+
+		// Remove the stuff we don't want.
+		remove_action( 'infopreneur/header', 'infopreneur_header_navigation_1', 20 );
+		remove_action( 'infopreneur/header', 'infopreneur_header_social', 30 );
+		remove_action( 'infopreneur/header', 'infopreneur_header_navigation_2', 50 );
+	}
+
+	return $display;
+}
+
+add_filter( 'infopreneur/show-header', 'infopreneur_simple_template_show_elements' );
+add_filter( 'infopreneur/show-footer', 'infopreneur_simple_template_show_elements' );
+
+/**
+ * Simple Page Template Layouts - Remove Stuff
+ *
+ * @param bool $display Whether or not to show the layout.
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function infopreneur_simple_template_disable_elements( $display ) {
+	if ( is_page_template( 'page-templates/simple.php' ) ) {
+		$display = false;
+	}
+
+	return $display;
+}
+
+add_filter( 'infopreneur/show-featured', 'infopreneur_simple_template_disable_elements' );
+add_filter( 'infopreneur/show-below-header-widget', 'infopreneur_simple_template_disable_elements' );
+add_filter( 'infopreneur/show-above-footer-widget', 'infopreneur_simple_template_disable_elements' );
 
 /**
  * Search Template

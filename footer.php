@@ -15,11 +15,11 @@ do_action( 'infopreneur/inside-content/bottom' ); ?>
 </div><!-- #content -->
 
 <?php
-if ( ! infopreneur_is_plain_page() ) :
+if ( apply_filters( 'infopreneur/show-footer', ! infopreneur_is_plain_page() ) ) :
 	/**
 	 * Above footer widget area.
 	 */
-	if ( is_active_sidebar( 'above-footer' ) ) {
+	if ( apply_filters( 'infopreneur/show-above-footer-widget', is_active_sidebar( 'above-footer' ) ) ) {
 		?>
 		<div id="above-footer-area" class="widget-area">
 			<?php dynamic_sidebar( 'above-footer' ); ?>

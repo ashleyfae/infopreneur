@@ -1,7 +1,8 @@
 .button,
 button,
 .more-link,
-input[type="submit"] {
+input[type="submit"],
+#edd-purchase-button {
     background: $color-primary;
     border: 1px solid $color-primary;
     border-bottom: 3px solid darken($color-primary, 10);

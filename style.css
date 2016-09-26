@@ -354,7 +354,8 @@ body {
 .button,
 button,
 .more-link,
-input[type="submit"] {
+input[type="submit"],
+#edd-purchase-button {
   background: #ff7a5a;
   border: 1px solid #ff7a5a;
   border-bottom: 3px solid #ff5127;
@@ -371,7 +372,8 @@ input[type="submit"] {
 .button:hover,
 button:hover,
 .more-link:hover,
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+#edd-purchase-button:hover {
   background-color: #ff5127;
   border-color: #ff5127;
   color: white;
@@ -1140,6 +1142,20 @@ x.5 Pages
     width: 25%;
   }
 }
+/* Simple Template */
+.page-template-simple .container {
+  max-width: 750px;
+}
+.page-template-simple .site-branding {
+  padding: 2em 0 0;
+}
+.page-template-simple #content {
+  margin-top: 0;
+}
+.page-template-simple .entry-title {
+  margin-bottom: 1em;
+}
+
 /*--------------------------------------------------------------
 x.6 Footer
 --------------------------------------------------------------*/
@@ -1287,7 +1303,12 @@ img {
 /*--------------------------------------------------------------
 x.1 Easy Digital Downloads
 --------------------------------------------------------------*/
-.edd-submit.button, .edd-submit.button:hover, .edd-submit.button.gray, .edd-submit.button:visited {
+.edd-submit.button,
+.edd-submit.button:hover,
+.edd-submit.button.gray,
+.edd-submit.button:visited,
+#edd-purchase-button,
+#edd-purchase-button:hover {
   color: white;
   font-size: inherit;
 }

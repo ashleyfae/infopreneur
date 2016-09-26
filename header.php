@@ -26,7 +26,7 @@
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'infopreneur' ); ?></a>
 
-	<?php if ( ! infopreneur_is_plain_page() ) : ?>
+	<?php if ( apply_filters( 'infopreneur/show-header', ! infopreneur_is_plain_page() ) ) : ?>
 		<header id="masthead" class="site-header" role="banner">
 			<?php
 			/**
@@ -52,7 +52,7 @@
 		/**
 		 * Below header widget.
 		 */
-		if ( is_active_sidebar( 'below-header' ) ) {
+		if ( apply_filters( 'infopreneur/show-below-header-widget', is_active_sidebar( 'below-header' ) ) ) {
 			if ( get_page_template_slug() != 'page-templates/homepage.php' || get_theme_mod( 'show_below_header_widget_area', Infopreneur_Customizer::defaults( 'show_below_header_widget_area' ) ) ) {
 				?>
 				<div id="below-header-area" class="widget-area">

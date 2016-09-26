@@ -1,5 +1,10 @@
 // Fix for button. These values are overridden by EDD so we need to override them again.
-.edd-submit.button, .edd-submit.button:hover, .edd-submit.button.gray, .edd-submit.button:visited {
+.edd-submit.button,
+.edd-submit.button:hover,
+.edd-submit.button.gray,
+.edd-submit.button:visited,
+#edd-purchase-button,
+#edd-purchase-button:hover {
     color: white;
     font: {
         size: inherit;
