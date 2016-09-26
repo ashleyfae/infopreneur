@@ -33,6 +33,9 @@ if ( ! infopreneur_is_plain_page() ) :
 
 		<div class="container site-info">
 			<?php
+			// Footer links
+			infopreneur_navigation( 'menu_3', array( 'depth' => 1 ) );
+
 			// Copyright message
 			?>
 			<span id="infopreneur-copyright"><?php echo infopreneur_get_copyright_message(); ?></span>

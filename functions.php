@@ -49,6 +49,7 @@ if ( ! function_exists( 'infopreneur_setup' ) ) :
 		register_nav_menus( array(
 			'menu_1' => esc_html__( 'Primary Menu', 'infopreneur' ),
 			'menu_2' => esc_html__( 'Secondary Menu', 'infopreneur' ),
+			'menu_3' => esc_html__( 'Footer Menu', 'infopreneur' )
 		) );
 
 		/*

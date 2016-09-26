@@ -15,7 +15,8 @@ if ( ! function_exists( 'infopreneur_navigation' ) ) {
 	 *
 	 * Displays a navigation menu with surrounding markup.
 	 *
-	 * @param int $number Which number navigation to display
+	 * @param int   $number Which number navigation to display.
+	 * @param array $args   Arguments to override the defaults.
 	 *
 	 * @hooks :
 	 *       `infopreneur/navigation/before`
@@ -25,21 +26,23 @@ if ( ! function_exists( 'infopreneur_navigation' ) ) {
 	 * @since 1.0.0
 	 * @return void
 	 */
-	function infopreneur_navigation( $id = 'menu_1' ) {
+	function infopreneur_navigation( $id = 'menu_1', $args = array() ) {
 		// If this menu isn't set - bail.
 		if ( ! has_nav_menu( $id ) ) {
 			return;
 		}
 
+		$args = wp_parse_args( $args, array(
+			'container'      => false,
+			'theme_location' => $id,
+			'menu_id'        => 'menu-' . $id
+		) );
+
 		do_action( 'infopreneur/navigation/before', $id );
 		?>
 		<nav id="site-navigation-<?php esc_attr_e( $id ); ?>" class="navigation" role="navigation">
 			<button class="layout-toggle" aria-controls="menu-<?php esc_attr_e( $id ); ?>" aria-expanded="false"><?php esc_html_e( 'Menu', 'infopreneur' ); ?></button>
-			<?php wp_nav_menu( array(
-				'container'      => false,
-				'theme_location' => $id,
-				'menu_id'        => 'menu-' . $id
-			) ); ?>
+			<?php wp_nav_menu( $args ); ?>
 		</nav>
 		<?php
 		do_action( 'infopreneur/navigation/after', $id );

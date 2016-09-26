@@ -13,8 +13,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * Easy Digital Downloads integration.
 * Better sub-menu design
 * Option to stick menu.
-* Footer links.
-* Second menu?
 * Tweak MC forms mobile view.
 * MC forms on pages / widgets.
 
