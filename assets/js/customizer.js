@@ -195,6 +195,25 @@
         });
     });
 
+    // Homepage area #1
+    wp.customize('home_widget_1_cols', function (value) {
+        value.bind(function (to) {
+            $('#home-widget-1').attr('class', 'home-widget-area widget-area home-widget-area-' + to + '-cols');
+        });
+    });
+    // Homepage area #2
+    wp.customize('home_widget_2_cols', function (value) {
+        value.bind(function (to) {
+            $('#home-widget-2').attr('class', 'home-widget-area widget-area home-widget-area-' + to + '-cols');
+        });
+    });
+    // Homepage area #3
+    wp.customize('home_widget_3_cols', function (value) {
+        value.bind(function (to) {
+            $('#home-widget-3').attr('class', 'home-widget-area widget-area home-widget-area-' + to + '-cols');
+        });
+    });
+
     // Copyright
     wp.customize('copyright_message', function (value) {
         value.bind(function (to) {

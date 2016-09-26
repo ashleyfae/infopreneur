@@ -1022,6 +1022,29 @@ x.5 Pages
   padding: 1em 2em;
 }
 
+/* Homepage Template */
+@media (min-width: 768px) {
+  .home-widget-area {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 -15px;
+  }
+  .home-widget-area > .widget {
+    padding: 0 15px;
+  }
+  .home-widget-area.home-widget-area-1-cols > .widget {
+    width: 100%;
+  }
+  .home-widget-area.home-widget-area-2-cols > .widget {
+    width: 50%;
+  }
+  .home-widget-area.home-widget-area-3-cols > .widget {
+    width: 33.3%;
+  }
+  .home-widget-area.home-widget-area-4-cols > .widget {
+    width: 25%;
+  }
+}
 /*--------------------------------------------------------------
 x.6 Footer
 --------------------------------------------------------------*/

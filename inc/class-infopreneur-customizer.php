@@ -126,6 +126,9 @@ class Infopreneur_Customizer {
 			'featured_button_text_color'    => '#ffffff',
 			'show_featured_home'            => true,
 			'show_below_header_widget_area' => true,
+			'home_widget_1_cols'            => 1,
+			'home_widget_2_cols'            => 3,
+			'home_widget_3_cols'            => 1,
 			'footer_text'                   => sprintf( __( 'Copyright &copy; %s.', 'infopreneur' ), date( 'Y' ) . ' ' . '<a href="' . home_url( '/' ) . '">' . get_bloginfo( 'name' ) . '</a>' )
 		);
 
@@ -947,6 +950,66 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'static_front_page',
 			'settings' => 'show_below_header_widget_area',
+		) ) );
+
+		/* Home - 1 - Cols */
+		$wp_customize->add_setting( 'home_widget_1_cols', array(
+			'default'           => self::defaults( 'home_widget_1_cols' ),
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'home_widget_1_cols', array(
+			'label'       => esc_html__( 'Widget Area #1', 'infopreneur' ),
+			'description' => __( 'Choose the number of columns for homepage widget area #1.', 'infopreneur' ),
+			'type'        => 'select',
+			'choices'     => array(
+				1 => __( '1 Column (span full width)', 'infopreneur' ),
+				2 => __( '2 Columns', 'infopreneur' ),
+				3 => __( '3 Columns', 'infopreneur' ),
+				4 => __( '4 Columns', 'infopreneur' )
+			),
+			'section'     => 'static_front_page',
+			'settings'    => 'home_widget_1_cols',
+		) ) );
+
+		/* Home - 2 - Cols */
+		$wp_customize->add_setting( 'home_widget_2_cols', array(
+			'default'           => self::defaults( 'home_widget_2_cols' ),
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'home_widget_2_cols', array(
+			'label'       => esc_html__( 'Widget Area #2', 'infopreneur' ),
+			'description' => __( 'Choose the number of columns for homepage widget area #2.', 'infopreneur' ),
+			'type'        => 'select',
+			'choices'     => array(
+				1 => __( '1 Column (span full width)', 'infopreneur' ),
+				2 => __( '2 Columns', 'infopreneur' ),
+				3 => __( '3 Columns', 'infopreneur' ),
+				4 => __( '4 Columns', 'infopreneur' )
+			),
+			'section'     => 'static_front_page',
+			'settings'    => 'home_widget_2_cols',
+		) ) );
+
+		/* Home - 3 - Cols */
+		$wp_customize->add_setting( 'home_widget_3_cols', array(
+			'default'           => self::defaults( 'home_widget_3_cols' ),
+			'sanitize_callback' => 'absint',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'home_widget_3_cols', array(
+			'label'       => esc_html__( 'Widget Area #3', 'infopreneur' ),
+			'description' => __( 'Choose the number of columns for homepage widget area #3.', 'infopreneur' ),
+			'type'        => 'select',
+			'choices'     => array(
+				1 => __( '1 Column (span full width)', 'infopreneur' ),
+				2 => __( '2 Columns', 'infopreneur' ),
+				3 => __( '3 Columns', 'infopreneur' ),
+				4 => __( '4 Columns', 'infopreneur' )
+			),
+			'section'     => 'static_front_page',
+			'settings'    => 'home_widget_3_cols',
 		) ) );
 
 	}

@@ -130,6 +130,40 @@ function infopreneur_widgets_init() {
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
 	) );
+
+	if ( get_option( 'show_on_front' ) == 'page' ) {
+
+		register_sidebar( array(
+			'name'          => esc_html__( 'Homepage - 1', 'infopreneur' ),
+			'id'            => 'home-1',
+			'description'   => esc_html__( 'Displayed on the "Homepage" page template. These widgets will span full width.', 'infopreneur' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		) );
+
+		register_sidebar( array(
+			'name'          => esc_html__( 'Homepage - 2', 'infopreneur' ),
+			'id'            => 'home-2',
+			'description'   => esc_html__( 'Displayed on the "Homepage" page template. These widgets will be split into three column rows.', 'infopreneur' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		) );
+
+		register_sidebar( array(
+			'name'          => esc_html__( 'Homepage - 3', 'infopreneur' ),
+			'id'            => 'home-3',
+			'description'   => esc_html__( 'Displayed on the "Homepage" page template. These widgets will span full width.', 'infopreneur' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		) );
+
+	}
 }
 
 add_action( 'widgets_init', 'infopreneur_widgets_init' );

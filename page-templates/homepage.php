@@ -13,31 +13,18 @@ get_header();
 
 	<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) :
-
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Page Content
-				 * Pull in template-parts/content-page.php, which displays the page content.
-				 */
-				get_template_part( 'template-parts/content', 'page' );
-
-				/*
-				 * Comments Template
-				 * Pull in the comments template if comments are open or if we have at least one comment.
-				 */
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-
-			endwhile;
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
+		<?php
+		for ( $i = 1; $i <= 3; $i ++ ) {
+			if ( is_active_sidebar( 'home-' . absint( $i ) ) ) {
+				$columns = absint( get_theme_mod( 'home_widget_' . absint( $i ) . '_cols', Infopreneur_Customizer::defaults( 'home_widget_' . absint( $i ) . '_cols' ) ) );
+				?>
+				<div id="home-widget-<?php echo esc_attr( $i ); ?>" class="home-widget-area home-widget-area-<?php echo esc_attr( $columns ); ?>-cols widget-area">
+					<?php dynamic_sidebar( 'home-' . absint( $i ) ); ?>
+				</div>
+				<?php
+			}
+		}
+		?>
 
 	</main>
 

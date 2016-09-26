@@ -13,7 +13,7 @@
 jQuery(document).ready(function ($) {
 
     var frontPageDisplay = $('#customize-control-show_on_front');
-    var staticPageOpts = $('#customize-control-show_featured_home, #customize-control-show_below_header_widget_area');
+    var staticPageOpts = $('#customize-control-show_featured_home, #customize-control-show_below_header_widget_area, #customize-control-home_widget_1_cols, #customize-control-home_widget_2_cols, #customize-control-home_widget_3_cols');
 
     // On page load, show or hide our options based on the front page value.
     if (frontPageDisplay.find('input:checked').val() == 'page') {
