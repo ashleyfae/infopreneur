@@ -1,3 +1,14 @@
+/**
+ * Customizer Live Preview
+ *
+ * Used for generating the live preview without the need to refresh the
+ * whole page.
+ *
+ * @package   infopreneur
+ * @copyright Copyright (c) 2016, Nose Graze Ltd.
+ * @license   GPL2+
+ */
+
 (function ($) {
 
     var currentTime = new Date();

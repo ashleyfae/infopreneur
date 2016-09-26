@@ -52,6 +52,7 @@ class Infopreneur_Customizer {
 		add_action( 'customize_register', array( $this, 'register_customize_sections' ) );
 		add_action( 'customize_register', array( $this, 'refresh' ) );
 		add_action( 'customize_preview_init', array( $this, 'live_preview' ) );
+		add_action( 'customize_controls_enqueue_scripts', array( $this, 'customizer_controls_js' ) );
 	}
 
 	/**
@@ -87,43 +88,45 @@ class Infopreneur_Customizer {
 	 */
 	public static function defaults( $key = '' ) {
 		$defaults = array(
-			'primary_color'              => '#ff7a5a',
-			'secondary_color'            => '#00aaa0',
-			'lead_box_bg'                => '#00aaa0',
-			'layout_style'               => 'full',
-			'post_layout'                => 'list',
-			'number_full_posts'          => 1,
-			'summary_type'               => 'excerpts',
-			'thumbnail_align'            => 'aligncenter',
-			'excerpt_length'             => 30,
-			'meta_config_blog'           => '[category]',
-			'meta_position_blog'         => 'below',
-			'show_featured_blog'         => true,
-			'sidebar_left_blog'          => false,
-			'sidebar_right_blog'         => true,
-			'suppress_archive_headings'  => false,
-			'meta_config_single'         => '[date] &ndash; [category] &ndash; [comments]',
-			'meta_position_single'       => 'below',
-			'hide_featured_image'        => false,
-			'show_featured_single'       => true,
-			'sidebar_left_single'        => false,
-			'sidebar_right_single'       => true,
-			'show_featured_page'         => true,
-			'sidebar_left_page'          => false,
-			'sidebar_right_page'         => true,
-			'featured_bg_color'          => '#00aaa0',
-			'featured_bg_image'          => get_template_directory_uri() . '/assets/images/featured-bg.jpg',
-			'featured_bg_position'       => 'center-top',
-			'featured_overlay'           => 0.5,
-			'featured_alignment'         => 'featured-centered',
-			'featured_text_color'        => '#ffffff',
-			'featured_heading'           => __( 'Run your blog like a boss', 'infopreneur' ),
-			'featured_desc'              => __( 'Join my tribe of over 1,000 infopreneurs and self-starters to take your blog to the next level.', 'infopreneur' ),
-			'featured_url'               => home_url( '/' ),
-			'featured_button'            => __( 'Get Started', 'infopreneur' ),
-			'featured_button_bg_color'   => '#ff7a5a',
-			'featured_button_text_color' => '#ffffff',
-			'footer_text'                => sprintf( __( 'Copyright &copy; %s.', 'infopreneur' ), date( 'Y' ) . ' ' . '<a href="' . home_url( '/' ) . '">' . get_bloginfo( 'name' ) . '</a>' )
+			'primary_color'                 => '#ff7a5a',
+			'secondary_color'               => '#00aaa0',
+			'lead_box_bg'                   => '#00aaa0',
+			'layout_style'                  => 'full',
+			'post_layout'                   => 'list',
+			'number_full_posts'             => 1,
+			'summary_type'                  => 'excerpts',
+			'thumbnail_align'               => 'aligncenter',
+			'excerpt_length'                => 30,
+			'meta_config_blog'              => '[category]',
+			'meta_position_blog'            => 'below',
+			'show_featured_blog'            => true,
+			'sidebar_left_blog'             => false,
+			'sidebar_right_blog'            => true,
+			'suppress_archive_headings'     => false,
+			'meta_config_single'            => '[date] &ndash; [category] &ndash; [comments]',
+			'meta_position_single'          => 'below',
+			'hide_featured_image'           => false,
+			'show_featured_single'          => true,
+			'sidebar_left_single'           => false,
+			'sidebar_right_single'          => true,
+			'show_featured_page'            => true,
+			'sidebar_left_page'             => false,
+			'sidebar_right_page'            => true,
+			'featured_bg_color'             => '#00aaa0',
+			'featured_bg_image'             => get_template_directory_uri() . '/assets/images/featured-bg.jpg',
+			'featured_bg_position'          => 'center-top',
+			'featured_overlay'              => 0.5,
+			'featured_alignment'            => 'featured-centered',
+			'featured_text_color'           => '#ffffff',
+			'featured_heading'              => __( 'Run your blog like a boss', 'infopreneur' ),
+			'featured_desc'                 => __( 'Join my tribe of over 1,000 infopreneurs and self-starters to take your blog to the next level.', 'infopreneur' ),
+			'featured_url'                  => home_url( '/' ),
+			'featured_button'               => __( 'Get Started', 'infopreneur' ),
+			'featured_button_bg_color'      => '#ff7a5a',
+			'featured_button_text_color'    => '#ffffff',
+			'show_featured_home'            => true,
+			'show_below_header_widget_area' => true,
+			'footer_text'                   => sprintf( __( 'Copyright &copy; %s.', 'infopreneur' ), date( 'Y' ) . ' ' . '<a href="' . home_url( '/' ) . '">' . get_bloginfo( 'name' ) . '</a>' )
 		);
 
 		$defaults = apply_filters( 'infopreneur/settings/defaults', $defaults );
@@ -216,12 +219,15 @@ class Infopreneur_Customizer {
 		$this->blog_archive_section( $wp_customize );
 		$this->single_post_section( $wp_customize );
 		$this->single_page_section( $wp_customize );
+		$this->static_front_page_section( $wp_customize );
 		$this->social_media_section( $wp_customize );
 		$this->footer_section( $wp_customize );
 
 		/*
 		 * Change existing settings.
 		 */
+		$wp_customize->get_section( 'static_front_page' )->description = __( 'Infopreneur supports a static front page. To use the custom homepage template, select "a static page" below, then edit that page and change the template to "Homepage".', 'infopreneur' );
+
 		$wp_customize->get_setting( 'blogname' )->transport          = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport   = 'postMessage';
 		$wp_customize->get_setting( 'header_textcolor' )->transport  = 'postMessage';
@@ -296,6 +302,28 @@ class Infopreneur_Customizer {
 			'infopreneur-customizer',
 			get_template_directory_uri() . '/assets/js/customizer' . $suffix . '.js',
 			array( 'jquery', 'customize-preview' ),
+			$this->version,
+			true
+		);
+
+	}
+
+	/**
+	 * Customizer Controls JavaScript
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 * @return void
+	 */
+	public function customizer_controls_js() {
+
+		// Use minified libraries if SCRIPT_DEBUG is turned off
+		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+		wp_enqueue_script(
+			'infopreneur-customizer-controls',
+			get_template_directory_uri() . '/assets/js/customizer-controls' . $suffix . '.js',
+			array( 'jquery' ),
 			$this->version,
 			true
 		);
@@ -882,6 +910,43 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'single_page',
 			'settings' => 'sidebar_right_page',
+		) ) );
+
+	}
+
+	/**
+	 * Section: Static Front Page
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access private
+	 * @since  1.0.0
+	 * @return void
+	 */
+	private function static_front_page_section( $wp_customize ) {
+
+		/* Featured Area */
+		$wp_customize->add_setting( 'show_featured_home', array(
+			'default'           => self::defaults( 'show_featured_home' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_featured_home', array(
+			'label'    => esc_html__( 'Show featured area', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'static_front_page',
+			'settings' => 'show_featured_home',
+		) ) );
+
+		/* Below Header Area */
+		$wp_customize->add_setting( 'show_below_header_widget_area', array(
+			'default'           => self::defaults( 'show_below_header_widget_area' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_below_header_widget_area', array(
+			'label'    => esc_html__( 'Show below header widget area', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'static_front_page',
+			'settings' => 'show_below_header_widget_area',
 		) ) );
 
 	}
