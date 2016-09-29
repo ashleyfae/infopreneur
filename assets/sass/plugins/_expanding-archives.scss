@@ -9,7 +9,7 @@
     a {
         background: $color-primary;
         border: 1px solid $color-primary;
-        border-bottom: 3px solid darken($color-primary, 10);
+        border-bottom: 3px solid $color-primary-dark;
         border-radius: 3px;
         color: white;
         display: block;
@@ -17,8 +17,8 @@
         transition: all 0.3s;
 
         &:hover {
-            background-color: darken($color-primary, 10);
-            border-color: darken($color-primary, 10);
+            background-color: $color-primary-dark;
+            border-color: $color-primary-dark;
             color: white;
         }
     }

@@ -28,7 +28,7 @@
 
     .current {
         background: $color-primary;
-        border-bottom: 3px solid darken($color-primary, 10);
+        border-bottom: 3px solid $color-primary-dark;
         color: white;
     }
 

@@ -19,7 +19,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * Style lists
 * Check forms (primarily dropdowns).
 * Test all core widgets.
-* Do something cool with category widget.
 * Jetpack integration.
 * NG About Author integration.
 * WooCommerce integration - if I can be bothered. Maybe it's stupid to add this and EDD.

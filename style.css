@@ -354,10 +354,11 @@ body {
 button,
 .more-link,
 input[type="submit"],
-#edd-purchase-button {
+#edd-purchase-button,
+.widget_categories ul a {
   background: #ff7a5a;
   border: 1px solid #ff7a5a;
-  border-bottom: 3px solid #ff5127;
+  border-bottom: 3px solid #e15c3c;
   border-radius: 3px;
   color: white;
   display: inline-block;
@@ -372,9 +373,10 @@ input[type="submit"],
 button:hover,
 .more-link:hover,
 input[type="submit"]:hover,
-#edd-purchase-button:hover {
-  background-color: #ff5127;
-  border-color: #ff5127;
+#edd-purchase-button:hover,
+.widget_categories ul a:hover {
+  background-color: #e15c3c;
+  border-color: #e15c3c;
   color: white;
 }
 
@@ -662,7 +664,7 @@ x.3 Pagination
 }
 .pagination .current {
   background: #ff7a5a;
-  border-bottom: 3px solid #ff5127;
+  border-bottom: 3px solid #e15c3c;
   color: white;
 }
 .pagination a {
@@ -1087,6 +1089,19 @@ x.4 Widgets
   text-transform: uppercase;
 }
 
+/* Categories Widget */
+.widget_categories ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.widget_categories ul a {
+  display: block;
+  margin-bottom: 5px;
+  width: 100%;
+  text-align: center;
+}
+
 /* Responsive Stuff */
 .sidebar-toggle {
   display: block;
@@ -1420,7 +1435,7 @@ x.2 Expanding Archives
 .expanding-archives-title a {
   background: #ff7a5a;
   border: 1px solid #ff7a5a;
-  border-bottom: 3px solid #ff5127;
+  border-bottom: 3px solid #e15c3c;
   border-radius: 3px;
   color: white;
   display: block;
@@ -1428,8 +1443,8 @@ x.2 Expanding Archives
   transition: all 0.3s;
 }
 .expanding-archives-title a:hover {
-  background-color: #ff5127;
-  border-color: #ff5127;
+  background-color: #e15c3c;
+  border-color: #e15c3c;
   color: white;
 }
 
