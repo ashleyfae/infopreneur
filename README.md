@@ -29,6 +29,8 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 
 ## Credits
 
+Theme organizational structure inspired by [Underscores by Automattic](https://github.com/Automattic/_s).
+
 Default featured area image ( assets/images/featured-bg.jpg ) by [William Stitt](https://unsplash.com/@willpower). Licensed under Creative Commons Zero.
 
 Font Awesome is created by [Dave Gandy](https://twitter.com/davegandy) and licensed under MIT License.
