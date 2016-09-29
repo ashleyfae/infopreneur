@@ -368,9 +368,11 @@ function infopreneur_simple_template_show_elements( $display ) {
 		$display = true;
 
 		// Remove the stuff we don't want.
+		remove_action( 'infopreneur/header', 'infopreneur_top_bar_start', 10 );
 		remove_action( 'infopreneur/header', 'infopreneur_header_navigation_1', 20 );
 		remove_action( 'infopreneur/header', 'infopreneur_header_social', 30 );
-		remove_action( 'infopreneur/header', 'infopreneur_header_navigation_2', 50 );
+		remove_action( 'infopreneur/header', 'infopreneur_top_bar_end', 40 );
+		remove_action( 'infopreneur/header', 'infopreneur_header_navigation_2', 70 );
 	}
 
 	return $display;
