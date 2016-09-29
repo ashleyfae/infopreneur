@@ -64,6 +64,20 @@
         });
     });
 
+    // Top Bar BG
+    wp.customize('top_bar_bg', function (value) {
+        value.bind(function (to) {
+            $('#top-bar, #top-bar .navigation ul ul').css('background-color', to);
+        });
+    });
+
+    // Top Bar Text Colour
+    wp.customize('top_bar_color', function (value) {
+        value.bind(function (to) {
+            $('#top-bar a').css('color', to);
+        });
+    });
+
     // Layout Width
     wp.customize('max_width', function (value) {
         value.bind(function (to) {

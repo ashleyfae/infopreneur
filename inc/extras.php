@@ -147,6 +147,15 @@ function infopreneur_get_custom_css() {
 		esc_html( get_theme_mod( 'secondary_color', Infopreneur_Customizer::defaults( 'secondary_color' ) ) )
 	);
 
+	// Top Bar BG
+	$css .= sprintf( '#top-bar, #top-bar .navigation ul ul { background-color: %1$s; }', esc_html( get_theme_mod( 'top_bar_bg', Infopreneur_Customizer::defaults( 'top_bar_bg' ) ) ) );
+
+	// Top Bar Link Colour
+	$css .= sprintf( '#top-bar .navigation a, #header-social a { color: %1$s; }', esc_html( get_theme_mod( 'top_bar_color', Infopreneur_Customizer::defaults( 'top_bar_color' ) ) ) );
+
+	// Top Bar Link Colour - Hover
+	$css .= sprintf( '#top-bar .navigation a:hover, #header-social a:hover { color: %1$s; }', esc_html( get_theme_mod( 'top_bar_hover_color', Infopreneur_Customizer::defaults( 'top_bar_hover_color' ) ) ) );
+
 	// Lead box BG colour
 	$css .= sprintf(
 		'.page-template-lead-box { background-color: %1$s; }',
