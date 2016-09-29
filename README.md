@@ -9,6 +9,7 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * [Easy Digital Downloads](https://wordpress.org/plugins/easy-digital-downloads/)
 * [Expanding Archives](https://wordpress.org/plugins/expanding-archives/)
 * [MailChimp for WordPress](https://wordpress.org/plugins/mailchimp-for-wp/)
+* [Naked Social Share](https://wordpress.org/plugins/naked-social-share/)
 * [Naked Social Widget](https://github.com/nosegraze/naked-social-widget)
 * [WP Instagram Widget](https://wordpress.org/plugins/wp-instagram-widget/)
 
@@ -21,8 +22,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * Do something cool with category widget.
 * Jetpack integration.
 * NG About Author integration.
-* Naked Social Share integration.
-* Naked Social Widget integration.
 * WooCommerce integration - if I can be bothered. Maybe it's stupid to add this and EDD.
 * Easy Digital Downloads integration. (Almost done but tweak checkout form, maybe featured download on archive)
 * Better sub-menu design

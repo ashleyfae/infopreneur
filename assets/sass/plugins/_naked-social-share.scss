@@ -1,0 +1,99 @@
+.naked-social-share {
+    margin: 1.5em 0;
+
+    ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        flex: auto;
+    }
+
+    a {
+        color: white;
+        display: block;
+        line-height: 25px;
+        margin: 0 3px;
+        padding: 5px 20px;
+        transition: background-color 0.3s;
+        text-align: center;
+        text-decoration: none;
+
+        &:before, &:after {
+            clear: both;
+            content: '';
+            display: table;
+        }
+    }
+
+    .fa {
+        float: left;
+        line-height: 28px;
+    }
+}
+
+.nss-site-name {
+    @include font-size(1.1);
+    display: inline-block;
+    font: {
+        weight: 900;
+    }
+    letter-spacing: .05em;
+    margin: 0 5px;
+    text-transform: uppercase;
+}
+
+.nss-site-count {
+    float: right;
+}
+
+.nss-twitter a {
+    background: #429cd6;
+
+    &:hover {
+        background: #2982bc;
+    }
+}
+
+.nss-facebook a {
+    background: #3a589e;
+
+    &:hover {
+        background: #2c4379;
+    }
+}
+
+.nss-pinterest a {
+    background: #cd2029;
+
+    &:hover {
+        background: #a11920;
+    }
+}
+
+.nss-stumbleupon a {
+    background: #eb4924;
+
+    &:hover {
+        background: #ca3412;
+    }
+}
+
+.nss-google a {
+    background: #c53929;
+
+    &:hover {
+        background: #9b2d20;
+    }
+}
+
+.nss-linkedin a {
+    background: #0077b5;
+
+    &:hover {
+        background: #015a89;
+    }
+}
