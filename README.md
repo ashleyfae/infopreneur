@@ -22,7 +22,7 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * Jetpack integration.
 * NG About Author integration.
 * WooCommerce integration - if I can be bothered. Maybe it's stupid to add this and EDD.
-* Easy Digital Downloads integration. (Almost done but tweak checkout form, maybe featured download on archive)
+* Easy Digital Downloads integration. (Almost done but maybe add featured download on archive)
 * Better sub-menu design
 * Run unit test.
 

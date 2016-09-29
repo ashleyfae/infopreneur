@@ -390,6 +390,7 @@ input[type="search"],
 input[type="tel"],
 input[type="text"],
 input[type="url"],
+select,
 textarea {
   background: #f4f4f4;
   border: 1px solid #f4f4f4;
@@ -404,6 +405,7 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="text"]:focus,
 input[type="url"]:focus,
+select:focus,
 textarea:focus {
   border-color: #b4b4b4;
   outline: 0;
@@ -421,6 +423,8 @@ input[type="text"], #above-footer-area
 input[type="text"], #below-header-area
 input[type="url"], #above-footer-area
 input[type="url"], #below-header-area
+select, #above-footer-area
+select, #below-header-area
 textarea, #above-footer-area
 textarea {
   background: white;
@@ -1419,6 +1423,32 @@ x.1 Easy Digital Downloads
 }
 .widget_edd_cart_widget .edd_checkout a {
   font-weight: bold;
+}
+
+#edd_checkout_form_wrap input[type="email"],
+#edd_checkout_form_wrap input[type="number"],
+#edd_checkout_form_wrap input[type="password"],
+#edd_checkout_form_wrap input[type="search"],
+#edd_checkout_form_wrap input[type="tel"],
+#edd_checkout_form_wrap input[type="text"],
+#edd_checkout_form_wrap input[type="url"],
+#edd_checkout_form_wrap select,
+#edd_checkout_form_wrap textarea {
+  padding: 15px 20px;
+}
+
+/* Checkout */
+#edd_cc_fields input[type="email"],
+#edd_cc_fields input[type="number"],
+#edd_cc_fields input[type="password"],
+#edd_cc_fields input[type="search"],
+#edd_cc_fields input[type="tel"],
+#edd_cc_fields input[type="text"],
+#edd_cc_fields input[type="url"],
+#edd_cc_fields select,
+#edd_cc_fields textarea {
+  background: white;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 /*--------------------------------------------------------------

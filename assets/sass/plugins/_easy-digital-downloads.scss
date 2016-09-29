@@ -101,3 +101,33 @@
         font-weight: bold;
     }
 }
+
+#edd_checkout_form_wrap {
+    input[type="email"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="url"],
+    select,
+    textarea {
+        padding: 15px 20px;
+    }
+}
+
+/* Checkout */
+#edd_cc_fields {
+    input[type="email"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="url"],
+    select,
+    textarea {
+        background: white;
+        border-color: rgba(0, 0, 0, 0.2);
+    }
+}
