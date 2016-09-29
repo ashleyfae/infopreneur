@@ -7,7 +7,9 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 ## Supported Plugins
 
 * [Easy Digital Downloads](https://wordpress.org/plugins/easy-digital-downloads/)
+* [Expanding Archives](https://wordpress.org/plugins/expanding-archives/)
 * [MailChimp for WordPress](https://wordpress.org/plugins/mailchimp-for-wp/)
+* [Naked Social Widget](https://github.com/nosegraze/naked-social-widget)
 * [WP Instagram Widget](https://wordpress.org/plugins/wp-instagram-widget/)
 
 ## Todo:
