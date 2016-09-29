@@ -94,6 +94,7 @@ class Infopreneur_Customizer {
 			'top_bar_color'                 => '#333333',
 			'top_bar_hover_color'           => '#ff7a5a',
 			'lead_box_bg'                   => '#00aaa0',
+			'sticky_menu'                   => false,
 			'layout_style'                  => 'full',
 			'post_layout'                   => 'list',
 			'number_full_posts'             => 1,
@@ -182,6 +183,13 @@ class Infopreneur_Customizer {
 		 * Sections
 		 */
 
+		// Menu Settings
+		$wp_customize->add_section( 'info_menu_settings', array(
+			'title'    => __( 'Menu Settings', 'infopreneur' ),
+			'panel'    => 'nav_menus',
+			'priority' => 1
+		) );
+
 		// Featured Area
 		$wp_customize->add_section( 'featured', array(
 			'title'    => __( 'Featured Area', 'infopreneur' ),
@@ -246,6 +254,7 @@ class Infopreneur_Customizer {
 		 */
 
 		$this->colors_section( $wp_customize );
+		$this->menu_section( $wp_customize );
 		$this->featured_section( $wp_customize );
 		$this->global_layout_section( $wp_customize );
 		$this->blog_archive_section( $wp_customize );
@@ -451,6 +460,32 @@ class Infopreneur_Customizer {
 			'section'     => 'colors',
 			'settings'    => 'lead_box_bg',
 		) ) );
+
+	}
+
+	/**
+	 * Section: Menus
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access private
+	 * @since  1.0.0
+	 * @return void
+	 */
+	private function menu_section( $wp_customize ) {
+
+		$wp_customize->add_setting( 'sticky_menu', array(
+			'default'           => self::defaults( 'sticky_menu' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sticky_menu', array(
+			'label'    => esc_html__( 'Stick menu to top of page', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'info_menu_settings',
+			'settings' => 'sticky_menu'
+		) ) );
+
 
 	}
 

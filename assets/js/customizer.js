@@ -78,6 +78,17 @@
         });
     });
 
+    // Sticky Menu
+    wp.customize('sticky_menu', function (value) {
+        value.bind(function (to) {
+            if (to) {
+                $('body').addClass('sticky-menu');
+            } else {
+                $('body').removeClass('sticky-menu');
+            }
+        });
+    });
+
     // Layout Width
     wp.customize('max_width', function (value) {
         value.bind(function (to) {

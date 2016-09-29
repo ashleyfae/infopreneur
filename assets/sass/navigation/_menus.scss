@@ -2,6 +2,23 @@
     background: white;
 }
 
+.sticky-menu {
+    padding-top: 69px;
+
+    #top-bar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 50;
+    }
+
+    &.admin-bar {
+        #top-bar {
+            top: 32px;
+        }
+    }
+}
+
 .navigation {
     display: block;
     font: {

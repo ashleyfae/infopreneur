@@ -92,6 +92,13 @@ function infopreneur_body_classes( $classes ) {
 	$classes[]    = 'layout-style-' . sanitize_html_class( $layout_style );
 
 	/*
+	 * Sticky Menu
+	 */
+	if ( get_theme_mod( 'sticky_menu', Infopreneur_Customizer::defaults( 'sticky_menu' ) ) ) {
+		$classes[] = 'sticky-menu';
+	}
+
+	/*
 	 * Sidebar Classes
 	 */
 

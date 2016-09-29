@@ -25,7 +25,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * WooCommerce integration - if I can be bothered. Maybe it's stupid to add this and EDD.
 * Easy Digital Downloads integration. (Almost done but tweak checkout form, maybe featured download on archive)
 * Better sub-menu design
-* Option to stick menu.
 * Run unit test.
 
 ## Credits
