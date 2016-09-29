@@ -32,12 +32,14 @@
 			/**
 			 * The following functions are hooked in:
 			 *
-			 * @see infopreneur_header_container_start() - 10
+			 * @see infopreneur_top_bar_start() - 10
 			 * @see infopreneur_header_navigation_1() - 20
 			 * @see infopreneur_header_social() - 30
-			 * @see infopreneur_site_title() - 40
-			 * @see infopreneur_header_navigation_2() - 50
-			 * @see infopreneur_header_container_end() - 60
+			 * @see infopreneur_top_bar_end() - 40
+			 * @see infopreneur_header_container_start() - 50
+			 * @see infopreneur_site_title() - 60
+			 * @see infopreneur_header_navigation_2() - 70
+			 * @see infopreneur_header_container_end() - 80
 			 */
 			do_action( 'infopreneur/header' );
 			?>

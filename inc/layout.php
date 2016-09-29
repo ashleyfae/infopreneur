@@ -8,16 +8,17 @@
  */
 
 /**
- * Header: Start Container
+ * Header: Top Bar - Start
  *
  * @since 1.0.0
  * @return void
  */
-function infopreneur_header_container_start() {
+function infopreneur_top_bar_start() {
+	echo '<div id="top-bar">';
 	echo '<div class="container">';
 }
 
-add_action( 'infopreneur/header', 'infopreneur_header_container_start', 10 );
+add_action( 'infopreneur/header', 'infopreneur_top_bar_start', 10 );
 
 /**
  * Header: Menu #1
@@ -74,6 +75,31 @@ function infopreneur_header_social() {
 add_action( 'infopreneur/header', 'infopreneur_header_social', 30 );
 
 /**
+ * Header: Top Bar - End
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function infopreneur_top_bar_end() {
+	echo '</div>'; // .container
+	echo '</div>'; // #top-bar
+}
+
+add_action( 'infopreneur/header', 'infopreneur_top_bar_end', 40 );
+
+/**
+ * Header: Start Container
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function infopreneur_header_container_start() {
+	echo '<div class="container">';
+}
+
+add_action( 'infopreneur/header', 'infopreneur_header_container_start', 50 );
+
+/**
  * Header
  *
  * Displays the header image and/or text.
@@ -113,7 +139,7 @@ function infopreneur_site_title() {
 	do_action( 'infopreneur/header/site-title/after' );
 }
 
-add_action( 'infopreneur/header', 'infopreneur_site_title', 40 );
+add_action( 'infopreneur/header', 'infopreneur_site_title', 60 );
 
 /**
  * Header: Menu #2
@@ -127,7 +153,7 @@ function infopreneur_header_navigation_2() {
 	infopreneur_navigation( 'menu_2' );
 }
 
-add_action( 'infopreneur/header', 'infopreneur_header_navigation_2', 50 );
+add_action( 'infopreneur/header', 'infopreneur_header_navigation_2', 70 );
 
 /**
  * Header: End Container
@@ -139,4 +165,4 @@ function infopreneur_header_container_end() {
 	echo '</div>';
 }
 
-add_action( 'infopreneur/header', 'infopreneur_header_container_end', 60 );
+add_action( 'infopreneur/header', 'infopreneur_header_container_end', 80 );

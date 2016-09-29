@@ -13,7 +13,7 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 ## Todo:
 
 * Figure out sidebar situation. I have settings for two (left/right) but only actually have one sidebar (right) created.
-* Lists
+* Style lists
 * Check forms (primarily dropdowns).
 * Test all core widgets.
 * Do something cool with category widget.
@@ -24,7 +24,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * Naked Social Widget integration.
 * WooCommerce integration - if I can be bothered. Maybe it's stupid to add this and EDD.
 * Easy Digital Downloads integration. (Almost done but tweak checkout form, maybe featured download on archive)
-* Maybe re-structure the header a bit so the navbar has its own container and can have a background colour.
 * Better sub-menu design
 * Option to stick menu.
 * Run unit test.

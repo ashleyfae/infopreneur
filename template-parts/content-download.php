@@ -20,7 +20,7 @@ $thumb = infopreneur_get_post_thumbnail( array( 'alignment' => 'aligncenter' ) )
 		</div>
 	<?php endif; ?>
 
-	<?php the_title( '<h2 class="entry-title" itemprop="name"><a href="' . esc_url( get_permalink() ) . '" itemprop="url">', infopreneur_get_edd_price( get_the_ID(), ' - ' ) . '</a></h2>' ); ?>
+	<?php the_title( '<h2 class="entry-title" itemprop="name"><a href="' . esc_url( get_permalink() ) . '" itemprop="url">', infopreneur_get_edd_price( get_the_ID(), ' <span class="price-separator">-</span> ' ) . '</a></h2>' ); ?>
 
 	<a href="<?php echo esc_url( get_permalink() ); ?>" class="more-link"><?php _e( 'Details &raquo;', 'infopreneur' ); ?></a>
 
