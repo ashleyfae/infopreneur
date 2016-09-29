@@ -1410,6 +1410,62 @@ x.1 Easy Digital Downloads
 /*--------------------------------------------------------------
 x.2 Expanding Archives
 --------------------------------------------------------------*/
+.expanding-archives-section {
+  margin-bottom: 5px;
+}
+
+/* Year Title */
+.expanding-archives-title {
+  margin: 0;
+}
+.expanding-archives-title a {
+  background: #ff7a5a;
+  border: 1px solid #ff7a5a;
+  border-bottom: 3px solid #ff5127;
+  border-radius: 3px;
+  color: white;
+  display: block;
+  padding: 5px 10px;
+  transition: all 0.3s;
+}
+.expanding-archives-title a:hover {
+  background-color: #ff5127;
+  border-color: #ff5127;
+  color: white;
+}
+
+/* The wrapper around the list of posts */
+.expanding-archives-collapse-section {
+  display: none;
+  padding: 10px;
+}
+.expanding-archives-collapse-section.expanding-archives-expanded {
+  display: block;
+}
+.expanding-archives-collapse-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.expanding-archives-collapse-section ul li {
+  background: none;
+  clear: both;
+  padding: 0;
+}
+.expanding-archives-collapse-section ul li:before {
+  display: none;
+}
+
+/* The number of posts in a month */
+.expanding-archive-count {
+  float: right;
+}
+
+/* The list of posts */
+.expanding-archive-month-results {
+  padding-left: 30px;
+}
+
 /*--------------------------------------------------------------
 x.3 MailChimp for WP
 --------------------------------------------------------------*/

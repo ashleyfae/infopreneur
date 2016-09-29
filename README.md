@@ -18,7 +18,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * Test all core widgets.
 * Do something cool with category widget.
 * Jetpack integration.
-* Expanding Archives integration.
 * NG About Author integration.
 * Naked Social Share integration.
 * Naked Social Widget integration.

@@ -1,0 +1,61 @@
+.expanding-archives-section {
+    margin-bottom: 5px;
+}
+
+/* Year Title */
+.expanding-archives-title {
+    margin: 0;
+
+    a {
+        background: $color-primary;
+        border: 1px solid $color-primary;
+        border-bottom: 3px solid darken($color-primary, 10);
+        border-radius: 3px;
+        color: white;
+        display: block;
+        padding: 5px 10px;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: darken($color-primary, 10);
+            border-color: darken($color-primary, 10);
+            color: white;
+        }
+    }
+}
+
+/* The wrapper around the list of posts */
+.expanding-archives-collapse-section {
+    display: none;
+    padding: 10px;
+
+    &.expanding-archives-expanded {
+        display: block;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            background: none;
+            clear: both;
+            padding: 0;
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+
+/* The number of posts in a month */
+.expanding-archive-count {
+    float: right;
+}
+
+/* The list of posts */
+.expanding-archive-month-results {
+    padding-left: 30px;
+}
