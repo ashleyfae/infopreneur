@@ -17,12 +17,12 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 
 * Style lists
 * Jetpack integration.
-..* Add testimonial support.
-..* Style single portfolio pages.
++ Add testimonial support.
++ Style single portfolio pages.
 * NG About Author integration.
 * WooCommerce integration - if I can be bothered. Maybe it's stupid to add this and EDD.
 * Easy Digital Downloads integration.
-..* Maybe add featured download on archive.
++ Maybe add featured download on archive.
 * Better sub-menu design
 * Run unit test.
 
