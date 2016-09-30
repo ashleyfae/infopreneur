@@ -1579,6 +1579,8 @@ x.4 Naked Social Share
   flex: auto;
 }
 .naked-social-share a {
+  border-bottom: 3px solid;
+  border-radius: 3px;
   color: white;
   display: block;
   line-height: 25px;
@@ -1614,6 +1616,7 @@ x.4 Naked Social Share
 
 .nss-twitter a {
   background: #429cd6;
+  border-bottom-color: #2982bc;
 }
 .nss-twitter a:hover {
   background: #2982bc;
@@ -1621,6 +1624,7 @@ x.4 Naked Social Share
 
 .nss-facebook a {
   background: #3a589e;
+  border-bottom-color: #2c4379;
 }
 .nss-facebook a:hover {
   background: #2c4379;
@@ -1628,6 +1632,7 @@ x.4 Naked Social Share
 
 .nss-pinterest a {
   background: #cd2029;
+  border-bottom-color: #a11920;
 }
 .nss-pinterest a:hover {
   background: #a11920;
@@ -1635,6 +1640,7 @@ x.4 Naked Social Share
 
 .nss-stumbleupon a {
   background: #eb4924;
+  border-bottom-color: #ca3412;
 }
 .nss-stumbleupon a:hover {
   background: #ca3412;
@@ -1642,6 +1648,7 @@ x.4 Naked Social Share
 
 .nss-google a {
   background: #c53929;
+  border-bottom-color: #9b2d20;
 }
 .nss-google a:hover {
   background: #9b2d20;
@@ -1649,6 +1656,7 @@ x.4 Naked Social Share
 
 .nss-linkedin a {
   background: #0077b5;
+  border-bottom-color: #015a89;
 }
 .nss-linkedin a:hover {
   background: #015a89;

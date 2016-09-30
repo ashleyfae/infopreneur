@@ -13,6 +13,8 @@
     }
 
     a {
+        border-bottom: 3px solid;
+        border-radius: 3px;
         color: white;
         display: block;
         line-height: 25px;
@@ -52,6 +54,7 @@
 
 .nss-twitter a {
     background: #429cd6;
+    border-bottom-color: #2982bc;
 
     &:hover {
         background: #2982bc;
@@ -60,6 +63,7 @@
 
 .nss-facebook a {
     background: #3a589e;
+    border-bottom-color: #2c4379;
 
     &:hover {
         background: #2c4379;
@@ -68,6 +72,7 @@
 
 .nss-pinterest a {
     background: #cd2029;
+    border-bottom-color: #a11920;;
 
     &:hover {
         background: #a11920;
@@ -76,6 +81,7 @@
 
 .nss-stumbleupon a {
     background: #eb4924;
+    border-bottom-color: #ca3412;
 
     &:hover {
         background: #ca3412;
@@ -84,6 +90,7 @@
 
 .nss-google a {
     background: #c53929;
+    border-bottom-color: #9b2d20;
 
     &:hover {
         background: #9b2d20;
@@ -92,6 +99,7 @@
 
 .nss-linkedin a {
     background: #0077b5;
+    border-bottom-color: #015a89;
 
     &:hover {
         background: #015a89;
