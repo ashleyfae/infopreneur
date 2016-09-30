@@ -1612,6 +1612,7 @@ x.4 Naked Social Share
 
 .nss-site-count {
   float: right;
+  line-height: 28px;
 }
 
 .nss-twitter a {
