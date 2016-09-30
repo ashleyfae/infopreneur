@@ -88,60 +88,74 @@ class Infopreneur_Customizer {
 	 */
 	public static function defaults( $key = '' ) {
 		$defaults = array(
-			'primary_color'                 => '#ff7a5a',
-			'secondary_color'               => '#00aaa0',
-			'top_bar_bg'                    => '#ffffff',
-			'top_bar_color'                 => '#333333',
-			'top_bar_hover_color'           => '#ff7a5a',
-			'lead_box_bg'                   => '#00aaa0',
-			'sticky_menu'                   => false,
-			'layout_style'                  => 'full',
-			'post_layout'                   => 'list',
-			'number_full_posts'             => 1,
-			'summary_type'                  => 'excerpts',
-			'thumbnail_align'               => 'aligncenter',
-			'excerpt_length'                => 30,
-			'meta_config_blog'              => '[category]',
-			'meta_position_blog'            => 'below',
-			'show_featured_blog'            => true,
-			'sidebar_left_blog'             => false,
-			'sidebar_right_blog'            => true,
-			'suppress_archive_headings'     => false,
-			'meta_config_single'            => '[date] &ndash; [category] &ndash; [comments]',
-			'meta_position_single'          => 'below',
-			'hide_featured_image'           => false,
-			'show_featured_single'          => true,
-			'sidebar_left_single'           => false,
-			'sidebar_right_single'          => true,
-			'show_featured_page'            => true,
-			'sidebar_left_page'             => false,
-			'sidebar_right_page'            => true,
-			'edd_page_title'                => esc_html__( 'Shop', 'infopreneur' ),
-			'edd_page_desc'                 => '',
-			'show_featured_edd_archive'     => true,
-			'sidebar_left_edd_archive'      => false,
-			'sidebar_right_edd_archive'     => false,
-			'show_featured_edd_single'      => true,
-			'sidebar_left_edd_single'       => false,
-			'sidebar_right_edd_single'      => true,
-			'featured_bg_color'             => '#00aaa0',
-			'featured_bg_image'             => get_template_directory_uri() . '/assets/images/featured-bg.jpg',
-			'featured_bg_position'          => 'center-top',
-			'featured_overlay'              => 0.5,
-			'featured_alignment'            => 'featured-centered',
-			'featured_text_color'           => '#ffffff',
-			'featured_heading'              => __( 'Run your blog like a boss', 'infopreneur' ),
-			'featured_desc'                 => __( 'Join my tribe of over 1,000 infopreneurs and self-starters to take your blog to the next level.', 'infopreneur' ),
-			'featured_url'                  => home_url( '/' ),
-			'featured_button'               => __( 'Get Started', 'infopreneur' ),
-			'featured_button_bg_color'      => '#ff7a5a',
-			'featured_button_text_color'    => '#ffffff',
-			'show_featured_home'            => true,
-			'show_below_header_widget_area' => true,
-			'home_widget_1_cols'            => 1,
-			'home_widget_2_cols'            => 3,
-			'home_widget_3_cols'            => 1,
-			'footer_text'                   => sprintf( __( 'Copyright &copy; %s.', 'infopreneur' ), date( 'Y' ) . ' ' . '<a href="' . home_url( '/' ) . '">' . get_bloginfo( 'name' ) . '</a>' )
+			'primary_color'                           => '#ff7a5a',
+			'secondary_color'                         => '#00aaa0',
+			'top_bar_bg'                              => '#ffffff',
+			'top_bar_color'                           => '#333333',
+			'top_bar_hover_color'                     => '#ff7a5a',
+			'lead_box_bg'                             => '#00aaa0',
+			'sticky_menu'                             => false,
+			'layout_style'                            => 'full',
+			'post_layout'                             => 'list',
+			'number_full_posts'                       => 1,
+			'summary_type'                            => 'excerpts',
+			'thumbnail_align'                         => 'aligncenter',
+			'excerpt_length'                          => 30,
+			'meta_config_blog'                        => '[category]',
+			'meta_position_blog'                      => 'below',
+			'show_featured_blog'                      => true,
+			'sidebar_left_blog'                       => false,
+			'sidebar_right_blog'                      => true,
+			'suppress_archive_headings'               => false,
+			'meta_config_single'                      => '[date] &ndash; [category] &ndash; [comments]',
+			'meta_position_single'                    => 'below',
+			'hide_featured_image'                     => false,
+			'show_featured_single'                    => true,
+			'sidebar_left_single'                     => false,
+			'sidebar_right_single'                    => true,
+			'show_featured_page'                      => true,
+			'sidebar_left_page'                       => false,
+			'sidebar_right_page'                      => true,
+			'edd_page_title'                          => esc_html__( 'Shop', 'infopreneur' ),
+			'edd_page_desc'                           => '',
+			'show_featured_edd_archive'               => true,
+			'sidebar_left_edd_archive'                => false,
+			'sidebar_right_edd_archive'               => false,
+			'show_featured_edd_single'                => true,
+			'sidebar_left_edd_single'                 => false,
+			'sidebar_right_edd_single'                => true,
+			'portfolio_page_title'                    => esc_html__( 'Portfolio', 'infopreneur' ),
+			'portfolio_page_desc'                     => '',
+			'portfolio_display_types'                 => false,
+			'portfolio_display_tags'                  => false,
+			'portfolio_display_content'               => false,
+			'portfolio_include_type'                  => '',
+			'portfolio_include_tag'                   => '',
+			'portfolio_columns'                       => 2,
+			'portfolio_showposts'                     => - 1,
+			'portfolio_order'                         => 'asc',
+			'portfolio_orderby'                       => 'date',
+			'show_featured_jetpack_portfolio_archive' => true,
+			'sidebar_left_jetpack_portfolio_archive'  => false,
+			'sidebar_right_jetpack_portfolio_archive' => false,
+			'featured_bg_color'                       => '#00aaa0',
+			'featured_bg_image'                       => get_template_directory_uri() . '/assets/images/featured-bg.jpg',
+			'featured_bg_position'                    => 'center-top',
+			'featured_overlay'                        => 0.5,
+			'featured_alignment'                      => 'featured-centered',
+			'featured_text_color'                     => '#ffffff',
+			'featured_heading'                        => __( 'Run your blog like a boss', 'infopreneur' ),
+			'featured_desc'                           => __( 'Join my tribe of over 1,000 infopreneurs and self-starters to take your blog to the next level.', 'infopreneur' ),
+			'featured_url'                            => home_url( '/' ),
+			'featured_button'                         => __( 'Get Started', 'infopreneur' ),
+			'featured_button_bg_color'                => '#ff7a5a',
+			'featured_button_text_color'              => '#ffffff',
+			'show_featured_home'                      => true,
+			'show_below_header_widget_area'           => true,
+			'home_widget_1_cols'                      => 1,
+			'home_widget_2_cols'                      => 3,
+			'home_widget_3_cols'                      => 1,
+			'footer_text'                             => sprintf( __( 'Copyright &copy; %s.', 'infopreneur' ), date( 'Y' ) . ' ' . '<a href="' . home_url( '/' ) . '">' . get_bloginfo( 'name' ) . '</a>' )
 		);
 
 		$defaults = apply_filters( 'infopreneur/settings/defaults', $defaults );
@@ -224,10 +238,7 @@ class Infopreneur_Customizer {
 		$slug = defined( 'EDD_SLUG' ) ? EDD_SLUG : 'downloads';
 		$wp_customize->add_section( 'edd_archive', array(
 			'title'       => __( 'EDD Archive', 'infopreneur' ),
-			'description' => sprintf(
-				__( 'Easy Digital Downloads product archive ( %s ).', 'infopreneur' ),
-				esc_url( home_url( '/' . urlencode( $slug ) . '/' ) )
-			),
+			'description' => __( 'Easy Digital Downloads product archive.', 'infopreneur' ),
 			'panel'       => 'layout',
 		) );
 
@@ -236,6 +247,13 @@ class Infopreneur_Customizer {
 			'title'       => __( 'EDD Single', 'infopreneur' ),
 			'description' => __( 'Easy Digital Downloads single product page.', 'infopreneur' ),
 			'panel'       => 'layout',
+		) );
+
+		// Portfolio Archive
+		$wp_customize->add_section( 'portfolio_archive', array(
+			'title'       => __( 'Portfolio', 'infopreneur' ),
+			'description' => __( 'Portfolio archive.', 'infopreneur' ),
+			'panel'       => 'layout'
 		) );
 
 		// Social Media
@@ -262,6 +280,7 @@ class Infopreneur_Customizer {
 		$this->single_page_section( $wp_customize );
 		$this->edd_archive_section( $wp_customize );
 		$this->edd_single_section( $wp_customize );
+		$this->portfolio_archive_section( $wp_customize );
 		$this->static_front_page_section( $wp_customize );
 		$this->social_media_section( $wp_customize );
 		$this->footer_section( $wp_customize );
@@ -327,6 +346,28 @@ class Infopreneur_Customizer {
 			}
 		) );
 
+		$portfolio = array(
+			'portfolio_display_types',
+			'portfolio_display_tags',
+			'portfolio_display_content',
+			'portfolio_include_type',
+			'portfolio_include_tag',
+			'portfolio_columns',
+			'portfolio_showposts',
+			'portfolio_order',
+			'portfolio_orderby'
+		);
+
+		foreach ( $portfolio as $portfolio_option ) {
+			$wp_customize->selective_refresh->add_partial( $portfolio_option, array(
+				'selector'        => '#jetpack-portfolio-grid',
+				'settings'        => $portfolio_option,
+				'render_callback' => function () {
+					infopreneur_jetpack_portfolio();
+				}
+			) );
+		}
+
 	}
 
 	/**
@@ -370,6 +411,18 @@ class Infopreneur_Customizer {
 			$this->version,
 			true
 		);
+
+		$download_url = false;
+
+		if ( function_exists( 'edd_get_random_download' ) ) {
+			$downloads = edd_get_random_download();
+
+			if ( count( $downloads ) && array_key_exists( 0, $downloads ) && is_numeric( $downloads[0] ) ) {
+				$download_url = get_permalink( $downloads[0] );
+			}
+		}
+
+		wp_localize_script( 'infopreneur-customizer-controls', 'Info_Customizer', array( 'download_url' => $download_url ) );
 
 	}
 
@@ -1148,6 +1201,224 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'edd_single',
 			'settings' => 'sidebar_right_edd_single',
+		) ) );
+
+	}
+
+	/**
+	 * Section: Portfolio Archive
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access private
+	 * @since  1.0.0
+	 * @return void
+	 */
+	private function portfolio_archive_section( $wp_customize ) {
+
+		if ( ! class_exists( 'Jetpack' ) ) {
+			return;
+		}
+
+		if ( ! Jetpack::is_module_active( 'custom-content-types' ) ) {
+			return;
+		}
+
+		/* Page Title */
+		$wp_customize->add_setting( 'portfolio_page_title', array(
+			'default'           => self::defaults( 'portfolio_page_title' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'portfolio_page_title', array(
+			'label'    => esc_html__( 'Page Title', 'infopreneur' ),
+			'section'  => 'portfolio_archive',
+			'settings' => 'portfolio_page_title',
+		) ) );
+
+		/* Page Desc */
+		$wp_customize->add_setting( 'portfolio_page_desc', array(
+			'default'           => self::defaults( 'portfolio_page_desc' ),
+			'sanitize_callback' => 'wp_kses_post',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'portfolio_page_desc', array(
+			'label'    => esc_html__( 'Page Description', 'infopreneur' ),
+			'type'     => 'textarea',
+			'section'  => 'portfolio_archive',
+			'settings' => 'portfolio_page_desc',
+		) ) );
+
+		/* Display Types */
+		$wp_customize->add_setting( 'portfolio_display_types', array(
+			'default'           => self::defaults( 'portfolio_display_types' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'portfolio_display_types', array(
+			'label'    => esc_html__( 'Display project types', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'portfolio_archive',
+			'settings' => 'portfolio_display_types',
+		) ) );
+
+		/* Display Tags */
+		$wp_customize->add_setting( 'portfolio_display_tags', array(
+			'default'           => self::defaults( 'portfolio_display_tags' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'portfolio_display_tags', array(
+			'label'    => esc_html__( 'Display project tags', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'portfolio_archive',
+			'settings' => 'portfolio_display_tags',
+		) ) );
+
+		/* Display Content */
+		$wp_customize->add_setting( 'portfolio_display_content', array(
+			'default'           => self::defaults( 'portfolio_display_content' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'portfolio_display_content', array(
+			'label'    => esc_html__( 'Display project content', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'portfolio_archive',
+			'settings' => 'portfolio_display_content',
+		) ) );
+
+		/* Include Type */
+		$wp_customize->add_setting( 'portfolio_include_type', array(
+			'default'           => self::defaults( 'portfolio_include_type' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'portfolio_include_type', array(
+			'label'       => esc_html__( 'Project Type(s)', 'infopreneur' ),
+			'description' => __( 'Leave blank to include all project types, or enter a comma-separated list of Project Type slugs to only display those.', 'infopreneur' ),
+			'section'     => 'portfolio_archive',
+			'settings'    => 'portfolio_include_type',
+		) ) );
+
+		/* Include Tags */
+		$wp_customize->add_setting( 'portfolio_include_tag', array(
+			'default'           => self::defaults( 'portfolio_include_tag' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'portfolio_include_tag', array(
+			'label'       => esc_html__( 'Project Tag(s)', 'infopreneur' ),
+			'description' => __( 'Leave blank to include all project tags, or enter a comma-separated list of Project Tag slugs to only display those.', 'infopreneur' ),
+			'section'     => 'portfolio_archive',
+			'settings'    => 'portfolio_include_tag',
+		) ) );
+
+		/* Columns */
+		$wp_customize->add_setting( 'portfolio_columns', array(
+			'default'           => self::defaults( 'portfolio_columns' ),
+			'sanitize_callback' => 'absint',
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'portfolio_columns', array(
+			'label'    => esc_html__( 'Columns', 'infopreneur' ),
+			'type'     => 'select',
+			'choices'  => array(
+				1 => esc_html__( '1 Column', 'infopreneur' ),
+				2 => esc_html__( '2 Columns', 'infopreneur' ),
+				3 => esc_html__( '3 Columns', 'infopreneur' ),
+				4 => esc_html__( '4 Columns', 'infopreneur' ),
+				5 => esc_html__( '5 Columns', 'infopreneur' ),
+				6 => esc_html__( '6 Columns', 'infopreneur' )
+			),
+			'section'  => 'portfolio_archive',
+			'settings' => 'portfolio_columns',
+		) ) );
+
+		/* Columns */
+		$wp_customize->add_setting( 'portfolio_showposts', array(
+			'default'           => self::defaults( 'portfolio_showposts' ),
+			'sanitize_callback' => 'intval',
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'portfolio_showposts', array(
+			'label'       => esc_html__( 'Number of Projects', 'infopreneur' ),
+			'description' => sprintf( __( 'Enter %s to display all projects.', 'infopreneur' ), '<code>-1</code>' ),
+			'type'        => 'number',
+			'section'     => 'portfolio_archive',
+			'settings'    => 'portfolio_showposts',
+		) ) );
+
+		/* Order */
+		$wp_customize->add_setting( 'portfolio_order', array(
+			'default'           => self::defaults( 'portfolio_order' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'portfolio_order', array(
+			'label'    => esc_html__( 'Order', 'infopreneur' ),
+			'type'     => 'select',
+			'choices'  => array(
+				'asc'  => esc_html__( 'Ascending', 'infopreneur' ),
+				'desc' => esc_html__( 'Descending', 'infopreneur' )
+			),
+			'section'  => 'portfolio_archive',
+			'settings' => 'portfolio_order',
+		) ) );
+
+		/* Orderby */
+		$wp_customize->add_setting( 'portfolio_orderby', array(
+			'default'           => self::defaults( 'portfolio_orderby' ),
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => $wp_customize->selective_refresh ? 'postMessage' : 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'portfolio_orderby', array(
+			'label'    => esc_html__( 'Orderby', 'infopreneur' ),
+			'type'     => 'select',
+			'choices'  => array(
+				'author' => esc_html__( 'Author Name', 'infopreneur' ),
+				'date'   => esc_html__( 'Date', 'infopreneur' ),
+				'title'  => esc_html__( 'Project Title', 'infopreneur' ),
+				'rand'   => esc_html__( 'Random', 'infopreneur' )
+			),
+			'section'  => 'portfolio_archive',
+			'settings' => 'portfolio_orderby',
+		) ) );
+
+		/* Featured Area */
+		$wp_customize->add_setting( 'show_featured_jetpack_portfolio_archive', array(
+			'default'           => self::defaults( 'show_featured_jetpack_portfolio_archive' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_featured_jetpack_portfolio_archive', array(
+			'label'    => esc_html__( 'Show featured area', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'portfolio_archive',
+			'settings' => 'show_featured_jetpack_portfolio_archive',
+		) ) );
+
+		/* Left Sidebar */
+		$wp_customize->add_setting( 'sidebar_left_jetpack_portfolio_archive', array(
+			'default'           => self::defaults( 'sidebar_left_jetpack_portfolio_archive' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_left_jetpack_portfolio_archive', array(
+			'label'    => esc_html__( 'Show left sidebar', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'portfolio_archive',
+			'settings' => 'sidebar_left_jetpack_portfolio_archive',
+		) ) );
+
+		/* Right Sidebar */
+		$wp_customize->add_setting( 'sidebar_right_jetpack_portfolio_archive', array(
+			'default'           => self::defaults( 'sidebar_right_jetpack_portfolio_archive' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_right_jetpack_portfolio_archive', array(
+			'label'    => esc_html__( 'Show right sidebar', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'portfolio_archive',
+			'settings' => 'sidebar_right_jetpack_portfolio_archive',
 		) ) );
 
 	}

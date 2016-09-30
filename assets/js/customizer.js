@@ -234,6 +234,21 @@
         });
     });
 
+    // Portfolio - Page Title
+    wp.customize('portfolio_page_title', function (value) {
+        value.bind(function (to) {
+            console.log(to);
+            $('.post-type-archive-jetpack-portfolio .page-title').text(to);
+        });
+    });
+
+    // Portfolio - Page Desc
+    wp.customize('portfolio_page_desc', function (value) {
+        value.bind(function (to) {
+            $('.post-type-archive-jetpack-portfolio .archive-description').html(to);
+        });
+    });
+
     // Homepage area #1
     wp.customize('home_widget_1_cols', function (value) {
         value.bind(function (to) {

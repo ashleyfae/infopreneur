@@ -14,8 +14,9 @@
  * @return string
  */
 function infopreneur_get_current_view() {
-	$view    = '';
-	$edd_tax = array( 'download_category', 'download_tag' );
+	$view          = '';
+	$edd_tax       = array( 'download_category', 'download_tag' );
+	$portfolio_tax = array( 'jetpack-portfolio-type', 'jetpack-portfolio-tag' );
 
 	if ( get_page_template_slug() == 'page-templates/homepage.php' ) {
 		$view = 'home';
@@ -23,6 +24,8 @@ function infopreneur_get_current_view() {
 		$view = 'edd_archive';
 	} elseif ( class_exists( 'Easy_Digital_Downloads' ) && is_singular( 'download' ) ) {
 		$view = 'edd_single';
+	} elseif ( is_post_type_archive( 'jetpack-portfolio' ) || is_tax( $portfolio_tax ) ) {
+		$view = 'jetpack_portfolio_archive';
 	} elseif ( is_post_type_archive( 'book' ) || is_tax( array( 'novelist-genre', 'novelist-series' ) ) ) {
 		$view = 'book_archive';
 	} elseif ( is_singular( 'book' ) ) {
