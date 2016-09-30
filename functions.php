@@ -103,9 +103,19 @@ add_action( 'after_setup_theme', 'infopreneur_content_width', 0 );
  */
 function infopreneur_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'infopreneur' ),
-		'id'            => 'sidebar',
+		'name'          => esc_html__( 'Sidebar - Right', 'infopreneur' ),
+		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Sidebar on the right-hand side.', 'infopreneur' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar - Left', 'infopreneur' ),
+		'id'            => 'sidebar-2',
+		'description'   => esc_html__( 'Sidebar on the left-hand side.', 'infopreneur' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="widget-title">',

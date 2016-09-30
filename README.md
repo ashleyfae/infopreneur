@@ -15,7 +15,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 
 ## Todo:
 
-* Figure out sidebar situation. I have settings for two (left/right) but only actually have one sidebar (right) created.
 * Style lists
 * Jetpack integration.
 * NG About Author integration.

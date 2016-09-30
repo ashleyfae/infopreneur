@@ -7,7 +7,7 @@
  * @license   GPL2+
  */
 
-if ( ! is_active_sidebar( 'sidebar' ) && ! is_customize_preview() ) {
+if ( ! is_active_sidebar( 'sidebar-1' ) && ! is_customize_preview() ) {
 	return;
 }
 ?>
@@ -16,8 +16,8 @@ if ( ! is_active_sidebar( 'sidebar' ) && ! is_customize_preview() ) {
 
 <aside id="sidebar-right" class="widget-area" role="complementary">
 	<?php
-	if ( is_active_sidebar( 'sidebar' ) ) {
-		dynamic_sidebar( 'sidebar' );
+	if ( is_active_sidebar( 'sidebar-1' ) ) {
+		dynamic_sidebar( 'sidebar-1' );
 	} elseif ( is_customize_preview() ) {
 		?>
 		<p><?php _e( 'Add some widgets to the \'Sidebar\' widget area.', 'infopreneur' ); ?></p>
