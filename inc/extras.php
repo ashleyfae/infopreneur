@@ -444,3 +444,34 @@ add_action( 'wp_footer', 'infopreneur_search_template' );
  * @since 1.0.0
  */
 add_filter( 'widget_text', 'do_shortcode' );
+
+/**
+ * Get Google Fonts URL
+ *
+ * Loaded into the front-end and the TinyMCE area.
+ *
+ * @since 1.0.0
+ * @return string
+ */
+function infopreneur_get_google_fonts_url() {
+	$url = 'https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900';
+
+	return apply_filters( 'infopreneur/google-fonts-url', $url );
+}
+
+/**
+ * Add Editor Styles
+ *
+ * Adds our Google Fonts and editor-style.css to the TinyMCE visual editor.
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function infopreneur_editor_style() {
+	add_editor_style( array(
+		str_replace( ',', '%2C', infopreneur_get_google_fonts_url() ),
+		'editor-style.css'
+	) );
+}
+
+add_action( 'admin_init', 'infopreneur_editor_style' );

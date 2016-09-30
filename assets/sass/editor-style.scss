@@ -10,26 +10,11 @@
     padding: 0 25px;
 }
 
-@import "sass/variables/variables";
-@import "sass/mixins/mixins-master";
-@import "sass/normalize";
-@import "sass/typography/typography";
-@import "sass/layout/columns";
-@import "sass/navigation/links";
-@import "sass/modules/alignments";
-@import "sass/media/media";
-
-.five-sixths,
-.four-sixths,
-.one-fourth,
-.one-half,
-.one-sixth,
-.one-third,
-.three-fourths,
-.three-sixths,
-.two-fourths,
-.two-sixths,
-.two-thirds {
-    border: 2px dashed #eee;
-    padding: 10px;
-}
+@import "variables/variables";
+@import "mixins/mixins-master";
+@import "reset";
+@import "elements/elements";
+@import "media/media";
+@import "modules/alignments";
+@import "navigation/links";
+@import "typography/typography";

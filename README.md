@@ -19,7 +19,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * Styling:
   + Lists
   + Maybe improve sub-menu design
-* Editor style
 * Jetpack integration.
   + Add testimonial support.
   + Style single portfolio pages.

@@ -693,9 +693,6 @@ x.3 Pagination
 .pagination a:hover {
   border-bottom-color: #a8a8a8;
 }
-.infinite-scroll .pagination {
-  display: none;
-}
 
 /*--------------------------------------------------------------
 x.4 Social Sites
@@ -820,7 +817,7 @@ x.4 Social Sites
 5.4 Infinite Scroll
 --------------------------------------------------------------*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .posts-navigation,
+.infinite-scroll .pagination,
 .infinite-scroll.neverending .site-footer {
   /* Theme Footer (when set to scrolling) */
   display: none;

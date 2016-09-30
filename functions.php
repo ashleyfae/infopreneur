@@ -191,7 +191,7 @@ function infopreneur_scripts() {
 	$infopreneur = wp_get_theme();
 	$version     = $infopreneur->get( 'Version' );
 
-	wp_enqueue_style( 'infopreneur-google-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900', array(), $version );
+	wp_enqueue_style( 'infopreneur-google-fonts', infopreneur_get_google_fonts_url(), array(), $version );
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.6.1' );
 	wp_enqueue_style( 'infopreneur', get_stylesheet_uri(), array(), $version );
 	wp_add_inline_style( 'infopreneur', infopreneur_get_custom_css() );
