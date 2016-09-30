@@ -1212,6 +1212,43 @@ x.5 Pages
   margin-bottom: 1em;
 }
 
+/* 404 Template */
+.error-404 .search-form {
+  clear: both;
+  margin: 0 auto 3em;
+}
+.error-404 .search-form:before, .error-404 .search-form:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.error-404 .search-field {
+  float: left;
+  width: 60%;
+}
+.error-404 .search-submit {
+  float: right;
+  width: 39%;
+}
+.error-404 .nothing-found-message {
+  text-align: center;
+}
+.error-404 select {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .error-404-widgets {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 -20px;
+  }
+  .error-404-widgets > .widget {
+    padding: 0 20px;
+    width: 50%;
+  }
+}
 /*--------------------------------------------------------------
 x.6 Footer
 --------------------------------------------------------------*/

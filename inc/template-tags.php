@@ -240,6 +240,36 @@ function infopreneur_entry_footer() {
 }
 
 /**
+ * Categorized Blog
+ *
+ * Returns true if a blog has more than one category.
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function infopreneur_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'infopreneur_categories' ) ) ) {
+		// Create an array of all the categories that are attached to posts.
+		$all_the_cool_cats = get_categories( array(
+			'fields'     => 'ids',
+			'hide_empty' => 1,
+			'number'     => 2,
+		) );
+
+		// Count the number of categories that are attached to the posts.
+		$all_the_cool_cats = count( $all_the_cool_cats );
+
+		set_transient( 'infopreneur_categories', $all_the_cool_cats );
+	}
+
+	if ( $all_the_cool_cats > 1 ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
  * Copyright Text
  *
  * Displays the footer copyright text, as specified in the settings panel.

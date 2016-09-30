@@ -81,3 +81,49 @@
         margin-bottom: 1em;
     }
 }
+
+/* 404 Template */
+.error-404 {
+    .search-form {
+        clear: both;
+        margin: 0 auto 3em;
+        //max-width: 600px;
+
+        &:before, &:after {
+            @include clearfix;
+            clear: both;
+        }
+    }
+
+    .search-field {
+        float: left;
+        width: 60%;
+    }
+
+    .search-submit {
+        float: right;
+        width: 39%;
+    }
+
+    .nothing-found-message {
+        text-align: center;
+    }
+
+    select {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .error-404-widgets {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 0 -20px;
+
+        > .widget {
+            padding: 0 20px;
+            width: 50%;
+        }
+    }
+}

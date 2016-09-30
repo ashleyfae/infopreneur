@@ -31,4 +31,4 @@
 
 		<?php endif; ?>
 	</div>
-</section><
+</section>
