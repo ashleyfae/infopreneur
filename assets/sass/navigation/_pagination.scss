@@ -41,4 +41,8 @@
             border-bottom-color: #a8a8a8;
         }
     }
+
+    .infinite-scroll & {
+        display: none;
+    }
 }

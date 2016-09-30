@@ -683,6 +683,9 @@ x.3 Pagination
 .pagination a:hover {
   border-bottom-color: #a8a8a8;
 }
+.infinite-scroll .pagination {
+  display: none;
+}
 
 /*--------------------------------------------------------------
 x.4 Social Sites

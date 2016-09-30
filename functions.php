@@ -236,3 +236,4 @@ require_once get_template_directory() . '/inc/widgets/class-post-feed-widget.php
  */
 require_once get_template_directory() . '/inc/integrations/easy-digital-downloads.php';
 require_once get_template_directory() . '/inc/integrations/expanding-archives.php';
+require_once get_template_directory() . '/inc/integrations/jetpack.php';
