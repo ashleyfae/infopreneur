@@ -15,7 +15,11 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 
 ## Todo:
 
-* Style lists
+* Styling:
+  + Lists
+  + Horizontal rule
+  + Maybe improve sub-menu design
+* Editor style
 * Jetpack integration.
   + Add testimonial support.
   + Style single portfolio pages.
@@ -23,7 +27,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * WooCommerce integration - if I can be bothered. Maybe it's stupid to add this and EDD.
 * Easy Digital Downloads integration.
   + Maybe add featured download on archive.
-* Better sub-menu design
 * Run unit test.
 
 ## Credits
