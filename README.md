@@ -8,6 +8,7 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 
 * [Easy Digital Downloads](https://wordpress.org/plugins/easy-digital-downloads/)
 * [Expanding Archives](https://wordpress.org/plugins/expanding-archives/)
+* [Jetpack](https://wordpress.org/plugins/jetpack/)
 * [MailChimp for WordPress](https://wordpress.org/plugins/mailchimp-for-wp/)
 * [Naked Social Share](https://wordpress.org/plugins/naked-social-share/)
 * [Naked Social Widget](https://github.com/nosegraze/naked-social-widget)
@@ -17,7 +18,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 
 * Styling:
   + Lists
-  + Horizontal rule
   + Maybe improve sub-menu design
 * Editor style
 * Jetpack integration.
