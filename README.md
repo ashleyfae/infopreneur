@@ -26,6 +26,7 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * WooCommerce integration - if I can be bothered. Maybe it's stupid to add this and EDD.
 * Easy Digital Downloads integration.
   + Maybe add featured download on archive.
+* Novelist integration.
 * Run unit test.
 
 ## Credits
