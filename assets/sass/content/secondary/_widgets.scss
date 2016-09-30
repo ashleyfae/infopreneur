@@ -27,6 +27,21 @@
             text-align: center;
         }
     }
+
+    select {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Calendar Widget */
+.widget_calendar {
+    caption {
+        font: {
+            weight: bold;
+        }
+        margin-bottom: .5em;
+    }
 }
 
 /* Responsive Stuff */

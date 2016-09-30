@@ -17,7 +17,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 
 * Figure out sidebar situation. I have settings for two (left/right) but only actually have one sidebar (right) created.
 * Style lists
-* Test all core widgets.
 * Jetpack integration.
 * NG About Author integration.
 * WooCommerce integration - if I can be bothered. Maybe it's stupid to add this and EDD.

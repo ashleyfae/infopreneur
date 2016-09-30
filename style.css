@@ -506,6 +506,10 @@ textarea {
 /*--------------------------------------------------------------
 3.x Tables
 --------------------------------------------------------------*/
+table {
+  margin: 1.5em auto;
+  width: 100%;
+}
 table thead th {
   background: #f4f4f4;
   font-weight: 900;
@@ -1104,6 +1108,16 @@ x.4 Widgets
   margin-bottom: 5px;
   width: 100%;
   text-align: center;
+}
+.widget_categories select {
+  display: block;
+  width: 100%;
+}
+
+/* Calendar Widget */
+.widget_calendar caption {
+  font-weight: bold;
+  margin-bottom: .5em;
 }
 
 /* Responsive Stuff */
