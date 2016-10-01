@@ -1,6 +1,6 @@
 # Infopreneur
 
-A business theme for infopreneurs. Still a work in progress. Seriously. Don't look.
+A business theme for infopreneurs.
 
 Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 
@@ -27,7 +27,6 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * Easy Digital Downloads integration.
   + Maybe add featured download on archive.
 * Novelist integration.
-* Run unit test.
 
 ## Credits
 
