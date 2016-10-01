@@ -967,6 +967,12 @@ x.2 Blog Posts
 .post {
   margin: 0 0 3em;
 }
+.post.sticky .entry-title a:before {
+  content: '\f005';
+  display: inline-block;
+  font-family: FontAwesome;
+  margin-right: 9px;
+}
 
 .entry-title {
   font-weight: 900;

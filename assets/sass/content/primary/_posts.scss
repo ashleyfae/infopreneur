@@ -16,6 +16,15 @@
 
 .post {
     margin: 0 0 3em;
+
+    &.sticky {
+        .entry-title a:before {
+            content: '\f005';
+            display: inline-block;
+            font-family: FontAwesome;
+            margin-right: 9px;
+        }
+    }
 }
 
 .entry-title {
