@@ -484,3 +484,25 @@ h1 {
   letter-spacing: .05em;
   text-transform: uppercase;
 }
+
+#tinymce h3, #tinymce h5, .entry-content h3, .entry-content h5 {
+  font-weight: 900;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+#tinymce h3, .entry-content h3 {
+  font-size: 28.8px;
+  font-size: 1.8rem;
+}
+#tinymce h4, .entry-content h4 {
+  font-size: 32px;
+  font-size: 2rem;
+}
+#tinymce h5, .entry-content h5 {
+  font-size: 25.6px;
+  font-size: 1.6rem;
+}
+#tinymce h6, .entry-content h6 {
+  font-size: 25.6px;
+  font-size: 1.6rem;
+}

@@ -6,3 +6,27 @@ h1 {
     letter-spacing: .05em;
     text-transform: uppercase;
 }
+
+#tinymce, .entry-content {
+    h3, h5 {
+        font-weight: 900;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+    }
+
+    h3 {
+        @include font-size(1.8);
+    }
+
+    h4 {
+        @include font-size(2.0);
+    }
+
+    h5 {
+        @include font-size(1.6);
+    }
+
+    h6 {
+        @include font-size(1.6);
+    }
+}
