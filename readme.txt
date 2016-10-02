@@ -22,6 +22,7 @@ A business theme for infopreneurs.
 
 = 0.3.1 =
 * Added icon widget.
+* Added language files.
 
 = 0.3.0 =
 * Initial pre-release.

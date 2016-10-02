@@ -1,0 +1,999 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Infopreneur\n"
+"POT-Creation-Date: 2016-10-02 13:42-0000\n"
+"PO-Revision-Date: 2016-10-02 13:42-0000\n"
+"Last-Translator: Nose Graze Ltd <support@nosegraze.com>\n"
+"Language-Team: Nose Graze Ltd <support@nosegraze.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:26
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:30
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: 404.php:43
+msgid "Most Used Categories"
+msgstr ""
+
+#. translators: %1$s: smiley
+#: 404.php:61
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: comments.php:28
+#, php-format
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:37 comments.php:58
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:40 comments.php:61
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:41 comments.php:62
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:75
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:48
+msgid "Infopreneur Theme"
+msgstr ""
+
+#: functions.php:50
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:51
+msgid "Secondary Menu"
+msgstr ""
+
+#: functions.php:52
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:106
+msgid "Sidebar - Right"
+msgstr ""
+
+#: functions.php:108
+msgid "Sidebar on the right-hand side."
+msgstr ""
+
+#: functions.php:116
+msgid "Sidebar - Left"
+msgstr ""
+
+#: functions.php:118
+msgid "Sidebar on the left-hand side."
+msgstr ""
+
+#: functions.php:126
+msgid "Below Header"
+msgstr ""
+
+#: functions.php:128
+msgid ""
+"Widget area that displays before the header and featured box. Great for an "
+"email opt-in."
+msgstr ""
+
+#: functions.php:136
+msgid "Above Footer"
+msgstr ""
+
+#: functions.php:138
+msgid ""
+"Widget area that displays above the footer area. Great for an Instagram feed."
+msgstr ""
+
+#: functions.php:148
+msgid "Homepage - 1"
+msgstr ""
+
+#: functions.php:150 functions.php:160 functions.php:170
+msgid ""
+"Displayed on the \"Homepage\" page template. Choose the column width in the "
+"Customizer."
+msgstr ""
+
+#: functions.php:158
+msgid "Homepage - 2"
+msgstr ""
+
+#: functions.php:168
+msgid "Homepage - 3"
+msgstr ""
+
+#: header.php:27
+msgid "Skip to content"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:119
+msgid "Shop"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:127
+#: inc/class-infopreneur-customizer.php:254
+msgid "Portfolio"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:147
+msgid "Run your blog like a boss"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:148
+msgid ""
+"Join my tribe of over 1,000 infopreneurs and self-starters to take your blog "
+"to the next level."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:150
+msgid "Get Started"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:158
+#, php-format
+msgid "Copyright &copy; %s."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:192
+msgid "Layout"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:202
+msgid "Menu Settings"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:209
+msgid "Featured Area"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:215
+msgid "Global"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:221
+msgid "Blog Archive"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:227
+msgid "Single Post"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:233
+msgid "Single Page"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:240
+msgid "EDD Archive"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:241
+msgid "Easy Digital Downloads product archive."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:247
+msgid "EDD Single"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:248
+msgid "Easy Digital Downloads single product page."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:255
+msgid "Portfolio archive."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:261
+msgid "Social Media"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:262
+msgid "Social icons will appear to the right of your top navigation menu."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:267
+msgid "Footer"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:291
+msgid ""
+"Infopreneur supports a static front page. To use the custom homepage "
+"template, select \"a static page\" below, then edit that page and change the "
+"template to \"Homepage\"."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:447
+msgid "Primary Color"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:448
+msgid "Link colors, button backgrounds, etc."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:460
+msgid "Secondary Color"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:461
+msgid "Accents, footer background."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:473
+msgid "Top Bar BG"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:474
+msgid "Background behind the top navigation and social links."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:486
+msgid "Top Bar Link Color"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:487
+msgid "Top navigation link color."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:499
+msgid "Top Bar Link Color (Hover)"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:500
+msgid "Top navigation color when hovering over a link."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:511
+msgid "Lead Box BG"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:512
+msgid "Background color on the Lead Box page template."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:536
+msgid "Stick menu to top of page"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:563
+msgid "Background Color"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:575
+msgid "Background Image"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:587
+msgid "BG Image Position"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:590
+msgid "Center Top"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:591
+msgid "Center Center"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:592
+msgid "Center Bottom"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:593
+msgid "Left Top"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:594
+msgid "Left Center"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:595
+msgid "Left Bottom"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:596
+msgid "Right Top"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:597
+msgid "Right Center"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:598
+msgid "Right Bottom"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:611
+msgid "Overlay Visibility"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:612
+msgid ""
+"Adds the \"background color\" as an overlay on top of the background image. "
+"Enter a number between 0 and 1, where 0 is completely transparent (no "
+"overlay) and 1 is completely opaque."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:625
+msgid "Text Alignment"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:628
+#: inc/class-infopreneur-customizer.php:835
+#: inc/widgets/class-icon-widget.php:151
+#: inc/widgets/class-post-feed-widget.php:219
+msgid "Centered"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:629
+msgid "Left Align"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:630
+msgid "Right Align"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:643
+msgid "Text Color"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:655
+msgid "Heading"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:667
+msgid "Description"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:680
+msgid "Button BG Color"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:692
+msgid "Button Text Color"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:704
+msgid "Button URL"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:716
+msgid "Button Text"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:741
+msgid "Container Style"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:744
+msgid "Boxed"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:745
+msgid "Full Width"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:772
+msgid "Post Archive Layout"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:775
+#: inc/widgets/class-post-feed-widget.php:191
+msgid "2 Column Grid"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:776
+#: inc/widgets/class-post-feed-widget.php:192
+msgid "3 Column Grid"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:777
+#: inc/widgets/class-post-feed-widget.php:193
+msgid "List"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:789
+msgid "Number of Full Posts"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:801
+msgid "Post Content"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:804
+#: inc/widgets/class-post-feed-widget.php:210
+msgid "Full Text / Read More Tag"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:805
+msgid "Automatic Excerpts"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:806
+#: inc/widgets/class-post-feed-widget.php:212
+msgid "None"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:818
+msgid "Excerpt Length"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:819
+msgid "Only applies if you've chosen \"Automatic Excerpts\" above."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:832
+msgid "Thumbnail Alignment"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:836
+#: inc/widgets/class-post-feed-widget.php:220
+msgid "Left Aligned"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:837
+#: inc/widgets/class-post-feed-widget.php:221
+msgid "Right Aligned"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:850
+#: inc/class-infopreneur-customizer.php:949
+msgid "Entry Meta"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:852
+#: inc/class-infopreneur-customizer.php:951
+#, php-format
+msgid ""
+"Configure the template for meta information. Use the following placeholders: "
+"<br><br>%s - Post Date <br>%s - Post Author <br>%s - Category <br>%s - "
+"Number of Comments"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:869
+#: inc/class-infopreneur-customizer.php:968
+msgid "Entry Meta Position"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:872
+#: inc/class-infopreneur-customizer.php:971
+msgid "Above title"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:873
+#: inc/class-infopreneur-customizer.php:972
+msgid "Below title"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:887
+#: inc/class-infopreneur-customizer.php:996
+#: inc/class-infopreneur-customizer.php:1045
+#: inc/class-infopreneur-customizer.php:1123
+#: inc/class-infopreneur-customizer.php:1176
+#: inc/class-infopreneur-customizer.php:1394
+#: inc/class-infopreneur-customizer.php:1443
+msgid "Show featured area"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:899
+#: inc/class-infopreneur-customizer.php:1008
+#: inc/class-infopreneur-customizer.php:1057
+#: inc/class-infopreneur-customizer.php:1135
+#: inc/class-infopreneur-customizer.php:1188
+#: inc/class-infopreneur-customizer.php:1406
+msgid "Show left sidebar"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:911
+#: inc/class-infopreneur-customizer.php:1020
+#: inc/class-infopreneur-customizer.php:1069
+#: inc/class-infopreneur-customizer.php:1147
+#: inc/class-infopreneur-customizer.php:1200
+#: inc/class-infopreneur-customizer.php:1418
+msgid "Show right sidebar"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:923
+msgid "Suppress archive headings (i.e. \"Category: Blogging\")"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:984
+msgid "Hide featured image"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1099
+#: inc/class-infopreneur-customizer.php:1234
+msgid "Page Title"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1111
+#: inc/class-infopreneur-customizer.php:1246
+msgid "Page Description"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1259
+msgid "Display project types"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1272
+msgid "Display project tags"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1285
+msgid "Display project content"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1298
+msgid "Project Type(s)"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1299
+msgid ""
+"Leave blank to include all project types, or enter a comma-separated list of "
+"Project Type slugs to only display those."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1311
+msgid "Project Tag(s)"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1312
+msgid ""
+"Leave blank to include all project tags, or enter a comma-separated list of "
+"Project Tag slugs to only display those."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1324
+msgid "Columns"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1327
+msgid "1 Column"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1328
+#: inc/class-infopreneur-customizer.php:1473
+#: inc/class-infopreneur-customizer.php:1493
+#: inc/class-infopreneur-customizer.php:1513
+msgid "2 Columns"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1329
+#: inc/class-infopreneur-customizer.php:1474
+#: inc/class-infopreneur-customizer.php:1494
+#: inc/class-infopreneur-customizer.php:1514
+msgid "3 Columns"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1330
+#: inc/class-infopreneur-customizer.php:1475
+#: inc/class-infopreneur-customizer.php:1495
+#: inc/class-infopreneur-customizer.php:1515
+msgid "4 Columns"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1331
+msgid "5 Columns"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1332
+msgid "6 Columns"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1345
+msgid "Number of Projects"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1346
+#, php-format
+msgid "Enter %s to display all projects."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1359
+msgid "Order"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1362
+msgid "Ascending"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1363
+msgid "Descending"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1376
+msgid "Orderby"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1379
+msgid "Author Name"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1380
+#: inc/widgets/class-post-feed-widget.php:171
+msgid "Date"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1381
+msgid "Project Title"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1382
+#: inc/widgets/class-post-feed-widget.php:174
+msgid "Random"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1455
+msgid "Show below header widget area"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1468
+msgid "Widget Area #1"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1469
+msgid "Choose the number of columns for homepage widget area #1."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1472
+#: inc/class-infopreneur-customizer.php:1492
+#: inc/class-infopreneur-customizer.php:1512
+msgid "1 Column (span full width)"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1488
+msgid "Widget Area #2"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1489
+msgid "Choose the number of columns for homepage widget area #2."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1508
+msgid "Widget Area #3"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1509
+msgid "Choose the number of columns for homepage widget area #3."
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1541
+#, php-format
+msgid "%s Profile URL"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1573
+msgid "Copyright Text"
+msgstr ""
+
+#: inc/class-infopreneur-customizer.php:1575
+#, php-format
+msgid ""
+"Customize the copyright message. You can use %s as a placeholder for the "
+"current year."
+msgstr ""
+
+#: inc/extras.php:296
+msgid "Twitter"
+msgstr ""
+
+#: inc/extras.php:300
+msgid "Facebook"
+msgstr ""
+
+#: inc/extras.php:304
+msgid "Pinterest"
+msgstr ""
+
+#: inc/extras.php:308
+msgid "Instagram"
+msgstr ""
+
+#: inc/extras.php:312
+msgid "Google+"
+msgstr ""
+
+#: inc/extras.php:316
+msgid "Tumblr"
+msgstr ""
+
+#: inc/extras.php:320
+msgid "YouTube"
+msgstr ""
+
+#: inc/extras.php:324
+msgid "RSS"
+msgstr ""
+
+#: inc/extras.php:433
+msgid "cancel"
+msgstr ""
+
+#: inc/layout.php:60
+#, php-format
+msgid "%s Profile"
+msgstr ""
+
+#: inc/template-tags.php:44
+msgid "Menu"
+msgstr ""
+
+#: inc/template-tags.php:203
+msgid "Leave a Comment"
+msgstr ""
+
+#: inc/template-tags.php:205
+#, php-format
+msgid "%s Comments"
+msgstr ""
+
+#: inc/template-tags.php:207
+msgid "1 Comment"
+msgstr ""
+
+#: inc/template-tags.php:292
+#, php-format
+msgid "&copy; %s %s. All Rights Reserved."
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:23
+msgid "Infopreneur - EDD Product"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:24
+msgid ""
+"Display information about the current Easy Digital Downloads product. Only "
+"appears on single product pages."
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:43 inc/widgets/class-edd-widget.php:168
+msgid "Product Information"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:70
+msgid "Published:"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:87
+msgid "Updated:"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:96
+msgid "Sales:"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:105
+msgid "Version:"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:110
+msgid "n/a"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:122
+msgid "Categories:"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:138
+msgid "Tags:"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:179 inc/widgets/class-icon-widget.php:90
+#: inc/widgets/class-post-feed-widget.php:159
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:185
+msgid "Show purchase button"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:190
+msgid "Show product publish date"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:195
+msgid "Show last updated date"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:200
+msgid "Show number of sales"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:206
+msgid "Show version number"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:212
+msgid "Show categories"
+msgstr ""
+
+#: inc/widgets/class-edd-widget.php:217
+msgid "Show tags"
+msgstr ""
+
+#: inc/widgets/class-icon-widget.php:22
+msgid "Infopreneur - Icon"
+msgstr ""
+
+#: inc/widgets/class-icon-widget.php:23
+msgid "Large Font Awesome icon above text."
+msgstr ""
+
+#: inc/widgets/class-icon-widget.php:85
+#, php-format
+msgid "<a href=\"%s\" target=\"_blank\">Font Awesome</a> Icon Name:"
+msgstr ""
+
+#: inc/widgets/class-icon-widget.php:95
+msgid "Content:"
+msgstr ""
+
+#: inc/widgets/class-icon-widget.php:100
+msgid "Text Alignment:"
+msgstr ""
+
+#: inc/widgets/class-icon-widget.php:150
+msgid "Left"
+msgstr ""
+
+#: inc/widgets/class-icon-widget.php:152
+msgid "Right"
+msgstr ""
+
+#: inc/widgets/class-icon-widget.php:153
+msgid "Justified"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:22
+msgid "Infopreneur - Post Feed"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:23
+msgid "Display a list of blog posts."
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:137
+msgid "Latest Blog Posts"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:149
+msgid "All Categories"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:164
+msgid "Category:"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:169
+msgid "Order By:"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:172
+msgid "Post Title"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:173
+msgid "Comment Count"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:179
+msgid "Order:"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:181
+msgid "DESC (3, 2, 1; c, b, a)"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:185
+msgid "ASC (1, 2, 3; a, b, c)"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:189
+msgid "Layout:"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:198
+msgid "Number of Posts:"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:203
+msgid "Number of Full Posts:"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:208
+msgid "Post Content:"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:211
+msgid "Excerpts"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:217
+msgid "Thumbnail Alignment:"
+msgstr ""
+
+#: inc/widgets/class-post-feed-widget.php:222
+msgid "Disabled"
+msgstr ""
+
+#: search.php:23
+#, php-format
+msgid "Search results for: %s"
+msgstr ""
+
+#: sidebar-left.php:21
+msgid "Add some widgets to the 'Sidebar - Left' widget area."
+msgstr ""
+
+#: sidebar.php:15
+msgid "Show Sidebar"
+msgstr ""
+
+#: sidebar.php:23
+msgid "Add some widgets to the 'Sidebar' widget area."
+msgstr ""
+
+#: template-parts/content-download.php:25
+msgid "Details &raquo;"
+msgstr ""
+
+#: template-parts/content-feed-widget.php:67
+#: template-parts/content-page.php:33 template-parts/content-single.php:62
+#: template-parts/content.php:63
+msgid "Continue Reading &raquo;"
+msgstr ""
+
+#: template-parts/content-feed-widget.php:71
+#: template-parts/content-page.php:36 template-parts/content-single.php:65
+#: template-parts/content.php:67
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:20
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:24
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:29
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
