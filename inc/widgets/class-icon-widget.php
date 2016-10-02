@@ -56,7 +56,7 @@ class Infopreneur_Icon_Widget extends WP_Widget {
 			echo '<div class="info-icon-widget-text">' . wpautop( $instance['text'] ) . '</div>';
 		}
 
-		echo $args['before_widget'];
+		echo $args['after_widget'];
 
 	}
 
