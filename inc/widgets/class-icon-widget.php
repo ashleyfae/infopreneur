@@ -53,7 +53,7 @@ class Infopreneur_Icon_Widget extends WP_Widget {
 		}
 
 		if ( $instance['text'] ) {
-			echo '<div class="info-icon-widget-text">' . wpautop( $instance['text'] ) . '</div>';
+			echo '<div class="info-icon-widget-text text-' . esc_attr( $instance['align'] ) . '">' . wpautop( $instance['text'] ) . '</div>';
 		}
 
 		echo $args['after_widget'];
@@ -76,7 +76,8 @@ class Infopreneur_Icon_Widget extends WP_Widget {
 		$instance = wp_parse_args( $instance, array(
 			'icon'  => 'heart',
 			'title' => '',
-			'text'  => ''
+			'text'  => '',
+			'align' => 'center'
 		) );
 
 		?>
@@ -93,6 +94,15 @@ class Infopreneur_Icon_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Content:', 'infopreneur' ); ?></label>
 			<textarea class="widefat" id="<?php echo $this->get_field_id( 'text' ); ?>" name="<?php echo $this->get_field_name( 'text' ); ?>" rows="16" cols="20"><?php echo esc_textarea( $instance['text'] ); ?></textarea>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'align' ); ?>"><?php _e( 'Text Alignment:', 'infopreneur' ); ?></label>
+			<select class="widefat" id="<?php echo $this->get_field_id( 'align' ); ?>" name="<?php echo $this->get_field_name( 'align' ); ?>">
+				<?php foreach ( $this->text_alignments() as $key => $name ) : ?>
+					<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $instance['align'], $key ); ?>><?php echo esc_html( $name ); ?></option>
+				<?php endforeach; ?>
+			</select>
 		</p>
 		<?php
 
@@ -120,8 +130,30 @@ class Infopreneur_Icon_Widget extends WP_Widget {
 		$stripped_icon    = str_replace( array( 'fa-', 'fa ' ), '', $new_instance['icon'] );
 		$instance['icon'] = sanitize_html_class( trim( $stripped_icon ) );
 
+		// Sanitize alignment.
+		$align             = wp_strip_all_tags( $new_instance['align'] );
+		$instance['align'] = array_key_exists( $align, $this->text_alignments() ) ? sanitize_html_class( $align ) : 'center';
+
 		return $instance;
 
+	}
+
+	/**
+	 * Allowed Text Alignments
+	 *
+	 * @access public
+	 * @since  1.0.0
+	 * @return array
+	 */
+	public function text_alignments() {
+		$alignments = array(
+			'left'    => __( 'Left', 'infopreneur' ),
+			'center'  => __( 'Centered', 'infopreneur' ),
+			'right'   => __( 'Right', 'infopreneur' ),
+			'jusitfy' => __( 'Justified', 'infopreneur' )
+		);
+
+		return apply_filters( 'infopreneur/widget/icon/text-alignments', $alignments, $this );
 	}
 
 }
