@@ -1160,6 +1160,9 @@ x.4 Widgets
 
 /* Icon Widget */
 .info-icon-widget-wrap {
+  font-size: 64px;
+  font-size: 4rem;
+  margin-bottom: 10px;
   text-align: center;
 }
 

@@ -46,6 +46,8 @@
 
 /* Icon Widget */
 .info-icon-widget-wrap {
+    @include font-size(4.0);
+    margin-bottom: 10px;
     text-align: center;
 }
 
