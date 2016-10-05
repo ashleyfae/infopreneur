@@ -28,40 +28,40 @@
 3.0 Layout
     3.1 Grid
     3.2 Container
-3.0 Elements
-    3.1 Buttons
-    3.2 Forms
-    3.3 Horizontal Rule
-    3.4 Tables
-4.0 Navigation
-    4.1 Links
-    4.2 Menus
-    4.3 Pagination
-    4.4 Social Sites
-5.0 Modules
-    5.1 Accessibility
-    5.2 Alignments
-    5.3 Clearings
-    5.4 Infinite Scroll
-6.0 Content
-    6.1 Header
-    6.2 Blog Posts
-    6.3 Comments
-    6.4 Widgets
-    6.5 Pages
-    6.6 Footer
-7.0 Media
-    7.1 Audio
-    7.2 Images
-	7.3 Captions
-	7.4 Galleries
-8.0 Plugins
-    8.1 Easy Digital Downloads
-    8.2 Expanding Archives
-    8.3 MailChimp for WP
-    8.4 Naked Social Share
-    8.5 NG About the Author
-    8.6 WP Instagram Widget
+4.0 Elements
+    4.1 Buttons
+    4.2 Forms
+    4.3 Horizontal Rule
+    4.4 Tables
+5.0 Navigation
+    5.1 Links
+    5.2 Menus
+    5.3 Pagination
+    5.4 Social Sites
+6.0 Modules
+    6.1 Accessibility
+    6.2 Alignments
+    6.3 Clearings
+    6.4 Infinite Scroll
+7.0 Content
+    7.1 Header
+    7.2 Blog Posts
+    7.3 Comments
+    7.4 Widgets
+    7.5 Pages
+    7.6 Footer
+8.0 Media
+    8.1 Audio
+    8.2 Images
+	8.3 Captions
+	8.4 Galleries
+9.0 Plugins
+    9.1 Easy Digital Downloads
+    9.2 Expanding Archives
+    9.3 MailChimp for WP
+    9.4 Naked Social Share
+    9.5 NG About the Author
+    9.6 WP Instagram Widget
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 1.0 Reset
@@ -379,7 +379,7 @@ body {
 3.0 Elements
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-3.1 Buttons
+4.1 Buttons
 --------------------------------------------------------------*/
 .button,
 button,
@@ -412,7 +412,7 @@ input[type="submit"]:hover,
 }
 
 /*--------------------------------------------------------------
-3.2 Forms
+4.2 Forms
 --------------------------------------------------------------*/
 input[type="email"],
 input[type="number"],
@@ -535,7 +535,7 @@ textarea {
 }
 
 /*--------------------------------------------------------------
-3.3 Horizontal Rule
+4.3 Horizontal Rule
 --------------------------------------------------------------*/
 hr {
   border: none;
@@ -544,7 +544,7 @@ hr {
 }
 
 /*--------------------------------------------------------------
-3.4 Tables
+4.4 Tables
 --------------------------------------------------------------*/
 table {
   margin: 1.5em auto;
@@ -565,7 +565,7 @@ table th, table td {
 4.0 Navigation
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.1 Links
+5.1 Links
 --------------------------------------------------------------*/
 a {
   color: #ff7a5a;
@@ -577,7 +577,7 @@ a:hover {
 }
 
 /*--------------------------------------------------------------
-x.2 Menus
+5.2 Menus
 --------------------------------------------------------------*/
 #top-bar {
   background: white;
@@ -683,7 +683,7 @@ x.2 Menus
   }
 }
 /*--------------------------------------------------------------
-x.3 Pagination
+5.3 Pagination
 --------------------------------------------------------------*/
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
@@ -725,7 +725,7 @@ x.3 Pagination
 }
 
 /*--------------------------------------------------------------
-x.4 Social Sites
+5.4 Social Sites
 --------------------------------------------------------------*/
 #header-social {
   text-align: center;
@@ -759,7 +759,7 @@ x.4 Social Sites
 5.0 Modules
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-5.1 Accessibility
+6.1 Accessibility
 --------------------------------------------------------------*/
 /* Text meant only for screen readers. */
 .screen-reader-text {
@@ -791,7 +791,7 @@ x.4 Social Sites
 }
 
 /*--------------------------------------------------------------
-5.2 Alignments
+6.2 Alignments
 --------------------------------------------------------------*/
 .alignleft,
 .alignright,
@@ -816,7 +816,7 @@ x.4 Social Sites
   }
 }
 /*--------------------------------------------------------------
-5.3 Clearings
+6.3 Clearings
 --------------------------------------------------------------*/
 .clear:before,
 .clear:after,
@@ -844,7 +844,7 @@ x.4 Social Sites
 }
 
 /*--------------------------------------------------------------
-5.4 Infinite Scroll
+6.4 Infinite Scroll
 --------------------------------------------------------------*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .pagination,
@@ -862,7 +862,7 @@ x.4 Social Sites
 6.0 Content
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.1 Header
+7.1 Header
 --------------------------------------------------------------*/
 .site-branding {
   clear: both;
@@ -976,7 +976,7 @@ x.1 Header
 }
 
 /*--------------------------------------------------------------
-x.2 Blog Posts
+7.2 Blog Posts
 --------------------------------------------------------------*/
 .page-header {
   border-bottom: 2px solid #f4f4f4;
@@ -1071,7 +1071,7 @@ x.2 Blog Posts
   }
 }
 /*--------------------------------------------------------------
-x.3 Comments
+7.3 Comments
 --------------------------------------------------------------*/
 .comment-list, .comment-list .children {
   list-style: none;
@@ -1127,7 +1127,7 @@ x.3 Comments
 }
 
 /*--------------------------------------------------------------
-x.4 Widgets
+7.4 Widgets
 --------------------------------------------------------------*/
 .widget {
   margin: 0 0 3em;
@@ -1201,7 +1201,7 @@ x.4 Widgets
 }
 
 /*--------------------------------------------------------------
-x.5 Pages
+7.5 Pages
 --------------------------------------------------------------*/
 #content {
   margin-top: 3em;
@@ -1301,7 +1301,7 @@ x.5 Pages
   }
 }
 /*--------------------------------------------------------------
-x.6 Footer
+7.6 Footer
 --------------------------------------------------------------*/
 #colophon {
   font-size: 22.4px;
@@ -1445,7 +1445,7 @@ img {
 8.0 Plugins
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.1 Easy Digital Downloads
+9.1 Easy Digital Downloads
 --------------------------------------------------------------*/
 .edd-submit.button,
 .edd-submit.button:hover,
@@ -1557,7 +1557,7 @@ x.1 Easy Digital Downloads
 }
 
 /*--------------------------------------------------------------
-x.2 Expanding Archives
+9.2 Expanding Archives
 --------------------------------------------------------------*/
 .expanding-archives-section {
   margin-bottom: 5px;
@@ -1616,7 +1616,7 @@ x.2 Expanding Archives
 }
 
 /*--------------------------------------------------------------
-x.3 MailChimp for WP
+9.3 MailChimp for WP
 --------------------------------------------------------------*/
 .mc4wp-form label {
   clip: rect(1px, 1px, 1px, 1px);
@@ -1669,7 +1669,7 @@ x.3 MailChimp for WP
 }
 
 /*--------------------------------------------------------------
-x.4 Naked Social Share
+9.4 Naked Social Share
 --------------------------------------------------------------*/
 .naked-social-share {
   margin: 1.5em 0;
@@ -1769,10 +1769,10 @@ x.4 Naked Social Share
 }
 
 /*--------------------------------------------------------------
-x.5 NG About the Author
+9.5 NG About the Author
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-x.6 WP Instagram Widget
+9.6 WP Instagram Widget
 --------------------------------------------------------------*/
 .null-instagram-feed ul {
   display: flex;
