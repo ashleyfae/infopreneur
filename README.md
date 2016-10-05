@@ -14,6 +14,10 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * [Naked Social Widget](https://github.com/nosegraze/naked-social-widget)
 * [WP Instagram Widget](https://wordpress.org/plugins/wp-instagram-widget/)
 
+## Instructions
+
+Some general set up and customization instructions are available here: [docs.bossplugins.com/collection/354-infopreneur](http://docs.bossplugins.com/collection/354-infopreneur)
+
 ## Todo:
 
 * Styling:
