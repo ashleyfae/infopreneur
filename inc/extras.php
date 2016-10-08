@@ -418,6 +418,10 @@ add_filter( 'infopreneur/show-above-footer-widget', 'infopreneur_simple_template
  * @return void
  */
 function infopreneur_search_template() {
+	// Bail if this feature is disabled.
+	if ( ! is_customize_preview() && ! get_theme_mod( 'search_icon', Infopreneur_Customizer::defaults( 'search_icon' ) ) ) {
+		return;
+	}
 	?>
 	<div id="search-wrap">
 		<a href="#" class="search-wrap-close">&times;</a>

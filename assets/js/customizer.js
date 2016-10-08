@@ -268,6 +268,17 @@
         });
     });
 
+    // Search icon show/hide
+    wp.customize('search_icon', function (value) {
+        value.bind(function (to) {
+            if (to) {
+                $('#search-site').show();
+            } else {
+                $('#search-site').hide();
+            }
+        });
+    });
+
     // Copyright
     wp.customize('copyright_message', function (value) {
         value.bind(function (to) {

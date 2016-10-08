@@ -63,10 +63,11 @@ function infopreneur_header_social() {
 				</li>
 				<?php
 			}
-			?>
-			<li id="search-site">
-				<a href="#"><i class="fa fa-search"></i></a>
-			</li>
+			if ( is_customize_preview() || get_theme_mod( 'search_icon', Infopreneur_Customizer::defaults( 'search_icon' ) ) ) { ?>
+				<li id="search-site"<?php echo ( ! get_theme_mod( 'search_icon', Infopreneur_Customizer::defaults( 'search_icon' ) ) ) ? ' style="display: none;"' : ''; ?>>
+					<a href="#"><i class="fa fa-search"></i></a>
+				</li>
+			<?php } ?>
 		</ul>
 	</nav>
 	<?php

@@ -155,6 +155,7 @@ class Infopreneur_Customizer {
 			'home_widget_1_cols'                      => 1,
 			'home_widget_2_cols'                      => 3,
 			'home_widget_3_cols'                      => 1,
+			'search_icon'                             => true,
 			'footer_text'                             => sprintf( __( 'Copyright &copy; %s.', 'infopreneur' ), date( 'Y' ) . ' ' . '<a href="' . home_url( '/' ) . '">' . get_bloginfo( 'name' ) . '</a>' )
 		);
 
@@ -1545,6 +1546,20 @@ class Infopreneur_Customizer {
 				)
 			) );
 		}
+
+		/* Search Icon */
+		$wp_customize->add_setting( 'search_icon', array(
+			'default'           => self::defaults( 'search_icon' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'search_icon', array(
+				'label'    => __( 'Show search icon in header', 'infopreneur' ),
+				'type'     => 'checkbox',
+				'section'  => 'social',
+				'settings' => 'search_icon',
+			)
+		) );
 
 	}
 
