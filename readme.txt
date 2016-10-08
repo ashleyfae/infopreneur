@@ -20,6 +20,12 @@ A business theme for infopreneurs.
 
 == Changelog ==
 
+= 0.3.2 =
+* Added option to hide search icon.
+* Updated theme URI.
+* Fixed table of contents numbering.
+* Added link to docs in readme.
+
 = 0.3.1 =
 * Added icon widget.
 * Added language files.
