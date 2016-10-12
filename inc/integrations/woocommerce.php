@@ -11,6 +11,18 @@
  */
 
 /**
+ * Add WooCommerce Support
+ *
+ * @since 1.0.0
+ * @return void
+ */
+function infopreneur_wc_support() {
+	add_theme_support( 'woocommerce' );
+}
+
+add_action( 'after_setup_theme', 'infopreneur_wc_support' );
+
+/**
  * Remove existing template actions.
  *
  * @since 1.0.0
