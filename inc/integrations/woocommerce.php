@@ -41,6 +41,13 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wr
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
 /**
+ * Remove sidebar.
+ *
+ * @since 1.0.0
+ */
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+
+/**
  * Wrapper - Start
  *
  * @since 1.0.0
