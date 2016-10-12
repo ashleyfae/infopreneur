@@ -249,3 +249,4 @@ require_once get_template_directory() . '/inc/integrations/easy-digital-download
 require_once get_template_directory() . '/inc/integrations/edd-ecourse.php';
 require_once get_template_directory() . '/inc/integrations/expanding-archives.php';
 require_once get_template_directory() . '/inc/integrations/jetpack.php';
+require_once get_template_directory() . '/inc/integrations/woocommerce.php';
