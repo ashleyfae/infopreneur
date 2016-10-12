@@ -12,6 +12,7 @@ Demo site (WIP): https://demo.nosegraze.com/infopreneur/
 * [MailChimp for WordPress](https://wordpress.org/plugins/mailchimp-for-wp/)
 * [Naked Social Share](https://wordpress.org/plugins/naked-social-share/)
 * [Naked Social Widget](https://github.com/nosegraze/naked-social-widget)
+* [WooCommerce](https://wordpress.org/plugins/woocommerce)
 * [WP Instagram Widget](https://wordpress.org/plugins/wp-instagram-widget/)
 
 ## Instructions
