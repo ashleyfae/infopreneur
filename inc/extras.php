@@ -24,6 +24,10 @@ function infopreneur_get_current_view() {
 		$view = 'edd_archive';
 	} elseif ( class_exists( 'Easy_Digital_Downloads' ) && is_singular( 'download' ) ) {
 		$view = 'edd_single';
+	} elseif ( infopreneur_has_wc() && is_shop() ) {
+		$view = 'wc_archive';
+	} elseif ( infopreneur_has_wc() && is_product() ) {
+		$view = 'wc_single';
 	} elseif ( is_post_type_archive( 'jetpack-portfolio' ) || is_tax( $portfolio_tax ) ) {
 		$view = 'jetpack_portfolio_archive';
 	} elseif ( is_post_type_archive( 'book' ) || is_tax( array( 'novelist-genre', 'novelist-series' ) ) ) {
