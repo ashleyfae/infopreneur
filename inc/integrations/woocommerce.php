@@ -11,6 +11,16 @@
  */
 
 /**
+ * Is WooCommerce Installed
+ *
+ * @since 1.0.0
+ * @return bool
+ */
+function infopreneur_has_wc() {
+	return function_exists( 'WC' );
+}
+
+/**
  * Add WooCommerce Support
  *
  * @since 1.0.0
