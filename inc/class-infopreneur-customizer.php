@@ -1162,7 +1162,7 @@ class Infopreneur_Customizer {
 
 		/* Right Sidebar */
 		$wp_customize->add_setting( 'sidebar_right_edd_archive', array(
-			'default'           => self::defaults( 'sidebar_right_page' ),
+			'default'           => self::defaults( 'sidebar_right_edd_archive' ),
 			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
 		) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_right_edd_archive', array(
