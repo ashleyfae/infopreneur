@@ -124,6 +124,12 @@ class Infopreneur_Customizer {
 			'show_featured_edd_single'                => true,
 			'sidebar_left_edd_single'                 => false,
 			'sidebar_right_edd_single'                => true,
+			'show_featured_wc_archive'                => true,
+			'sidebar_left_wc_archive'                 => false,
+			'sidebar_right_wc_archive'                => false,
+			'show_featured_wc_single'                 => true,
+			'sidebar_left_wc_single'                  => false,
+			'sidebar_right_wc_single'                 => false,
 			'portfolio_page_title'                    => esc_html__( 'Portfolio', 'infopreneur' ),
 			'portfolio_page_desc'                     => '',
 			'portfolio_display_types'                 => false,
@@ -236,7 +242,6 @@ class Infopreneur_Customizer {
 		) );
 
 		// EDD Archive
-		$slug = defined( 'EDD_SLUG' ) ? EDD_SLUG : 'downloads';
 		$wp_customize->add_section( 'edd_archive', array(
 			'title'       => __( 'EDD Archive', 'infopreneur' ),
 			'description' => __( 'Easy Digital Downloads product archive.', 'infopreneur' ),
@@ -247,6 +252,20 @@ class Infopreneur_Customizer {
 		$wp_customize->add_section( 'edd_single', array(
 			'title'       => __( 'EDD Single', 'infopreneur' ),
 			'description' => __( 'Easy Digital Downloads single product page.', 'infopreneur' ),
+			'panel'       => 'layout',
+		) );
+
+		// WC Archive
+		$wp_customize->add_section( 'wc_archive', array(
+			'title'       => __( 'Shop Archive', 'infopreneur' ),
+			'description' => __( 'WooCommerce shop archive page.', 'infopreneur' ),
+			'panel'       => 'layout',
+		) );
+
+		// WC Single
+		$wp_customize->add_section( 'wc_single', array(
+			'title'       => __( 'Shop Single', 'infopreneur' ),
+			'description' => __( 'WooCommerce single product page.', 'infopreneur' ),
 			'panel'       => 'layout',
 		) );
 
@@ -281,6 +300,8 @@ class Infopreneur_Customizer {
 		$this->single_page_section( $wp_customize );
 		$this->edd_archive_section( $wp_customize );
 		$this->edd_single_section( $wp_customize );
+		$this->wc_archive_section( $wp_customize );
+		$this->wc_single_section( $wp_customize );
 		$this->portfolio_archive_section( $wp_customize );
 		$this->static_front_page_section( $wp_customize );
 		$this->social_media_section( $wp_customize );
@@ -1202,6 +1223,112 @@ class Infopreneur_Customizer {
 			'type'     => 'checkbox',
 			'section'  => 'edd_single',
 			'settings' => 'sidebar_right_edd_single',
+		) ) );
+
+	}
+
+	/**
+	 * Section: WooCommerce Archive
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access private
+	 * @since  1.0.0
+	 * @return void
+	 */
+	private function wc_archive_section( $wp_customize ) {
+
+		if ( ! infopreneur_has_wc() ) {
+			return;
+		}
+
+		/* Featured Area */
+		$wp_customize->add_setting( 'show_featured_wc_archive', array(
+			'default'           => self::defaults( 'show_featured_wc_archive' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_featured_wc_archive', array(
+			'label'    => esc_html__( 'Show featured area', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'wc_archive',
+			'settings' => 'show_featured_wc_archive',
+		) ) );
+
+		/* Left Sidebar */
+		$wp_customize->add_setting( 'sidebar_left_wc_archive', array(
+			'default'           => self::defaults( 'sidebar_left_wc_archive' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_left_wc_archive', array(
+			'label'    => esc_html__( 'Show left sidebar', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'wc_archive',
+			'settings' => 'sidebar_left_wc_archive',
+		) ) );
+
+		/* Right Sidebar */
+		$wp_customize->add_setting( 'sidebar_right_wc_archive', array(
+			'default'           => self::defaults( 'sidebar_right_wc_archive' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_right_wc_archive', array(
+			'label'    => esc_html__( 'Show right sidebar', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'wc_archive',
+			'settings' => 'sidebar_right_wc_archive',
+		) ) );
+
+	}
+
+	/**
+	 * Section: WooCommerce Single Page
+	 *
+	 * @param WP_Customize_Manager $wp_customize
+	 *
+	 * @access private
+	 * @since  1.0.0
+	 * @return void
+	 */
+	private function wc_single_section( $wp_customize ) {
+
+		if ( ! infopreneur_has_wc() ) {
+			return;
+		}
+
+		/* Featured Area */
+		$wp_customize->add_setting( 'show_featured_wc_single', array(
+			'default'           => self::defaults( 'show_featured_wc_single' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'show_featured_wc_single', array(
+			'label'    => esc_html__( 'Show featured area', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'wc_single',
+			'settings' => 'show_featured_wc_single',
+		) ) );
+
+		/* Left Sidebar */
+		$wp_customize->add_setting( 'sidebar_left_wc_single', array(
+			'default'           => self::defaults( 'sidebar_left_wc_single' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_left_wc_single', array(
+			'label'    => esc_html__( 'Show left sidebar', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'wc_single',
+			'settings' => 'sidebar_left_wc_single',
+		) ) );
+
+		/* Right Sidebar */
+		$wp_customize->add_setting( 'sidebar_right_wc_single', array(
+			'default'           => self::defaults( 'sidebar_right_wc_single' ),
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' )
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_right_wc_single', array(
+			'label'    => esc_html__( 'Show right sidebar', 'infopreneur' ),
+			'type'     => 'checkbox',
+			'section'  => 'wc_single',
+			'settings' => 'sidebar_right_wc_single',
 		) ) );
 
 	}
