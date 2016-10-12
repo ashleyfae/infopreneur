@@ -61,7 +61,8 @@
     9.3 MailChimp for WP
     9.4 Naked Social Share
     9.5 NG About the Author
-    9.6 WP Instagram Widget
+    9.6 WooCommerce
+    9.7 WP Instagram Widget
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 1.0 Reset
@@ -1772,7 +1773,54 @@ img {
 9.5 NG About the Author
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-9.6 WP Instagram Widget
+9.6 WooCommerce
+--------------------------------------------------------------*/
+.woocommerce .quantity .qty {
+  width: 100px;
+}
+.woocommerce a.button, .woocommerce a.button.alt,
+.woocommerce button.button,
+.woocommerce button.button.alt,
+.woocommerce input.button,
+.woocommerce input.button.alt {
+  background: #ff7a5a;
+  border: 1px solid #ff7a5a;
+  border-bottom: 3px solid #e15c3c;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  font-weight: bold;
+  letter-spacing: .05em;
+  line-height: inherit;
+  padding: 15px 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+.woocommerce a.button:hover, .woocommerce a.button.alt:hover,
+.woocommerce button.button:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button:hover,
+.woocommerce input.button.alt:hover {
+  background-color: #e15c3c;
+  border-color: #e15c3c;
+  color: white;
+}
+
+.woocommerce #content table.cart td.actions .input-text, .woocommerce table.cart td.actions .input-text, .woocommerce-page #content table.cart td.actions .input-text, .woocommerce-page table.cart td.actions .input-text {
+  padding: 15px 30px;
+  width: 170px;
+}
+
+.woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] {
+  background: #ebe9eb;
+  border-color: #ebe9eb;
+  color: #515151;
+  padding: 15px 30px;
+}
+
+/*--------------------------------------------------------------
+9.7 WP Instagram Widget
 --------------------------------------------------------------*/
 .null-instagram-feed ul {
   display: flex;

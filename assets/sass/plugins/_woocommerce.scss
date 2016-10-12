@@ -1,0 +1,48 @@
+.woocommerce {
+    .quantity {
+        .qty {
+            width: 100px;
+        }
+    }
+
+    a.button,
+    button.button,
+    input.button {
+
+        &, &.alt {
+            background: $color-primary;
+            border: 1px solid $color-primary;
+            border-bottom: 3px solid $color-primary-dark;
+            border-radius: 3px;
+            color: white;
+            display: inline-block;
+            font: {
+                weight: bold;
+            }
+            letter-spacing: .05em;
+            line-height: inherit;
+            padding: 15px 30px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: $color-primary-dark;
+                border-color: $color-primary-dark;
+                color: white;
+            }
+        }
+    }
+}
+
+.woocommerce #content table.cart td.actions .input-text, .woocommerce table.cart td.actions .input-text, .woocommerce-page #content table.cart td.actions .input-text, .woocommerce-page table.cart td.actions .input-text {
+    padding: 15px 30px;
+    width: 170px;
+}
+
+.woocommerce #respond input#submit.disabled, .woocommerce #respond input#submit:disabled, .woocommerce #respond input#submit:disabled[disabled], .woocommerce a.button.disabled, .woocommerce a.button:disabled, .woocommerce a.button:disabled[disabled], .woocommerce button.button.disabled, .woocommerce button.button:disabled, .woocommerce button.button:disabled[disabled], .woocommerce input.button.disabled, .woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] {
+    background: #ebe9eb;
+    border-color: #ebe9eb;
+    color: #515151;
+    padding: 15px 30px;
+}
