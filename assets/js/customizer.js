@@ -279,6 +279,13 @@
         });
     });
 
+    // Footer text colour
+    wp.customize('footer_color', function (value) {
+        value.bind(function (to) {
+            $('#colophon, #colophon a').color(to);
+        });
+    });
+
     // Copyright
     wp.customize('copyright_message', function (value) {
         value.bind(function (to) {
