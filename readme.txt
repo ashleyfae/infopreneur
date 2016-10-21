@@ -20,6 +20,9 @@ A business theme for infopreneurs.
 
 == Changelog ==
 
+= 1.0.1 =
+* Added two new Customizer settings: footer text colour, and footer link hover colour.
+
 = 1.0.0 =
 * Added option to hide search icon.
 * Updated theme URI.
