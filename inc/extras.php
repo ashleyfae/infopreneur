@@ -170,6 +170,12 @@ function infopreneur_get_custom_css() {
 	// Top Bar Link Colour - Hover
 	$css .= sprintf( '#top-bar .navigation a:hover, #header-social a:hover { color: %1$s; }', esc_html( get_theme_mod( 'top_bar_hover_color', Infopreneur_Customizer::defaults( 'top_bar_hover_color' ) ) ) );
 
+	// Footer Text Colour
+	$css .= sprintf( '#colophon, #colophon a { color: %1$s; }', esc_html( get_theme_mod( 'footer_color', Infopreneur_Customizer::defaults( 'footer_color' ) ) ) );
+
+	// Footer Text Colour - Hover
+	$css .= sprintf( '#colophon a:hover { color: %1$s; }', esc_html( get_theme_mod( 'footer_hover_color', Infopreneur_Customizer::defaults( 'footer_hover_color' ) ) ) );
+
 	// Lead box BG colour
 	$css .= sprintf(
 		'.page-template-lead-box { background-color: %1$s; }',
