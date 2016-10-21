@@ -93,6 +93,8 @@ class Infopreneur_Customizer {
 			'top_bar_bg'                              => '#ffffff',
 			'top_bar_color'                           => '#333333',
 			'top_bar_hover_color'                     => '#ff7a5a',
+			'footer_color'                            => '#96dad6',
+			'footer_hover_color'                      => '#ffffff',
 			'lead_box_bg'                             => '#00aaa0',
 			'sticky_menu'                             => false,
 			'layout_style'                            => 'full',
@@ -522,6 +524,30 @@ class Infopreneur_Customizer {
 			'description' => __( 'Top navigation color when hovering over a link.', 'infopreneur' ),
 			'section'     => 'colors',
 			'settings'    => 'top_bar_hover_color',
+		) ) );
+
+		/* Footer Text Colour */
+		$wp_customize->add_setting( 'footer_color', array(
+			'default'           => self::defaults( 'footer_color' ),
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'postMessage'
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
+			'label'       => esc_html__( 'Footer Text Color', 'infopreneur' ),
+			'section'     => 'colors',
+			'settings'    => 'footer_color',
+		) ) );
+
+		/* Footer Text Colour - Hover */
+		$wp_customize->add_setting( 'footer_hover_color', array(
+			'default'           => self::defaults( 'footer_hover_color' ),
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'refresh'
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_hover_color', array(
+			'label'       => esc_html__( 'Footer Link Color (Hover)', 'infopreneur' ),
+			'section'     => 'colors',
+			'settings'    => 'footer_hover_color',
 		) ) );
 
 		/* Lead Box BG */
