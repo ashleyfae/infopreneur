@@ -146,7 +146,7 @@ function infopreneur_get_custom_css() {
 	// Primary Color
 	$primary_dark = infopreneur_adjust_brightness( get_theme_mod( 'primary_color', Infopreneur_Customizer::defaults( 'primary_color' ) ), - 30 );
 	$css .= sprintf(
-		'a, .navigation a:hover, #header-social a:hover, .page-title span, .comment-form. required { color: %1$s; }
+		'a, .navigation a:hover, #header-social a:hover, .page-title span, .comment-form .required { color: %1$s; }
 		.button, button, .more-link, input[type="submit"], .pagination .current, .edd-submit.button, .edd-submit.button.gray, .edd-submit.button:visited, #edd-purchase-button, .expanding-archives-title a, .widget_categories ul a, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt { background-color: %1$s; border-color: %1$s; border-bottom-color: %2$s; }
 		.button:hover, button:hover, .more-link:hover, input[type="submit"]:hover, .edd-submit.button:hover, #edd-purchase-button:hover, .expanding-archives-title a:hover, .widget_categories ul a:hover, .woocommerce a.button:hover, .woocommerce a.button.alt:hover, .woocommerce button.button:hover, .woocommerce button.button.alt:hover, .woocommerce input.button:hover, .woocommerce input.button.alt:hover { background-color: %2$s; border-color: %2$s; }
 		',

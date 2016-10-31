@@ -20,6 +20,9 @@ A business theme for infopreneurs.
 
 == Changelog ==
 
+= 1.0.2 =
+* Fixed issue with primary colour not being applied to some elements (like links) due to some invalid CSS.
+
 = 1.0.1 =
 * Added two new Customizer settings: footer text colour, and footer link hover colour.
 
