@@ -312,7 +312,9 @@ class Infopreneur_Customizer {
 		/*
 		 * Change existing settings.
 		 */
-		$wp_customize->get_section( 'static_front_page' )->description = __( 'Infopreneur supports a static front page. To use the custom homepage template, select "a static page" below, then edit that page and change the template to "Homepage".', 'infopreneur' );
+		if ( $wp_customize->get_section( 'static_front_page' ) ) {
+			$wp_customize->get_section( 'static_front_page' )->description = __( 'Infopreneur supports a static front page. To use the custom homepage template, select "a static page" below, then edit that page and change the template to "Homepage".', 'infopreneur' );
+		}
 
 		$wp_customize->get_setting( 'blogname' )->transport          = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport   = 'postMessage';
@@ -533,9 +535,9 @@ class Infopreneur_Customizer {
 			'transport'         => 'postMessage'
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
-			'label'       => esc_html__( 'Footer Text Color', 'infopreneur' ),
-			'section'     => 'colors',
-			'settings'    => 'footer_color',
+			'label'    => esc_html__( 'Footer Text Color', 'infopreneur' ),
+			'section'  => 'colors',
+			'settings' => 'footer_color',
 		) ) );
 
 		/* Footer Text Colour - Hover */
@@ -545,9 +547,9 @@ class Infopreneur_Customizer {
 			'transport'         => 'refresh'
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_hover_color', array(
-			'label'       => esc_html__( 'Footer Link Color (Hover)', 'infopreneur' ),
-			'section'     => 'colors',
-			'settings'    => 'footer_hover_color',
+			'label'    => esc_html__( 'Footer Link Color (Hover)', 'infopreneur' ),
+			'section'  => 'colors',
+			'settings' => 'footer_hover_color',
 		) ) );
 
 		/* Lead Box BG */
