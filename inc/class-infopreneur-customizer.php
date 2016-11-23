@@ -164,7 +164,7 @@ class Infopreneur_Customizer {
 			'home_widget_2_cols'                      => 3,
 			'home_widget_3_cols'                      => 1,
 			'search_icon'                             => true,
-			'footer_text'                             => sprintf( __( 'Copyright &copy; %s.', 'infopreneur' ), date( 'Y' ) . ' ' . '<a href="' . home_url( '/' ) . '">' . get_bloginfo( 'name' ) . '</a>' )
+			'copyright_message'                       => sprintf( __( 'Copyright &copy; %s.', 'infopreneur' ), date( 'Y' ) . ' ' . '<a href="' . home_url( '/' ) . '">' . get_bloginfo( 'name' ) . '</a>' )
 		);
 
 		$defaults = apply_filters( 'infopreneur/settings/defaults', $defaults );
@@ -1735,7 +1735,7 @@ class Infopreneur_Customizer {
 		 * Copyright Text
 		 */
 		$wp_customize->add_setting( 'copyright_message', array(
-			'default'           => self::defaults( 'footer_text' ),
+			'default'           => self::defaults( 'copyright_message' ),
 			'sanitize_callback' => 'wp_kses_post',
 			'transport'         => 'postMessage',
 		) );

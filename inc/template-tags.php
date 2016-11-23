@@ -289,7 +289,7 @@ function infopreneur_get_copyright_message() {
 		date( 'Y' ),
 	);
 
-	return str_replace( $find, $replace, get_theme_mod( 'footer_text', sprintf( __( '&copy; %s %s. All Rights Reserved.', 'gwen' ), '[current-year]', '[site-title]' ) ) );
+	return str_replace( $find, $replace, get_theme_mod( 'copyright_message', Infopreneur_Customizer::defaults( 'copyright_message' ) ) );
 }
 
 /**
