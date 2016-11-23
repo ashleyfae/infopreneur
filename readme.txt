@@ -20,6 +20,9 @@ A business theme for infopreneurs.
 
 == Changelog ==
 
+= 1.0.3 =
+* Fixed issue with customized copyright text not being reflected on the front-end.
+
 = 1.0.2 =
 * Fixed issue with primary colour not being applied to some elements (like links) due to some invalid CSS.
 
